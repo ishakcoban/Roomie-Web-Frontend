@@ -1,15 +1,16 @@
 import { Component, HostListener, Input } from '@angular/core';
 //import { AuthService } from '../../services/auth.service';
 import * as $ from "jquery";
+import { PopupService } from 'src/app/services/popup.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  /*constructor(private authService: AuthService) {
+  constructor(private popupService: PopupService) {
 
-  }*/
+  }
 
   onLogout() {
     //this.authService.logout();
@@ -53,7 +54,7 @@ export class NavbarComponent {
 
   }
 
-  ngAfterViewInit() {
-
+  openPopup(){
+this.popupService.changePopupStatus(true,'create','advert')
   }
 }

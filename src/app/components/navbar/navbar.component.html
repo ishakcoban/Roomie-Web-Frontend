@@ -20,7 +20,7 @@
       class="d-none d-sm-flex col-7 m-0 p-0 col-sm-5 col-md-4 col-xl-3 d-flex justify-content-sm-evenly justify-content-md-center justify-content-sm-start justify-content-evenly justify-content-xl-center align-items-center"
     >
       <div class="mx-0 mx-sm-3">
-        <button class="btn navbar-button px-3 py-2">Create an advert</button>
+        <button class="btn navbar-button px-3 py-2" (click)="openPopup()">Create an advert</button>
       </div>
       <div
         class="p-1 d-flex justify-content-center align-items-center dropdown-wrapper "
@@ -72,7 +72,7 @@
   >
     <div class="w-100 d-flex flex-column align-items-center">
       <div class="mx-0 mx-sm-3 w-100">
-        <button class="btn navbar-small-size-button px-3 w-100">
+        <button class="btn navbar-small-size-button px-3 w-100" (click)="openPopup()">
           Create an advert
         </button>
       </div>

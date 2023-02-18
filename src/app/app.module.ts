@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.component';
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PopupService } from './services/popup.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     FontAwesomeModule
   ],
-  providers: [/*AuthService,AuthGuard,HttpService*/],
+  providers: [/*AuthService,AuthGuard,HttpService*/PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
