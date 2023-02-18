@@ -1,0 +1,144 @@
+@import '../../../styles.scss';
+
+  .card {
+    width: 300px;
+    height: 100%;
+    position: relative;
+    display: block;
+    border-radius: 40px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 10px, rgba(0, 0, 0, 0.12) 0px 3px 3px;
+    
+  }
+
+  .card:hover{
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 14px 28px, rgba(0, 0, 0, 0.20) 0px 7px 7px;
+  }
+  
+  .card__image {
+    aspect-ratio: 1/1.2;    
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .card__overlay {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;      
+    border-radius: 40px;    
+    background-color: $grey;      
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card:hover .card__overlay {
+    transform: translateY(0);
+    
+  }
+  
+  .card__header {
+    
+    position: relative;
+    border-radius: 40px 0 0 0;    
+    background-color: $grey;
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card-money-content{
+    background-color: $pink;
+    color: $white;
+    border-radius: 0px 0px 0px 20px;
+  }
+   
+  
+  .card:hover .card__header {
+    transform: translateY(0);
+    
+  }
+  
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;      
+    border-radius: 100%;
+    /*border-width: 3px;
+    border-style: solid;      
+    border-color: $pink;*/
+  }
+  
+  .card__title {
+    font-size: 1em;
+    margin: 0 0 .3em;
+    color: $black;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";  
+    font-size: .8em; 
+    color: #D7BDCA;  
+  }
+  
+  .card__status {
+    font-size: .8em;
+    color: $orange;
+  }
+  
+  .card__description {
+    color: $black;
+    opacity: .7;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: .8rem;
+  }    
+
+ .card-description-line{
+    width: 5px;
+    height: 65px;
+    background-color: $pink;
+ }
+
+ .city-district-content-1{
+    color: $pink;
+    font-size: .7rem;
+    font-weight: bold;
+ }
+
+ .city-district-content-2{
+    font-size: .7rem;
+    border-radius: 20px 0px 0px 20px;
+    background-color: $pink;
+    color: $white;
+    
+ }
+
+ .line{
+    width: 100%;
+    height: .8px;
+    background-color: $pink;
+    opacity: .6;
+ }
+
+ .dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: $grey;
+    border-color: $pink;
+    border-width: 1px;
+    border-style: solid;
+ }
+
+ #elementID {
+    color: $pink;
+    font-size: 1.5em;
+}
