@@ -1,1 +1,106 @@
-<p>navbar works!</p>
+<div class="user-select-none">
+  <div class="row p-0 m-0 navbar-wrapper">
+    <div
+      class="col-6 col-sm-3 col-md-3 col-xl-2 d-flex align-items-center justify-content-start justify-content-sm-center justify-content-md-start"
+    >
+      <img
+        role="button"
+        class="logo ms-3 ms-sm-0 ms-md-5"
+        src="assets/images/roomieLogo.png"
+        routerLink="/login"
+      />
+    </div>
+    <div
+      class="col-sm-4 col-md-5 col-xl-7 d-none d-sm-flex d-flex align-items-center justify-content-center justify-content-md-end"
+    >
+      <div role="button" class="each-link me-5 mx-md-5">HOME</div>
+      <div role="button" class="each-link">ADVERTS</div>
+    </div>
+    <div
+      class="d-none d-sm-flex col-7 m-0 p-0 col-sm-5 col-md-4 col-xl-3 d-flex justify-content-sm-evenly justify-content-md-center justify-content-sm-start justify-content-evenly justify-content-xl-center align-items-center"
+    >
+      <div class="mx-0 mx-sm-3">
+        <button class="btn navbar-button px-3 py-2">Create an advert</button>
+      </div>
+      <div
+        class="p-1 d-flex justify-content-center align-items-center dropdown-wrapper "
+      >
+        <div
+          class="d-flex flex-column align-items-lg-end align-items-end position-relative"
+        >
+          <img
+            role="button"
+            class="navbar-link position-relative ddown"
+            src="assets/images/navbarUser.png"
+          />
+          <div class="navbar-dropdown position-absolute top-0 mt-5">
+            
+                <div class="px-3 py-1 mt-2 navbar-dropdown-link">
+                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/myAds.png"/></span>
+                    <span class="ms-3 p-0 m-0 ">My Ads</span>
+                </div>
+                <div class="px-3 py-1 navbar-dropdown-link">
+                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/savedAds.png"/></span>
+                    <span class="ms-3 p-0 m-0 ">Saved Ads</span>
+                </div>
+                <div class="px-3 py-1 navbar-dropdown-link">
+                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/navbarDropdownUser.png"/></span>
+                    <span class="ms-3 p-0 m-0 ">Profile</span>
+                </div>
+                <div class="px-3 py-1 mb-2 navbar-dropdown-link">
+                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/log-out.png"/></span>
+                    <span class="ms-3 p-0 m-0 ">Log Out</span>
+                </div>
+       
+ 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-6 d-sm-none d-flex justify-content-end align-items-center"
+    >
+      <div class="d-flex justify-content-center me-3" style="width: 35px">
+        <div role="button" class="fa-solid fa-bars fa-2x"></div>
+        <div role="button" class="fa-solid fa-xmark fa-2x d-none"></div>
+      </div>
+    </div>
+  </div>
+  <div
+    role="button"
+    class="d-flex d-sm-none position-absolute w-100 navbar-small-size-dropdown"
+  >
+    <div class="w-100 d-flex flex-column align-items-center">
+      <div class="mx-0 mx-sm-3 w-100">
+        <button class="btn navbar-small-size-button px-3 w-100">
+          Create an advert
+        </button>
+      </div>
+      <div
+        class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+      >
+        HOME
+      </div>
+      <div
+        class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+      >
+        ADVERTS
+      </div>
+      <div
+        class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+      >
+        PROFILE
+      </div>
+      <div
+        class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+      >
+        SAVED ADVERTS
+      </div>
+      <div
+        class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+      >
+        LOG OUT
+      </div>
+    </div>
+  </div>
+</div>

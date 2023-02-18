@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar-wrapper {
+  height: 65px;
+  background-color: #E0E0E0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px, rgba(0, 0, 0, 0.15) 0px 10px 10px;
+}
+
+.logo {
+  width: 75px;
+}
+
+.navbar-button {
+  background-color: #FD7B5A;
+  color: #FFFFFF;
+  border-radius: 18px;
+  font-size: .8rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 11px, rgba(0, 0, 0, 0.15) 0px 4px 4px;
+  font-weight: bold;
+}
+
+.navbar-link {
+  width: 35px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 11px, rgba(0, 0, 0, 0.15) 0px 4px 4px;
+  border-radius: 100%;
+  color: #0C0C0F;
+}
+
+.each-link:hover {
+  color: #FF294F;
+}
+
+.navbar-dropdown {
+  display: none;
+  white-space: nowrap;
+  border-radius: 15px;
+  background-color: #E0E0E0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  z-index: 3;
+  color: #0C0C0F;
+}
+
+.navbar-dropdown-link {
+  border-radius: 15px;
+}
+
+.navbar-search-input-small-screen {
+  background-color: #E0E0E0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.show {
+  display: block;
+}
+
+.show-hover {
+  background-color: #A3A3A3;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.navbar-small-size-dropdown {
+  visibility: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.navbar-small-size-link:hover {
+  color: #FF294F;
+  background-color: #E0E0E0;
+}
+
+.navbar-small-size-button {
+  background-color: #FD7B5A;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+
+.show {
+  visibility: visible;
+}
+
+.navbar-dropdown-icon {
+  width: 20px;
+}
+
+.navbar-dropdown-link:hover {
+  color: #FF294F;
+}

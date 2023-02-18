@@ -16,7 +16,7 @@ import { SortComponent } from './components/sort/sort.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.component';
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import { LoadingIndicatorComponent } from './components/loading-indicator/loadin
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [/*AuthService,AuthGuard,HttpService*/],
   bootstrap: [AppComponent]

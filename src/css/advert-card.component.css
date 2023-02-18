@@ -94,7 +94,7 @@ body {
 
 .card__status {
   font-size: .8em;
-  color: #FD7B5A;
+  color: #FF294F;
 }
 
 .card__description {
@@ -113,7 +113,7 @@ body {
 }
 
 .city-district-content-1 {
-  color: #FF294F;
+  color: #FD7B5A;
   font-size: .7rem;
   font-weight: bold;
 }
@@ -121,7 +121,7 @@ body {
 .city-district-content-2 {
   font-size: .7rem;
   border-radius: 20px 0px 0px 20px;
-  background-color: #FF294F;
+  background-color: #FD7B5A;
   color: #FFFFFF;
 }
 
