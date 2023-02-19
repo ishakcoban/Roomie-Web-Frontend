@@ -16,6 +16,8 @@ body {
   height: 65px;
   background-color: #E0E0E0;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px, rgba(0, 0, 0, 0.15) 0px 10px 10px;
+  position: relative;
+  z-index: 4;
 }
 
 .logo {
@@ -39,7 +41,7 @@ body {
 }
 
 .each-link:hover {
-  color: #FF294F;
+  color: #f14d6b;
 }
 
 .navbar-dropdown {
@@ -73,11 +75,12 @@ body {
 
 .navbar-small-size-dropdown {
   visibility: hidden;
+  background-color: #E0E0E0;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .navbar-small-size-link:hover {
-  color: #FF294F;
+  color: #f14d6b;
   background-color: #E0E0E0;
 }
 
@@ -96,5 +99,5 @@ body {
 }
 
 .navbar-dropdown-link:hover {
-  color: #FF294F;
+  color: #f14d6b;
 }

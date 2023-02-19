@@ -1,0 +1,145 @@
+@import "../../../styles.scss";
+
+.home-top-img {
+  width: 60vw;
+}
+
+@media screen and (max-width: 500px) {
+  .home-top-img {
+    width: 100vw;
+  }
+  .home-top-header {
+    font-size: 1.6rem;
+    width: 350px;
+  }
+
+  .home-top-descp-font{
+    font-size: 1rem;
+  }
+
+  .home-content-font{
+    font-size: .9rem;
+  }
+
+  .home-link-font{
+    font-size: .9rem;
+  }
+
+}
+
+.home-top-header {
+  background-color: $orange;
+  font-weight: bold;
+  font-size: 1.6rem;
+  width: 220px;
+  color: $orange;
+  opacity: 0.5;
+}
+
+.home-top-header-non {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.home-top-header-2 {
+  color: $pink;
+  font-weight: 500;
+  font-size: 1.9rem;
+}
+
+.home-top-descp {
+  color: $black;
+  opacity: .5;
+  font-size: 1.2rem;
+}
+
+.home-button {
+  background-color: $pink;
+  border-radius: 0px;
+  color: $white;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 6px 6px 0px;
+}
+
+.left-header-shape {
+  color: $white;
+  font-weight: bold;
+}
+
+.left-header-name {
+  background-color: $pink;
+  border-radius: 0px 25px 25px 0px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 6px 6px 0px;
+}
+
+.right-header-shape {
+  color: $white;
+  font-weight: bold;
+}
+
+.right-header-name {
+  background-color: $pink;
+  border-radius: 25px 0px 0px 25px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 6px 6px 0px;
+}
+
+.home-link-img {
+  width: 45px;
+}
+
+.home-img {
+  width: 40%;
+}
+
+.home-content-wrapper{
+  color: $black;
+  opacity: .5;
+  font-size: 1rem;
+}
+
+.bottom-side{
+  opacity: 1;
+}
+
+.home-each-link-wrapper{
+  background-color: rgba(13, 18, 27, 0.12);
+  border-radius: 11px;
+  border-color: $black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.home-link-font{
+  color: $black;
+}
+
+.dev-image{
+  width: 90px;
+}
+
+.dev-dot{
+  background-color: $orange;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+.dev-role{
+  color: $orange;
+}
+.dev-line{
+  width: 1px;
+  height: 5px;
+  color: $pink;
+}
+
+.dev-language-image{
+  width: 90px;
+}
+
+.img-flutter-angular{
+  width: 55px;
+}
+
+.dev-name{
+color: $black;
+}
