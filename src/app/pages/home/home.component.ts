@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  isLoading:boolean = true
+
+  ngAfterViewInit(){
+
+    setTimeout(()=>{
+      this.isLoading= false;
+    },2000)
+  }
 
 }

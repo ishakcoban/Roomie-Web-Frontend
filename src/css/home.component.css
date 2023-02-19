@@ -152,3 +152,21 @@ body {
 .dev-name {
   color: #0C0C0F;
 }
+
+.home-page-wrapper {
+  animation-duration: .8s;
+  animation-name: home-page-animation;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes home-page-animation {
+  0% {
+    opacity: 0;
+    margin-top: -45px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}

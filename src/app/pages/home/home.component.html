@@ -1,8 +1,7 @@
-<div style="z-index: 0;" class="position-relative">
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center"><app-loading-indicator></app-loading-indicator></div>
 
 
-
-<div class="position-relative">
+<div *ngIf="!isLoading" class="position-relative home-page-wrapper">
   <div class="d-flex justify-content-end">
     <img class="home-top-img wv-50" src="assets/images/home-bg-ORIG.png" />
   </div>
@@ -227,5 +226,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
