@@ -18,6 +18,8 @@ import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.compo
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopupService } from './services/popup.service';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +36,16 @@ import { PopupService } from './services/popup.service';
     SortComponent,
     NavbarComponent,
     SavedAdvertsComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    CustomInputComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    
   ],
   providers: [/*AuthService,AuthGuard,HttpService*/PopupService],
   bootstrap: [AppComponent]

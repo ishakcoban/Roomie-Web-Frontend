@@ -1,0 +1,40 @@
+<div class="input-wrapper position-relative mt-5">
+  <div class="input-border py-1 ps-3 pe-3 m d-flex align-items-center justify-content-end">
+    <input
+    *ngIf="input_style.name != 'gender'"
+      type="input_style.type"
+      class="input-style"
+      name="input_style.name"
+      ngModel
+      (change)="sss($event)"
+      [disabled]="input_style.name == 'gender'"
+    />
+
+    <i
+      *ngIf="input_style.name == 'password'"
+      role="button"
+      style="font-size: 1.4rem"
+      [ngClass]="
+        isVisible
+          ? 'fa-regular fa-eye px-2 bg-danger'
+          : 'fa-sharp fa-solid fa-eye px-2'
+      "
+      (click)="switchPassword()"
+    ></i>
+    <i
+      *ngIf="input_style.name == 'gender'"
+      role="button"
+      style="font-size: 1.4rem"
+      class="fa-solid fa-chevron-down px-2"
+      (click)="switchPassword()"
+    ></i>
+  </div>
+  <div class="input-header position-absolute top-0 ms-3 px-2">
+    {{ input_style.header }}
+  </div>
+  <select role="button"  *ngIf="input_style.name == 'gender'" class="w-100 position-absolute top-0 px-3" name="genders" id="genders">
+    <option class="option" value="">Select your gender</option>
+    <option class="option fw-bold" value="male">Male</option>
+    <option class="option fw-bold" value="female">Female</option>
+  </select>
+</div>
