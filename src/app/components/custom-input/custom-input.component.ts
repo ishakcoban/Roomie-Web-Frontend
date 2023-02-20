@@ -16,7 +16,7 @@ export class CustomInputComponent {
     header: ''
   };
   inputOptions!: [];
-  isVisible: boolean = true;
+  isVisible: boolean = false;
   isPasswordType:boolean= false;
 
   ngOnInit(){

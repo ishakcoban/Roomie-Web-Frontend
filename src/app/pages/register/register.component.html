@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="register-wrapper position-relative">
+  <div class="position-absolute top-0 d-flex justify-content-end w-100">
+    <div class="right-big-circle"></div>
+  </div>
+  <div
+    class="position-absolute top-0 d-flex justify-content-center align-items-end w-100 vh-100"
+  >
+    <div class="circle-1"></div>
+  </div>
+  <div
+    class="position-absolute top-0 d-flex justify-content-center align-items-start w-100 vh-100"
+  >
+    <div class="circle-2"></div>
+  </div>
+  <div
+    class="position-absolute top-0 d-flex justify-content-center align-items-start w-100 vh-100"
+  >
+    <div class="circle-3"></div>
+  </div>
+  <div class="register-content-wrapper position-absolute top-0 w-100 vh-100">
+    <div class="project-logo-wrapper">
+      <img class="project-logo" src="assets/images/roomieLogo2.png" />
+    </div>
+    <div class="row m-0 p-0 d-flex flex-column-reverse flex-lg-row">
+      <div class="col-12 col-lg-5">
+        <div class="register-left-section pb-5 mt-4 mt-lg-0">
+          <div class="mx-4 mx-sm-5 ">
+            <app-custom-input [input_style]="inputInfo1"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo2"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo3"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo4"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo5"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo6"></app-custom-input>
+          </div>
+          <div class="mx-4 mx-sm-5">
+            <app-custom-input [input_style]="inputInfo7"></app-custom-input>
+          </div>
+        </div>
+
+        <div
+          class="mx-4 mx-sm-5 mt-5 d-flex justify-content-center justify-content-md-start"
+        >
+          <button class="btn register-button fw-bold px-5 py-1">
+            REGISTER
+          </button>
+        </div>
+      </div>
+      <div
+        class="col-12 col-lg-7 m-0 p-0 mt-3 mt-md-0 d-flex align-items-xl-start justify-content-center justify-content-xl-start align-items-center"
+      >
+        <img
+          class="login-register-flat-design ms-0 ms-lg-5"
+          src="assets/images/login-register-flat-design.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,7 @@ body {
 
 .input-border {
   border-radius: 14px;
-  border-color: #0C0C0F;
+  border-color: #FFFFFF;
   border-style: solid;
   border-width: 2px;
   height: 45px;
@@ -29,7 +29,8 @@ body {
 
 .input-header {
   margin-top: -14px;
-  background-color: #E0E0E0;
+  background-color: #f14d6b;
+  color: #FFFFFF;
   font-size: .8rem;
   font-weight: 500;
 }

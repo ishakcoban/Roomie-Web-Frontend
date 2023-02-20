@@ -2,7 +2,7 @@
 
 .input-border{
     border-radius: 14px;
-    border-color: $black;
+    border-color: $white;
     border-style: solid;
     border-width: 2px;
     height: 45px;
@@ -18,9 +18,11 @@
 
 .input-header{
     margin-top: -14px;
-    background-color: $grey;
+    background-color:$pink;
+    color: $white;
     font-size: .8rem;
     font-weight: 500;
+
 }
 
 select {

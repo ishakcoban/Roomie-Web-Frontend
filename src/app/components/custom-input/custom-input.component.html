@@ -2,7 +2,7 @@
   <div class="input-border py-1 ps-3 pe-3 m d-flex align-items-center justify-content-end">
     <input
     *ngIf="input_style.name != 'gender'"
-      type="input_style.type"
+      [type]="isVisible ? 'text' : input_style.type"
       class="input-style"
       name="input_style.name"
       ngModel
@@ -11,12 +11,12 @@
     />
 
     <i
-      *ngIf="input_style.name == 'password'"
+      *ngIf="input_style.name == 'password' || input_style.name == 'passwordAgain'"
       role="button"
       style="font-size: 1.4rem"
       [ngClass]="
-        isVisible
-          ? 'fa-regular fa-eye px-2 bg-danger'
+        !isVisible
+          ? 'fa-regular fa-eye px-2'
           : 'fa-sharp fa-solid fa-eye px-2'
       "
       (click)="switchPassword()"
