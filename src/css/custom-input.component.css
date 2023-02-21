@@ -14,7 +14,7 @@ body {
 
 .input-border {
   border-radius: 14px;
-  border-color: #FFFFFF;
+  border-color: #0C0C0F;
   border-style: solid;
   border-width: 2px;
   height: 45px;
@@ -29,10 +29,11 @@ body {
 
 .input-header {
   margin-top: -14px;
-  background-color: #f14d6b;
+  background-color: #FD7B5A;
   color: #FFFFFF;
   font-size: .8rem;
   font-weight: 500;
+  border-radius: 18px;
 }
 
 select {

@@ -12,7 +12,11 @@ import { PopupService } from '../../services/popup.service';
 })
 export class PopupComponent implements OnInit {
   popupStatus: boolean = false;
-  popupData: {}= {};
+  popupData: {status: boolean,type:string,target:string}= {
+    status: false,
+    type: '',
+    target: ''
+  };
 
   constructor(
     private popupService: PopupService,

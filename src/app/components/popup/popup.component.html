@@ -1,9 +1,13 @@
 <div
   *ngIf="popupStatus"
-  class="popup-wrapper d-flex justify-content-center align-items-center p-0 m-0"
+  class="popup-wrapper d-flex justify-content-center align-items-start align-items-sm-center p-0 m-0"
   (click)="changePopupStatus()"
 >
-<div class="popup-content-wrapper d-flex flex-column col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4"  (click)="avoidClosing($event)">
+<!-- default popup-wrapper d-flex justify-content-center align-items-center -->
+<!-- default popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
+<div 
+class="popup-content-wrapper d-flex flex-column col-10 col-sm-11 col-lg-9 col-xl-7 my-5 my-sm-0" 
+(click)="avoidClosing($event)">
   <div class="align-self-end me-3 mt-3 mb-3">
     <img
       role="button"
@@ -13,10 +17,10 @@
     />
   </div>
 
-  <!--<div class="popup-content mx-5 mb-3" [ngSwitch]="popupData.type">
-    <app-popup-remove-content [popup]="popupData" *ngSwitchCase="'remove'"></app-popup-remove-content>
-    <app-popup-create-content [popup]="popupData" *ngSwitchCase="'create'"></app-popup-create-content>
+  <div class="popup-content mx-5 mb-3" [ngSwitch]="popupData.type">
+    <!--<app-popup-remove-content [popup]="popupData" *ngSwitchCase="'remove'"></app-popup-remove-content>
+    <app-popup-create-content [popup]="popupData" *ngSwitchCase="'create'"></app-popup-create-content>-->
     <app-popup-update-content [popup]="popupData" *ngSwitchCase="'update'"></app-popup-update-content>
-  </div>-->
+  </div>
 </div>
 </div>

@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.profile-edit-img {
+  width: 150px;
+}
+
+.profile-edit-right-section {
+  height: 60vh;
+  overflow-y: auto;
+  background-color: #e81d420c;
+  border-radius: 15px 0px 0px 15px;
+  border-width: 1px;
+  border-color: #00000047;
+  border-style: solid;
+}
+
+.profile-edit-right-section::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+  background-color: #8f898979;
+}
+
+/* Handle */
+.profile-edit-right-section::-webkit-scrollbar-thumb {
+  background: #f14d6b;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.profile-edit-right-section::-webkit-scrollbar-thumb:hover {
+  background: #0C0C0F;
+}
+
+.profile-edit-button {
+  background-color: #f14d6b;
+  color: #FFFFFF;
+  border-radius: 18px;
+}
+
+@media screen and (max-width: 576px) {
+  .profile-edit-img {
+    width: 100px;
+  }
+  .profile-edit-right-section {
+    height: auto;
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 15px 0px 0px 15px;
+    border-width: 0px;
+    border-color: #00000047;
+    border-style: solid;
+  }
+}

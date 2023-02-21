@@ -20,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopupService } from './services/popup.service';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
+import { PopupUpdateContentComponent } from './components/popup/popup-update-content/popup-update-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     SavedAdvertsComponent,
     LoadingIndicatorComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    PopupUpdateContentComponent
 
   ],
   imports: [
