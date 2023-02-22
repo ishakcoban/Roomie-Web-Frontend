@@ -31,3 +31,16 @@ body {
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 10px 0px;
 }
+
+.popup-content-wrapper-show {
+  height: 90vh;
+  background-color: #E0E0E0;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 10px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-content-wrapper-show {
+    height: auto;
+  }
+}

@@ -3,26 +3,46 @@
   class="popup-wrapper d-flex justify-content-center align-items-start align-items-md-center p-0 m-0"
   (click)="changePopupStatus()"
 >
-<!-- default popup-wrapper d-flex justify-content-center align-items-center -->
-<!-- default popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
-<!-- create popup-wrapper d-flex justify-content-center align-items-start align-items-sm-center p-0 m-0-->
-<!-- create advert popup size popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
-<div 
-class="popup-content-wrapper d-flex flex-column col-10 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0" 
-(click)="avoidClosing($event)">
-  <div class="align-self-end me-3 mt-3 mb-3">
-    <img
-      role="button"
-      (click)="changePopupStatus()"
-      class="popup-close-btn"
-      src="assets/images/close.png"
-    />
-  </div>
+  <!-- default popup-wrapper d-flex justify-content-center align-items-center -->
+  <!-- default popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
+  <!-- create popup-wrapper d-flex justify-content-center align-items-start align-items-sm-center p-0 m-0-->
+  <!-- create advert popup size popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
+  <div
+    [ngClass]="popupData.type != 'show' ? 
+    'popup-content-wrapper d-flex flex-column col-10 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0'
+     : 
+     'popup-content-wrapper-show d-flex flex-column col-12 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0'
+     "
+    (click)="avoidClosing($event)"
+  >
+    <div *ngIf="popupData.type != 'show'" class="align-self-end me-3 mt-3 mb-3">
+      <img
+        role="button"
+        (click)="changePopupStatus()"
+        class="popup-close-btn"
+        src="assets/images/close.png"
+      />
+    </div>
 
-  <div class="popup-content mx-5 mb-3" [ngSwitch]="popupData.type">
-    <!--<app-popup-remove-content [popup]="popupData" *ngSwitchCase="'remove'"></app-popup-remove-content>-->
-    <app-popup-create-content [popup]="popupData" *ngSwitchCase="'create'"></app-popup-create-content>
-    <app-popup-update-content [popup]="popupData" *ngSwitchCase="'update'"></app-popup-update-content>
+    <div
+      [ngClass]="
+        popupData.type != 'show' ? 'popup-content mx-5 mb-3' : 'popup-content'
+      "
+      [ngSwitch]="popupData.type"
+    >
+      <!--<app-popup-remove-content [popup]="popupData" *ngSwitchCase="'remove'"></app-popup-remove-content>-->
+      <app-popup-show-content
+        [popup]="popupData"
+        *ngSwitchCase="'show'"
+      ></app-popup-show-content>
+      <app-popup-create-content
+        [popup]="popupData"
+        *ngSwitchCase="'create'"
+      ></app-popup-create-content>
+      <app-popup-update-content
+        [popup]="popupData"
+        *ngSwitchCase="'update'"
+      ></app-popup-update-content>
+    </div>
   </div>
-</div>
 </div>

@@ -1,0 +1,85 @@
+@import "../../../../styles.scss";
+
+.show-content {
+  height: 90vh;
+  overflow: hidden;
+  overflow-y: auto;
+
+}
+.show-content-bg {
+  background-color: rgb(235, 192, 155);
+}
+
+.show-content-bg-2 {
+  background-color: $grey;
+  border-radius: 0px 12px 12px 0px;
+}
+
+.advert-photo {
+  width: 100%;
+}
+
+.show-content-user-img {
+  width: 45px;
+}
+
+.show-content-description {
+  font-size: 0.8rem;
+  color: $black;
+  opacity: 0.5;
+}
+
+.line {
+  width: 35px;
+  height: 0.8px;
+  background-color: $pink;
+  opacity: 0.6;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: $grey;
+  border-color: $pink;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.show-content-attribute-1 {
+  color: $orange;
+}
+
+.show-content-attribute-2 {
+  background-color: $orange;
+  color: $white;
+  border-radius: 18px;
+}
+
+.show-content-attribute-1-price {
+  color: $pink;
+}
+
+.show-content-attribute-2-price {
+  background-color: $pink;
+  color: $white;
+  border-radius: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .show-content {
+    height: auto;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .show-content-bg-2 {
+    border-radius: 0px 0px 12px 12px;
+  }
+}
+
+
+.popup-close-btn {
+    width: 25px;
+  }

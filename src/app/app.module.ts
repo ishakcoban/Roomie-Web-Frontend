@@ -22,6 +22,7 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { FormsModule } from '@angular/forms';
 import { PopupUpdateContentComponent } from './components/popup/popup-update-content/popup-update-content.component';
 import { PopupCreateContentComponent } from './components/popup/popup-create-content/popup-create-content.component';
+import { PopupShowContentComponent } from './components/popup/popup-show-content/popup-show-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { PopupCreateContentComponent } from './components/popup/popup-create-con
     LoadingIndicatorComponent,
     CustomInputComponent,
     PopupUpdateContentComponent,
-    PopupCreateContentComponent
+    PopupCreateContentComponent,
+    PopupShowContentComponent
 
   ],
   imports: [

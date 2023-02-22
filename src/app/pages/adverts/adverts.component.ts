@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
   selector: 'app-adverts',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AdvertsComponent {
 
+  constructor(private popupService: PopupService) {}
+
+  openPopup() {
+    this.popupService.changePopupStatus(true, 'show', 'advert');
+  }
 }

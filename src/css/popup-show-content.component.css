@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.show-content {
+  height: 90vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.show-content-bg {
+  background-color: #ebc09b;
+}
+
+.show-content-bg-2 {
+  background-color: #E0E0E0;
+  border-radius: 0px 12px 12px 0px;
+}
+
+.advert-photo {
+  width: 100%;
+}
+
+.show-content-user-img {
+  width: 45px;
+}
+
+.show-content-description {
+  font-size: 0.8rem;
+  color: #0C0C0F;
+  opacity: 0.5;
+}
+
+.line {
+  width: 35px;
+  height: 0.8px;
+  background-color: #f14d6b;
+  opacity: 0.6;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #E0E0E0;
+  border-color: #f14d6b;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.show-content-attribute-1 {
+  color: #FD7B5A;
+}
+
+.show-content-attribute-2 {
+  background-color: #FD7B5A;
+  color: #FFFFFF;
+  border-radius: 18px;
+}
+
+.show-content-attribute-1-price {
+  color: #f14d6b;
+}
+
+.show-content-attribute-2-price {
+  background-color: #f14d6b;
+  color: #FFFFFF;
+  border-radius: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .show-content {
+    height: auto;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .show-content-bg-2 {
+    border-radius: 0px 0px 12px 12px;
+  }
+}
+
+.popup-close-btn {
+  width: 25px;
+}

@@ -1,1 +1,12 @@
-<app-advert-card></app-advert-card>
+<div class="row m-0 p-0 d-md-none">
+    <div class="col-4 bg-warning pt-4"><i class="fa-solid fa-filter"></i>Sort</div>
+    <div class="col-4 bg-info pt-4">filter</div>
+    <div class="col-4 bg-danger pt-4">last viewed</div>
+    <div class="col-12 col-lg-8 bg-success" (click)="openPopup()"><app-advert-card></app-advert-card> middle</div>
+    
+</div>
+<div class="row m-0 p-0 d-none d-md-flex">
+    <div class="col-2 col-md-3 col-lg-2 bg-warning">left</div>
+    <div class="col-8 col-md-6 col-lg-8 bg-success" (click)="openPopup()"><!--<app-advert-card></app-advert-card>--> middle</div>
+    <div class="col-2 col-md-3 col-lg-2 bg-info">right</div>
+</div>
