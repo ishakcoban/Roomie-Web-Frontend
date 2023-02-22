@@ -22,7 +22,7 @@
       (click)="switchPassword()"
     ></i>
     <i
-      *ngIf="input_style.name == 'gender'"
+      *ngIf="input_style.name == 'gender' || input_style.name == 'city'"
       role="button"
       style="font-size: 1.4rem"
       class="fa-solid fa-chevron-down px-2"
@@ -32,7 +32,7 @@
   <div class="input-header position-absolute top-0 ms-3 px-2">
     {{ input_style.header }}
   </div>
-  <select role="button"  *ngIf="input_style.name == 'gender'" class="w-100 position-absolute top-0 px-3" name="genders" id="genders">
+  <select role="button"  *ngIf="input_style.name == 'gender' || input_style.name == 'city'" class="w-100 position-absolute top-0 px-3" name="genders" id="genders">
     <option class="option" value="">Select your gender</option>
     <option class="option fw-bold" value="male">Male</option>
     <option class="option fw-bold" value="female">Female</option>

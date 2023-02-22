@@ -15,7 +15,6 @@ export class PopupUpdateContentComponent {
   inputInfo4:{type:string,name:string,header:string} = {type:'text',name:'gender',header:'Gender'}
   inputInfo5:{type:string,name:string,header:string} = {type:'text',name:'email',header:'Email'}
   inputInfo6:{type:string,name:string,header:string} = {type:'password',name:'password',header:'Password'}
-  inputInfo7:{type:string,name:string,header:string} = {type:'password',name:'passwordAgain',header:'Password(Again)'}
 
   ngOnInit() {
     /*switch (this.popup.target) {

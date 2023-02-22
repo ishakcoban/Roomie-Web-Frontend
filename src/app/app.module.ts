@@ -21,6 +21,7 @@ import { PopupService } from './services/popup.service';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
 import { PopupUpdateContentComponent } from './components/popup/popup-update-content/popup-update-content.component';
+import { PopupCreateContentComponent } from './components/popup/popup-create-content/popup-create-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { PopupUpdateContentComponent } from './components/popup/popup-update-con
     SavedAdvertsComponent,
     LoadingIndicatorComponent,
     CustomInputComponent,
-    PopupUpdateContentComponent
+    PopupUpdateContentComponent,
+    PopupCreateContentComponent
 
   ],
   imports: [

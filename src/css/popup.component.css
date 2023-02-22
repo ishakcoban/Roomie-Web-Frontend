@@ -17,7 +17,7 @@ body {
   width: 100vw;
   height: 100vh;
   max-height: max-content;
-  background-color: rgba(217, 217, 217, 0.42);
+  background-color: rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   backdrop-filter: blur(3px);
 }
