@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./advert-card.component.scss']
 })
 export class AdvertCardComponent {
+  showInfoStatus:boolean= false;
+  showInfo(){
+    this.showInfoStatus = !this.showInfoStatus;
 
+  }
 }

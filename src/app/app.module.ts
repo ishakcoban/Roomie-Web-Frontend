@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { PopupUpdateContentComponent } from './components/popup/popup-update-content/popup-update-content.component';
 import { PopupCreateContentComponent } from './components/popup/popup-create-content/popup-create-content.component';
 import { PopupShowContentComponent } from './components/popup/popup-show-content/popup-show-content.component';
+import { SortingSectionComponent } from './components/sorting-section/sorting-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { PopupShowContentComponent } from './components/popup/popup-show-content
     CustomInputComponent,
     PopupUpdateContentComponent,
     PopupCreateContentComponent,
-    PopupShowContentComponent
+    PopupShowContentComponent,
+    SortingSectionComponent
 
   ],
   imports: [

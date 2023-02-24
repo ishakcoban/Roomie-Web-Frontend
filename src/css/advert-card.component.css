@@ -13,7 +13,6 @@ body {
 }
 
 .card {
-  width: 300px;
   height: 100%;
   position: relative;
   display: block;
@@ -28,7 +27,7 @@ body {
 }
 
 .card__image {
-  aspect-ratio: 1/1.2;
+  aspect-ratio: 1/1.4;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -62,6 +61,7 @@ body {
   background-color: #f14d6b;
   color: #FFFFFF;
   border-radius: 0px 0px 0px 20px;
+  font-size: .8rem;
 }
 
 .card:hover .card__header {
@@ -70,8 +70,8 @@ body {
 
 .card__thumb {
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
   /*border-width: 3px;
     border-style: solid;      
@@ -79,7 +79,7 @@ body {
 }
 
 .card__title {
-  font-size: 1em;
+  font-size: .8rem;
   margin: 0 0 .3em;
   color: #0C0C0F;
 }
@@ -93,7 +93,7 @@ body {
 }
 
 .card__status {
-  font-size: .8em;
+  font-size: .7rem;
   color: #f14d6b;
 }
 
@@ -116,6 +116,7 @@ body {
   color: #FD7B5A;
   font-size: .7rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .city-district-content-2 {
@@ -145,4 +146,21 @@ body {
 #elementID {
   color: #f14d6b;
   font-size: 1.5em;
+}
+
+.show-content-user-img {
+  width: 45px;
+}
+
+.card-bottom-line {
+  background-color: #0C0C0F;
+  width: 100%;
+  height: 1px;
+  opacity: .5;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1224px) {
+  .card__image {
+    aspect-ratio: 1/1.6;
+  }
 }

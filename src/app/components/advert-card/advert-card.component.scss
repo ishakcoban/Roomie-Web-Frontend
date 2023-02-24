@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
   .card {
-    width: 300px;
+ 
     height: 100%;
     position: relative;
     display: block;
@@ -17,7 +17,7 @@
   }
   
   .card__image {
-    aspect-ratio: 1/1.2;    
+    aspect-ratio: 1/1.4;    
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -51,9 +51,11 @@
   }
   
   .card-money-content{
+  
     background-color: $pink;
     color: $white;
     border-radius: 0px 0px 0px 20px;
+    font-size: .8rem;
   }
    
   
@@ -64,8 +66,8 @@
   
   .card__thumb {
     flex-shrink: 0;
-    width: 50px;
-    height: 50px;      
+    width: 35px;
+    height: 35px;      
     border-radius: 100%;
     /*border-width: 3px;
     border-style: solid;      
@@ -73,7 +75,7 @@
   }
   
   .card__title {
-    font-size: 1em;
+    font-size: .8rem;
     margin: 0 0 .3em;
     color: $black;
   }
@@ -87,7 +89,7 @@
   }
   
   .card__status {
-    font-size: .8em;
+    font-size: .7rem;
     color: $pink;
   }
   
@@ -111,6 +113,7 @@
     color: $orange;
     font-size: .7rem;
     font-weight: bold;
+    white-space: nowrap;
  }
 
  .city-district-content-2{
@@ -141,4 +144,22 @@
  #elementID {
     color: $pink;
     font-size: 1.5em;
+}
+
+.show-content-user-img {
+  width: 45px;
+}
+
+.card-bottom-line{
+  background-color: $black;
+  width: 100%;
+  height: 1px;
+  opacity: .5;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1224px){
+  .card__image {
+    aspect-ratio: 1/1.6;    
+
+  }
 }

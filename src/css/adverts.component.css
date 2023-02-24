@@ -1,1 +1,157 @@
-/* No CSS */
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.adverts-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 45px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.adverts-help-center {
+  font-weight: bold;
+  color: #FFFFFF;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #FD7B5A;
+  border-style: solid;
+  border-color: #FD7B5A;
+  border-width: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px, rgba(0, 0, 0, 0.15) 0px 10px 10px;
+}
+
+.adverts-help-center-question {
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  background-color: #FD7B5A;
+}
+
+.adverts-help-center-question-bg {
+  background-color: #FFFFFF;
+  color: #FD7B5A;
+  font-size: 1.6rem;
+  font-weight: bolder;
+  border-radius: 0px 18px 18px 0px;
+}
+
+.adverts-help-center-header {
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.adverts-help-center-description {
+  color: #FFFFFF;
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1211px) {
+  .adverts-help-center-header {
+    font-size: 0.7rem;
+  }
+  .adverts-help-center-description {
+    font-size: 0.6rem;
+  }
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+
+/* button */
+.dropbtn {
+  width: 45px;
+  height: 45px;
+  padding: 12px 16px;
+  border-radius: 100%;
+  color: #0C0C0F;
+  background-color: #E0E0E0;
+  cursor: pointer;
+  border-width: 1px;
+  border-color: #0C0C0F;
+  border-style: solid;
+}
+
+/* dd content */
+.dropdown .dropdown-content {
+  position: absolute;
+  top: 50%;
+  background-color: #E0E0E0;
+  min-width: 120%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100000;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 18px;
+}
+
+/* show dd content */
+.dropdown:focus .dropdown-content {
+  outline: none;
+  transform: translateY(20px);
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdown:focus .dropbtn {
+  background-color: #a1a1a1;
+}
+
+/* mask to close menu by clicking on the button */
+.dropdown .db2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+}
+
+.dropdown:focus .db2 {
+  display: inline-block;
+}
+
+.dropdown .db2:focus .dropdown-content {
+  outline: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.each-card {
+  width: 85%;
+}
+
+@media screen and (max-width: 890px) {
+  .each-card {
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1224px) {
+  .each-card {
+    width: 95%;
+  }
+}
+
+.sort-small-size {
+  background-color: red;
+}
