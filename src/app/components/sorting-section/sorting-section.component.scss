@@ -1,8 +1,8 @@
   @import '../../../styles.scss';
   .switch {
     --line: #E8EBFB;
-    --dot: #275EFE;
-    --circle: #D3D4EC;
+    --dot: $pink;
+    --circle: #ecd8d3;
     --background: #fff;
     --duration: .3s;
     --text: #9EA0BE;
@@ -15,6 +15,7 @@
         height: 32px;
         border-radius: 16px;
         background: var(--background);
+
         position: absolute;
         left: 0;
         top: 0;
@@ -33,6 +34,7 @@
                 top: 14px;
                 width: 24px;
                 background: var(--line);
+                background-color: $pink;
                 transform: scaleX(var(--s));
                 transition: transform var(--duration) ease;
             }
@@ -41,6 +43,7 @@
                 left: 4px;
                 transform-origin: 0 50%;
                 border-radius: 2px 0 0 2px;
+                
             }
             &:after {
                 left: 32px;
@@ -51,9 +54,10 @@
                 padding-left: 60px;
                 line-height: 28px;
                 color: var(--text);
+                
                 &:before {
                     --x: 0;
-                    --b: var(--circle);
+                    background-color: $pink;
                     --s: 4px;
                     content: '';
                     position: absolute;
@@ -72,8 +76,10 @@
             }
         }
         &:checked {
+           
             & + div {
                 &:before {
+                    
                     --s: 1;
                 }
                 &:after {
@@ -81,38 +87,14 @@
                 }
                 span {
                     &:before {
+                        
                         --x: 28px;
                         --s: 12px;
                         --b: var(--dot);
+                      
                     }
                 }
             }
-        }
-    }
-}
-
-// Center & dribbble
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    background: #E8EBFB;
-    .switch {
-        & + .switch {
-            margin-top: 32px;
-        }
-    }
-    .dribbble {
-        position: fixed;
-        display: block;
-        right: 20px;
-        bottom: 20px;
-        img {
-            display: block;
-            height: 28px;
         }
     }
 }

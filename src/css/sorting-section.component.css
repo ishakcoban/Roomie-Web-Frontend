@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #E0E0E0;
+  user-select: none;
 }
 
 :root {
@@ -14,8 +15,8 @@ body {
 
 .switch {
   --line: #E8EBFB;
-  --dot: #275EFE;
-  --circle: #D3D4EC;
+  --dot: $pink;
+  --circle: #ecd8d3;
   --background: #fff;
   --duration: .3s;
   --text: #9EA0BE;
@@ -52,6 +53,7 @@ body {
   top: 14px;
   width: 24px;
   background: var(--line);
+  background-color: #f14d6b;
   transform: scaleX(var(--s));
   transition: transform var(--duration) ease;
 }
@@ -77,7 +79,7 @@ body {
 
 .switch input + div span:before {
   --x: 0;
-  --b: var(--circle);
+  background-color: #f14d6b;
   --s: 4px;
   content: '';
   position: absolute;
@@ -107,32 +109,6 @@ body {
   --x: 28px;
   --s: 12px;
   --b: var(--dot);
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  background: #E8EBFB;
-}
-
-body .switch + .switch {
-  margin-top: 32px;
-}
-
-body .dribbble {
-  position: fixed;
-  display: block;
-  right: 20px;
-  bottom: 20px;
-}
-
-body .dribbble img {
-  display: block;
-  height: 28px;
 }
 
 .sorting-type {
