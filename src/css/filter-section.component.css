@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.filter-types-header {
+  color: #FD7B5A;
+  font-size: .7rem;
+  font-weight: bold;
+}
+
+.filter-section-wrapper {
+  height: 35vh;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #e81d420c;
+  border-radius: 15px 0px 0px 15px;
+  border-width: 1px;
+  border-color: #00000047;
+  border-style: solid;
+}
+
+.filter-section-wrapper::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+  background-color: #8f898979;
+}
+
+/* Handle */
+.filter-section-wrapper::-webkit-scrollbar-thumb {
+  background: #f14d6b;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.filter-section-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #0C0C0F;
+}
+
+.filter-button {
+  border-radius: 18px;
+  width: 100%;
+  background-color: #f14d6b;
+  color: #FFFFFF;
+}

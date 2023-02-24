@@ -1,21 +1,50 @@
 <div class="row m-0 p-0 d-md-none user-select-none">
-  <div (click)="switchSort()" style="
-  background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;font-size: .8rem;
-" role="button" class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75">
+  <div
+    (click)="switchSort()"
+    style="
+      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
+      font-size: 0.8rem;
+    "
+    role="button"
+    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+  >
     <i class="fa-solid fa-arrow-down-short-wide me-2"></i>SORT
   </div>
-  <div style="
-  background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;font-size: .8rem;
-" role="button" class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75">
+  <div
+    (click)="switchFilter()"
+    style="
+      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
+      font-size: 0.8rem;
+    "
+    role="button"
+    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+  >
     <i class="fa-solid fa-filter me-2"></i>FILTER
   </div>
-  <div style="
-  background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;font-size: .8rem;
-" role="button" class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75">
-    LAST VIEWED
+  <div
+    (click)="switchLastViewed()"
+    style="
+      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
+      font-size: 0.8rem;
+    "
+    role="button"
+    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+  >
+    <i class="fa-solid fa-binoculars me-2"></i>LAST VIEWED
   </div>
-  <div *ngIf="sortStatus" class="mb-4 px-4 mt-3 user-select-none"><app-sorting-section></app-sorting-section></div>
-  <div *ngIf="sortStatus" class="p-0 m-0"><hr></div>
+  <div *ngIf="sortStatus" class="mb-4 px-4 mt-3 user-select-none">
+    <app-sorting-section></app-sorting-section>
+  </div>
+  <div *ngIf="sortStatus" class="p-0 m-0"><hr /></div>
+
+  <div *ngIf="filterStatus" class="mb-4 px-4 mt-3 user-select-none">
+    <app-filter-section></app-filter-section>
+  </div>
+
+  <div *ngIf="lastViewedStatus" class="mb-4 px-4 mt-3 user-select-none">
+    <app-last-viewed-section></app-last-viewed-section>
+  </div>
+  <div *ngIf="lastViewedStatus" class="p-0 m-0"><hr /></div>
   <div class="col-12 col-lg-8 m-0 p-0">
     <div><app-advert-card></app-advert-card></div>
     <div><app-advert-card></app-advert-card></div>
@@ -30,158 +59,73 @@
       background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
     "
   >
-  <div class="bg-danger d-flex flex-column align-items-center">
-    <div class="mt-5 d-flex justify-content-center align-items-center">
-      SORT
-    </div>
-    <div class="dropdown" tabindex="1">
-      <i class="db2 bg-danger" tabindex="1"></i>
-      <div class="dropbtn d-flex justify-content-center align-items-center">
-        <i class="fa-solid fa-arrow-down-short-wide"></i>
+    <div class="bg-danger d-flex flex-column align-items-center">
+      <div class="mt-5 d-flex justify-content-center align-items-center">
+        SORT
       </div>
-      <div class="dropdown-content px-4 pt-1 pb-5 top-0 ms-5 ">
-        <div style="width:200px" class="my-3"><app-sorting-section></app-sorting-section></div>
+      <div class="dropdown" tabindex="1">
+        <i class="db2 bg-danger" tabindex="1"></i>
+        <div class="dropbtn d-flex justify-content-center align-items-center">
+          <i class="fa-solid fa-arrow-down-short-wide"></i>
+        </div>
+        <div class="dropdown-content px-4 pt-1 pb-5 top-0 ms-5">
+          <div style="width: 200px" class="my-3">
+            <app-sorting-section></app-sorting-section>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
     <div class="bg-danger d-flex flex-column align-items-center">
       <div class="mt-2 d-flex justify-content-center align-items-center">
         FILTER
       </div>
-        
-    <div class="dropdown" tabindex="1">
-      <i class="db2 bg-danger" tabindex="1"></i>
-      <div class="dropbtn d-flex justify-content-center align-items-center">
-        <i class="fa-solid fa-filter"></i>
-      </div>
-      <div class="dropdown-content px-4 py-3 top-0 ms-5">
-        <div>asdsaasdsad</div>
+
+      <div class="dropdown" tabindex="1">
+        <i class="db2 bg-danger" tabindex="1"></i>
+        <div class="dropbtn d-flex justify-content-center align-items-center">
+          <i class="fa-solid fa-filter"></i>
+        </div>
+        <div class="dropdown-content px-4 py-3 top-0 ms-5">
+          <div>asdsaasdsad</div>
+        </div>
       </div>
     </div>
-    </div>
-  
+
     <div class="bg-danger d-flex flex-column align-items-center">
       <div class="mt-2 d-flex justify-content-center align-items-center">
         HELP
       </div>
       <div class="dropdown" tabindex="1">
         <i class="db2" tabindex="1"></i>
-  
+
         <div class="dropbtn d-flex justify-content-center align-items-center">
           <i class="fa-solid fa-info"></i>
         </div>
-  
+
         <div class="dropdown-content px-4 py-3 top-0 ms-5">
-          <div>
-            <div class="mx-1 fw-bold">Last viewed</div>
-            <div class="mx-1"><hr /></div>
-            <div class="last-viewed-photos">
-              <div class="d-flex justify-content-between mx-3">
-                <div class="">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-                <div class="ms-3">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-              </div>
-              <div class="d-flex justify-content-between mx-3 my-3">
-                <div class="">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-                <div class="ms-3">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-              </div>
-              <div class="d-flex justify-content-between mx-3">
-                <div class="">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-                <div class="ms-3">
-                  <img
-                    src="assets/images/hemo32.jpg"
-                    style="
-                      border-radius: 10px;
-                      box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                        rgba(0, 0, 0, 0.2) 0px 6px 6px;
-                      width: 125px;
-                    "
-                    role="button"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="mx-3"><hr /></div>
-            <div class="adverts-help-center mx-3 my-4" role="button">
-              <div class="adverts-help-center-question">
-                <span class="adverts-help-center-question-bg px-5 py-1">?</span>
-              </div>
-              <div
-                class="adverts-help-center-header d-flex justify-content-center align-items-center mx-2 mx-xl-3 my-3"
-              >
-                Help Center
-              </div>
-              <div
-                class="adverts-help-center-description fw-light text-center mx-2 mx-xl-3 mb-4"
-              >
-                lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy
-              </div>
-            </div>
+          <div style="width: 300px">
+            <app-last-viewed-section></app-last-viewed-section>
           </div>
         </div>
       </div>
     </div>
-
-
   </div>
 
   <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block">
-    <app-sorting-section></app-sorting-section>
+    <div
+      class="position-sticky top-0 mt-4 pt-2"
+      style="
+        background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
+          no-repeat;
+      "
+    >
+      <div class="me-3">
+        <app-sorting-section></app-sorting-section>
+        <div class="mt-5">
+          <app-filter-section></app-filter-section>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="col-md-11 col-lg-8">
     <div class="adverts-wrapper my-5 pb-5">
@@ -203,105 +147,7 @@
           no-repeat;
       "
     >
-      <div class="mx-3 fw-bold">Last viewed</div>
-      <div class="mx-3"><hr /></div>
-      <div class="last-viewed-photos">
-        <div class="d-flex justify-content-between mx-3">
-          <div class="">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-          <div class="ms-3">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mx-3 my-3">
-          <div class="">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-          <div class="ms-3">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-        </div>
-        <div class="d-flex justify-content-between mx-3">
-          <div class="">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-          <div class="ms-3">
-            <img
-              class="w-100"
-              src="assets/images/hemo32.jpg"
-              style="
-                border-radius: 10px;
-                box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px,
-                  rgba(0, 0, 0, 0.2) 0px 6px 6px;
-              "
-              role="button"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="mx-3"><hr /></div>
-      <div class="adverts-help-center mx-3 my-4" role="button">
-        <div class="adverts-help-center-question">
-          <span class="adverts-help-center-question-bg px-5 py-1">?</span>
-        </div>
-        <div
-          class="adverts-help-center-header d-flex justify-content-center align-items-center mx-2 mx-xl-3 my-3"
-        >
-          Help Center
-        </div>
-        <div
-          class="adverts-help-center-description fw-light text-center mx-2 mx-xl-3 mb-4"
-        >
-          lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy
-        </div>
-      </div>
+      <app-last-viewed-section></app-last-viewed-section>
     </div>
   </div>
 </div>

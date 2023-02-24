@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #E0E0E0;
+  user-select: none;
 }
 
 :root {

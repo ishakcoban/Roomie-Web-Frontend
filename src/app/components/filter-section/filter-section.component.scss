@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+.filter-types-header{
+    color: $orange;
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.filter-section-wrapper{
+    height: 35vh;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #e81d420c;
+    border-radius: 15px 0px 0px 15px;
+    border-width: 1px;
+    border-color: #00000047;
+    border-style: solid;
+
+}
+
+.filter-section-wrapper::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 20px;
+    background-color: #8f898979;
+  }
+  
+  /* Handle */
+  .filter-section-wrapper::-webkit-scrollbar-thumb {
+    background: $pink;
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  .filter-section-wrapper::-webkit-scrollbar-thumb:hover {
+    background: $black;
+  }
+
+.filter-button{
+    border-radius: 18px;
+    width: 100%;
+    background-color: $pink;
+    color: $white;
+}
+

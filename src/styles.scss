@@ -10,6 +10,7 @@ $black: #0C0C0F;
   body {
 
     background-color: $grey;
+    user-select: none;
   }
 
   :root {

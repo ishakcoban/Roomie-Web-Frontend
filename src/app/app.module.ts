@@ -11,8 +11,6 @@ import { AdvertCardComponent } from './components/advert-card/advert-card.compon
 import { PopupComponent } from './components/popup/popup.component';
 import { SuccessMessageComponent } from './components/success-message/success-message.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { SortComponent } from './components/sort/sort.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.component';
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
@@ -24,6 +22,8 @@ import { PopupUpdateContentComponent } from './components/popup/popup-update-con
 import { PopupCreateContentComponent } from './components/popup/popup-create-content/popup-create-content.component';
 import { PopupShowContentComponent } from './components/popup/popup-show-content/popup-show-content.component';
 import { SortingSectionComponent } from './components/sorting-section/sorting-section.component';
+import { FilterSectionComponent } from './components/filter-section/filter-section.component';
+import { LastViewedSectionComponent } from './components/last-viewed-section/last-viewed-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +36,6 @@ import { SortingSectionComponent } from './components/sorting-section/sorting-se
     PopupComponent,
     SuccessMessageComponent,
     NotFoundComponent,
-    FilterComponent,
-    SortComponent,
     NavbarComponent,
     SavedAdvertsComponent,
     LoadingIndicatorComponent,
@@ -45,7 +43,9 @@ import { SortingSectionComponent } from './components/sorting-section/sorting-se
     PopupUpdateContentComponent,
     PopupCreateContentComponent,
     PopupShowContentComponent,
-    SortingSectionComponent
+    SortingSectionComponent,
+    FilterSectionComponent,
+    LastViewedSectionComponent
 
   ],
   imports: [

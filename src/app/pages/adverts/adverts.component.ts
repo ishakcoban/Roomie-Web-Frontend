@@ -9,6 +9,8 @@ import { PopupService } from 'src/app/services/popup.service';
 export class AdvertsComponent {
   cards: [number] = [0];
   sortStatus: boolean = false;
+  filterStatus: boolean = false;
+  lastViewedStatus: boolean = false;
   constructor(private popupService: PopupService) {
     this.cards.push(1);
     this.cards.push(2);
@@ -21,7 +23,25 @@ export class AdvertsComponent {
   }
 
   switchSort() {
+    if (this.sortStatus == false) {
+      this.filterStatus = false;
+      this.lastViewedStatus = false;
+    }
     this.sortStatus = !this.sortStatus;
+  }
+  switchFilter() {
+    if (this.filterStatus == false) {
+      this.sortStatus = false;
+      this.lastViewedStatus = false;
+    }
+    this.filterStatus = !this.filterStatus;
+  }
+  switchLastViewed() {
+    if (this.lastViewedStatus == false) {
+      this.sortStatus = false;
+      this.filterStatus = false;
+    }
+    this.lastViewedStatus = !this.lastViewedStatus;
   }
 
   // Close the dropdown menu if the user clicks outside of it
