@@ -32,19 +32,23 @@
   >
     <i class="fa-solid fa-binoculars me-2"></i>LAST VIEWED
   </div>
-  <div *ngIf="sortStatus" class="mb-4 px-4 mt-3 user-select-none">
+  <div *ngIf="sortStatus" class="mb-4 px-4 mt-3">
     <app-sorting-section></app-sorting-section>
   </div>
   <div *ngIf="sortStatus" class="p-0 m-0"><hr /></div>
 
-  <div *ngIf="filterStatus" class="mb-4 px-4 mt-3 user-select-none">
+  <div *ngIf="filterStatus" class="mb-4 px-4 mt-3">
     <app-filter-section></app-filter-section>
   </div>
 
-  <div *ngIf="lastViewedStatus" class="mb-4 px-4 mt-3 user-select-none d-flex flex-column align-items-center">
+  <div
+    *ngIf="lastViewedStatus"
+    class="mb-4 px-4 mt-3 d-flex flex-column align-items-center"
+  >
     <app-last-viewed-section></app-last-viewed-section>
-    <div style="width: 250px;"><app-help-center-section></app-help-center-section></div>
-    
+    <div style="width: 250px">
+      <app-help-center-section></app-help-center-section>
+    </div>
   </div>
   <div *ngIf="lastViewedStatus" class="p-0 m-0"><hr /></div>
   <div class="col-12 col-lg-8 m-0 p-0">
@@ -61,12 +65,12 @@
       background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
     "
   >
-    <div class="bg-danger d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-center">
       <div class="mt-5 d-flex justify-content-center align-items-center">
         SORT
       </div>
       <div class="dropdown" tabindex="1">
-        <i class="db2 bg-danger" tabindex="1"></i>
+        <i class="db2" tabindex="1"></i>
         <div class="dropbtn d-flex justify-content-center align-items-center">
           <i class="fa-solid fa-arrow-down-short-wide"></i>
         </div>
@@ -77,23 +81,25 @@
         </div>
       </div>
     </div>
-    <div class="bg-danger d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-center">
       <div class="mt-2 d-flex justify-content-center align-items-center">
         FILTER
       </div>
 
       <div class="dropdown" tabindex="1">
-        <i class="db2 bg-danger" tabindex="1"></i>
+        <i class="db2" tabindex="1"></i>
         <div class="dropbtn d-flex justify-content-center align-items-center">
           <i class="fa-solid fa-filter"></i>
         </div>
         <div class="dropdown-content px-4 py-3 top-0 ms-5">
-          <div>asdsaasdsad</div>
+          <div style="width: 400px">
+            <app-filter-section></app-filter-section>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-danger d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-center">
       <div class="mt-2 d-flex justify-content-center align-items-center">
         HELP
       </div>
@@ -114,7 +120,7 @@
     </div>
   </div>
 
-  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block">
+  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block" style="z-index: 2;">
     <div
       class="position-sticky top-0 mt-4 pt-2"
       style="
@@ -124,9 +130,29 @@
     >
       <div class="me-3">
         <app-sorting-section></app-sorting-section>
-        <div class="mt-5">
+        <div class="mt-5 right-section">
           <app-filter-section></app-filter-section>
         </div>
+        <div class="left-section-filter">
+          <div class="d-flex flex-column align-items-end mt-5">
+            <div class="mt-2 d-flex justify-content-center align-items-center">
+              FILTER
+            </div>
+      
+            <div class="dropdown" tabindex="1"  >
+              <i class="db2" tabindex="1"></i>
+              <div class="dropbtn d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-filter"></i>
+              </div>
+              <div class="dropdown-content px-4 py-3 top-0 ms-5">
+                <div style="width: 400px">
+                  <app-filter-section></app-filter-section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -134,7 +160,7 @@
     <div class="adverts-wrapper my-5 pb-5">
       <div
         *ngFor="let item of cards"
-        class="d-flex justify-content-center align-items-start"
+        class="d-flex justify-content-center align-items-start" 
       >
         <div class="each-card" (click)="openPopup()">
           <app-advert-card></app-advert-card>
@@ -142,7 +168,7 @@
       </div>
     </div>
   </div>
-  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block">
+  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block right-section">
     <div
       class="position-sticky top-0 mt-4 pt-2"
       style="
@@ -150,8 +176,12 @@
           no-repeat;
       "
     >
-      <app-last-viewed-section></app-last-viewed-section>
-      <app-help-center-section></app-help-center-section>
+      <div class="mx-3">
+        <app-last-viewed-section></app-last-viewed-section>
+      </div>
+      <div class="mx-3">
+        <app-help-center-section></app-help-center-section>
+      </div>
     </div>
   </div>
 </div>

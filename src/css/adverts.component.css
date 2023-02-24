@@ -106,6 +106,20 @@ body {
   }
 }
 
-.sort-small-size {
-  background-color: red;
+@media screen and (max-width: 1216px) {
+  .right-section {
+    display: none;
+  }
+  .right-section-mid-size {
+    display: block;
+  }
+  .left-section-filter {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  .left-section-filter {
+    display: none;
+  }
 }
