@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+
+.adverts-help-center {
+    font-weight: bold;
+    color: $white;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: $orange;
+    border-style: solid;
+    border-color: $orange;
+    border-width: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px,
+      rgba(0, 0, 0, 0.15) 0px 10px 10px;
+  }
+  
+  .adverts-help-center-question {
+    font-weight: bold;
+    color: $white;
+    font-size: 1.4rem;
+    background-color: $orange;
+  }
+  
+  .adverts-help-center-question-bg {
+    background-color: $white;
+    color: $orange;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    border-radius: 0px 18px 18px 0px;
+  }
+  
+  .adverts-help-center-header {
+    font-weight: bold;
+    color: $white;
+  }
+  
+  .adverts-help-center-description {
+    color: $white;
+    opacity: 0.5;
+    font-size: 0.8rem;
+  }
+  
+  @media screen and (max-width: 1211px) {
+    .adverts-help-center-header {
+      font-size: 0.7rem;
+    }
+  
+    .adverts-help-center-description {
+      font-size: 0.6rem;
+    }
+  }

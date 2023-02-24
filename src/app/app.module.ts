@@ -24,6 +24,7 @@ import { PopupShowContentComponent } from './components/popup/popup-show-content
 import { SortingSectionComponent } from './components/sorting-section/sorting-section.component';
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
 import { LastViewedSectionComponent } from './components/last-viewed-section/last-viewed-section.component';
+import { HelpCenterSectionComponent } from './components/help-center-section/help-center-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { LastViewedSectionComponent } from './components/last-viewed-section/las
     PopupShowContentComponent,
     SortingSectionComponent,
     FilterSectionComponent,
-    LastViewedSectionComponent
+    LastViewedSectionComponent,
+    HelpCenterSectionComponent
 
   ],
   imports: [

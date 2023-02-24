@@ -41,8 +41,10 @@
     <app-filter-section></app-filter-section>
   </div>
 
-  <div *ngIf="lastViewedStatus" class="mb-4 px-4 mt-3 user-select-none">
+  <div *ngIf="lastViewedStatus" class="mb-4 px-4 mt-3 user-select-none d-flex flex-column align-items-center">
     <app-last-viewed-section></app-last-viewed-section>
+    <div style="width: 250px;"><app-help-center-section></app-help-center-section></div>
+    
   </div>
   <div *ngIf="lastViewedStatus" class="p-0 m-0"><hr /></div>
   <div class="col-12 col-lg-8 m-0 p-0">
@@ -105,6 +107,7 @@
         <div class="dropdown-content px-4 py-3 top-0 ms-5">
           <div style="width: 300px">
             <app-last-viewed-section></app-last-viewed-section>
+            <app-help-center-section></app-help-center-section>
           </div>
         </div>
       </div>
@@ -148,6 +151,7 @@
       "
     >
       <app-last-viewed-section></app-last-viewed-section>
+      <app-help-center-section></app-help-center-section>
     </div>
   </div>
 </div>
