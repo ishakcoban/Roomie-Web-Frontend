@@ -6,7 +6,7 @@
       font-size: 0.8rem;
     "
     role="button"
-    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
   >
     <i class="fa-solid fa-arrow-down-short-wide me-2"></i>SORT
   </div>
@@ -17,7 +17,7 @@
       font-size: 0.8rem;
     "
     role="button"
-    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
   >
     <i class="fa-solid fa-filter me-2"></i>FILTER
   </div>
@@ -28,18 +28,18 @@
       font-size: 0.8rem;
     "
     role="button"
-    class="sort-small-size col-4 pt-4 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
   >
     <i class="fa-solid fa-binoculars me-2"></i>LAST VIEWED
   </div>
   <div *ngIf="sortStatus" class="mb-4 px-4 mt-3">
     <app-sorting-section></app-sorting-section>
   </div>
-  <div *ngIf="sortStatus" class="p-0 m-0"><hr /></div>
 
   <div *ngIf="filterStatus" class="mb-4 px-4 mt-3">
     <app-filter-section></app-filter-section>
   </div>
+
 
   <div
     *ngIf="lastViewedStatus"
@@ -50,7 +50,8 @@
       <app-help-center-section></app-help-center-section>
     </div>
   </div>
-  <div *ngIf="lastViewedStatus" class="p-0 m-0"><hr /></div>
+
+  <div class="p-0 m-0"><hr class="p-0 m-0 "/></div>
   <div class="col-12 col-lg-8 m-0 p-0">
     <div><app-advert-card></app-advert-card></div>
     <div><app-advert-card></app-advert-card></div>

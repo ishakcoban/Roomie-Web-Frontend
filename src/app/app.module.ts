@@ -25,6 +25,7 @@ import { SortingSectionComponent } from './components/sorting-section/sorting-se
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
 import { LastViewedSectionComponent } from './components/last-viewed-section/last-viewed-section.component';
 import { HelpCenterSectionComponent } from './components/help-center-section/help-center-section.component';
+import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,14 +48,15 @@ import { HelpCenterSectionComponent } from './components/help-center-section/hel
     SortingSectionComponent,
     FilterSectionComponent,
     LastViewedSectionComponent,
-    HelpCenterSectionComponent
+    HelpCenterSectionComponent,
+    PhotoSliderComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule,
+    FormsModule
     
   ],
   providers: [/*AuthService,AuthGuard,HttpService*/PopupService],

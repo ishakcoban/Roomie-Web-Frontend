@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as $ from "jquery";
+import Swiper from 'swiper';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,6 +26,19 @@ export class AppComponent {
 
 
     //console.log($( 'select' ).attr('disabled'))
+    console.log('called')
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      effect: "fade",
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
   } 
   onSubmit(form: NgForm) {
     console.log(form.value)

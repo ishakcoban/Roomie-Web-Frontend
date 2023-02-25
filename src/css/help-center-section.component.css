@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';*/
 body {
   background-color: #E0E0E0;
   user-select: none;

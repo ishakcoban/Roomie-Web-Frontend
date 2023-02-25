@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';*/
 body {
   background-color: #E0E0E0;
+  user-select: none;
 }
 
 :root {
@@ -13,7 +16,7 @@ body {
 }
 
 .navbar-wrapper {
-  height: 65px;
+  height: 60px;
   background-color: #E0E0E0;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px, rgba(0, 0, 0, 0.15) 0px 10px 10px;
   position: relative;
@@ -21,7 +24,7 @@ body {
 }
 
 .logo {
-  width: 75px;
+  width: 65px;
 }
 
 .navbar-button {
@@ -38,6 +41,10 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 11px, rgba(0, 0, 0, 0.15) 0px 4px 4px;
   border-radius: 100%;
   color: #0C0C0F;
+}
+
+.each-link {
+  font-size: .9rem;
 }
 
 .each-link:hover {
