@@ -26,6 +26,7 @@ import { FilterSectionComponent } from './components/filter-section/filter-secti
 import { LastViewedSectionComponent } from './components/last-viewed-section/last-viewed-section.component';
 import { HelpCenterSectionComponent } from './components/help-center-section/help-center-section.component';
 import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
+import { MyAdvertsComponent } from './pages/my-adverts/my-adverts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { PhotoSliderComponent } from './components/photo-slider/photo-slider.com
     FilterSectionComponent,
     LastViewedSectionComponent,
     HelpCenterSectionComponent,
-    PhotoSliderComponent
+    PhotoSliderComponent,
+    MyAdvertsComponent
 
   ],
   imports: [
