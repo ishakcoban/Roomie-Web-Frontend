@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import '~swiper/scss';
-@import '~@ionic/angular/css/ionic-swiper';*/
 body {
   background-color: #E0E0E0;
   user-select: none;
@@ -123,5 +121,23 @@ body {
 @media screen and (min-width: 1216px) {
   .left-section-filter {
     display: none;
+  }
+}
+
+.adverts-animation {
+  opacity: 0;
+  margin-top: 45px;
+  animation-name: adverts-anim;
+  animation-duration: .7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes adverts-anim {
+  0% {
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
   }
 }

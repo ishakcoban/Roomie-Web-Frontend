@@ -7,23 +7,27 @@
         role="button"
         class="logo ms-3 ms-sm-0 ms-md-5"
         src="assets/images/roomieLogo.png"
-        routerLink="/login"
+        routerLink="/home"
       />
     </div>
     <div
       class="col-sm-4 col-md-5 col-xl-7 d-none d-sm-flex d-flex align-items-center justify-content-center justify-content-md-end"
     >
-      <div role="button" class="each-link me-5 mx-md-5">HOME</div>
-      <div role="button" class="each-link">ADVERTS</div>
+      <div role="button" class="each-link me-5 mx-md-5" routerLink="/home">
+        HOME
+      </div>
+      <div role="button" class="each-link" routerLink="/adverts">ADVERTS</div>
     </div>
     <div
       class="d-none d-sm-flex col-7 m-0 p-0 col-sm-5 col-md-4 col-xl-3 d-flex justify-content-sm-evenly justify-content-md-center justify-content-sm-start justify-content-evenly justify-content-xl-center align-items-center"
     >
       <div class="mx-0 mx-sm-3">
-        <button class="btn navbar-button px-3 py-2" (click)="openPopup()">Create an advert</button>
+        <button class="btn navbar-button px-3 py-2" (click)="openPopup()">
+          Create an advert
+        </button>
       </div>
       <div
-        class="p-1 d-flex justify-content-center align-items-center dropdown-wrapper "
+        class="p-1 d-flex justify-content-center align-items-center dropdown-wrapper"
       >
         <div
           class="d-flex flex-column align-items-lg-end align-items-end position-relative"
@@ -34,32 +38,52 @@
             src="assets/images/navbarUser.png"
           />
           <div class="navbar-dropdown position-absolute top-0 mt-5">
-            
-                <div class="px-3 py-1 mt-2 navbar-dropdown-link">
-                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/myAds.png"/></span>
-                    <span class="ms-3 p-0 m-0 ">My Ads</span>
-                </div>
-                <div class="px-3 py-1 navbar-dropdown-link">
-                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/savedAds.png"/></span>
-                    <span class="ms-3 p-0 m-0 ">Saved Ads</span>
-                </div>
-                <div class="px-3 py-1 navbar-dropdown-link">
-                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/navbarDropdownUser.png"/></span>
-                    <span class="ms-3 p-0 m-0 ">Profile</span>
-                </div>
-                <div class="px-3 py-1 mb-2 navbar-dropdown-link">
-                    <span class="col-3 p-0 m-0"><img class="navbar-dropdown-icon" src="assets/images/log-out.png"/></span>
-                    <span class="ms-3 p-0 m-0 ">Log Out</span>
-                </div>
-       
- 
+            <div
+              class="px-3 py-1 mt-2 navbar-dropdown-link"
+              routerLink="/my-adverts"
+            >
+              <span class="col-3 p-0 m-0"
+                ><img
+                  class="navbar-dropdown-icon"
+                  src="assets/images/myAds.png"
+              /></span>
+              <span class="ms-3 p-0 m-0">My Adverts</span>
+            </div>
+            <div
+              class="px-3 py-1 navbar-dropdown-link"
+              routerLink="/saved-adverts"
+            >
+              <span class="col-3 p-0 m-0"
+                ><img
+                  class="navbar-dropdown-icon"
+                  src="assets/images/savedAds.png"
+              /></span>
+              <span class="ms-3 p-0 m-0">Saved Adverts</span>
+            </div>
+            <div class="px-3 py-1 navbar-dropdown-link" routerLink="/profile">
+              <span class="col-3 p-0 m-0"
+                ><img
+                  class="navbar-dropdown-icon"
+                  src="assets/images/navbarDropdownUser.png"
+              /></span>
+              <span class="ms-3 p-0 m-0">Profile</span>
+            </div>
+            <div
+              class="px-3 py-1 mb-2 navbar-dropdown-link"
+              routerLink="/login"
+            >
+              <span class="col-3 p-0 m-0"
+                ><img
+                  class="navbar-dropdown-icon"
+                  src="assets/images/log-out.png"
+              /></span>
+              <span class="ms-3 p-0 m-0">Log Out</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="col-6 d-sm-none d-flex justify-content-end align-items-center"
-    >
+    <div class="col-6 d-sm-none d-flex justify-content-end align-items-center">
       <div class="d-flex justify-content-center me-3" style="width: 35px">
         <div role="button" class="fa-solid fa-bars fa-2x"></div>
         <div role="button" class="fa-solid fa-xmark fa-2x d-none"></div>
@@ -72,7 +96,10 @@
   >
     <div class="w-100 d-flex flex-column align-items-center">
       <div class="mx-0 mx-sm-3 w-100">
-        <button class="btn navbar-small-size-button px-3 w-100" (click)="openPopup()">
+        <button
+          class="btn navbar-small-size-button px-3 w-100"
+          (click)="openPopup()"
+        >
           Create an advert
         </button>
       </div>

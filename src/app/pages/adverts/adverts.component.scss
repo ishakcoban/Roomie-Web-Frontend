@@ -108,3 +108,21 @@
 
    }
  
+   .adverts-animation{
+    opacity: 0;
+    margin-top: 45px;
+    animation-name: adverts-anim;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+   }
+
+   @keyframes adverts-anim{
+    0%{
+
+    }
+    100%{
+      opacity: 1;
+      margin-top: 0px;
+    }
+   }

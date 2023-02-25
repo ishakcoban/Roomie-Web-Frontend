@@ -11,6 +11,7 @@ export class AdvertsComponent {
   sortStatus: boolean = false;
   filterStatus: boolean = false;
   lastViewedStatus: boolean = false;
+  isLoading: boolean = true;
   constructor(private popupService: PopupService) {
     this.cards.push(1);
     this.cards.push(2);
@@ -42,6 +43,12 @@ export class AdvertsComponent {
       this.filterStatus = false;
     }
     this.lastViewedStatus = !this.lastViewedStatus;
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   }
 
   // Close the dropdown menu if the user clicks outside of it

@@ -25,7 +25,6 @@ import { SortingSectionComponent } from './components/sorting-section/sorting-se
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
 import { LastViewedSectionComponent } from './components/last-viewed-section/last-viewed-section.component';
 import { HelpCenterSectionComponent } from './components/help-center-section/help-center-section.component';
-import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
 import { MyAdvertsComponent } from './pages/my-adverts/my-adverts.component';
 import { LoginRegisterBackgroundComponent } from './components/login-register-background/login-register-background.component';
 @NgModule({
@@ -51,7 +50,6 @@ import { LoginRegisterBackgroundComponent } from './components/login-register-ba
     FilterSectionComponent,
     LastViewedSectionComponent,
     HelpCenterSectionComponent,
-    PhotoSliderComponent,
     MyAdvertsComponent,
     LoginRegisterBackgroundComponent
 

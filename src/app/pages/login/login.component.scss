@@ -1,14 +1,14 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-.login-button{
-background-color: $white;
-color: $pink;
-border-radius: 18px;
-font-size: 1.2rem
+.login-button {
+  background-color: $white;
+  color: $pink;
+  border-radius: 18px;
+  font-size: 1.2rem;
 }
 
-.login-bottom-text{
-    color: $white;
-    text-decoration: underline;
-    font-weight: lighter;
+.login-bottom-text {
+  color: $white;
+  text-decoration: underline;
+  font-weight: lighter;
 }

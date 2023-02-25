@@ -1,187 +1,201 @@
-<div class="row m-0 p-0 d-md-none user-select-none">
-  <div
-    (click)="switchSort()"
-    style="
-      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
-      font-size: 0.8rem;
-    "
-    role="button"
-    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
-  >
-    <i class="fa-solid fa-arrow-down-short-wide me-2"></i>SORT
-  </div>
-  <div
-    (click)="switchFilter()"
-    style="
-      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
-      font-size: 0.8rem;
-    "
-    role="button"
-    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
-  >
-    <i class="fa-solid fa-filter me-2"></i>FILTER
-  </div>
-  <div
-    (click)="switchLastViewed()"
-    style="
-      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
-      font-size: 0.8rem;
-    "
-    role="button"
-    class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
-  >
-    <i class="fa-solid fa-binoculars me-2"></i>LAST VIEWED
-  </div>
-  <div *ngIf="sortStatus" class="mb-4 px-4 mt-3">
-    <app-sorting-section></app-sorting-section>
-  </div>
-
-  <div *ngIf="filterStatus" class="mb-4 px-4 mt-3">
-    <app-filter-section></app-filter-section>
-  </div>
-
-
-  <div
-    *ngIf="lastViewedStatus"
-    class="mb-4 px-4 mt-3 d-flex flex-column align-items-center"
-  >
-    <app-last-viewed-section></app-last-viewed-section>
-    <div style="width: 250px">
-      <app-help-center-section></app-help-center-section>
-    </div>
-  </div>
-
-  <div class="p-0 m-0"><hr class="p-0 m-0 "/></div>
-  <div class="col-12 col-lg-8 m-0 p-0">
-    <div><app-advert-card></app-advert-card></div>
-    <div><app-advert-card></app-advert-card></div>
-    <div><app-advert-card></app-advert-card></div>
-    <div><app-advert-card></app-advert-card></div>
-  </div>
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
+  <app-loading-indicator></app-loading-indicator>
 </div>
-<div class="row m-0 p-0 d-none d-md-flex">
-  <div
-    class="col-md-1 d-none d-md-block d-lg-none m-0 p-0"
-    style="
-      background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100% no-repeat;
-    "
-  >
-    <div class="d-flex flex-column align-items-center">
-      <div class="mt-5 d-flex justify-content-center align-items-center">
-        SORT
-      </div>
-      <div class="dropdown" tabindex="1">
-        <i class="db2" tabindex="1"></i>
-        <div class="dropbtn d-flex justify-content-center align-items-center">
-          <i class="fa-solid fa-arrow-down-short-wide"></i>
-        </div>
-        <div class="dropdown-content px-4 pt-1 pb-5 top-0 ms-5">
-          <div style="width: 200px" class="my-3">
-            <app-sorting-section></app-sorting-section>
-          </div>
-        </div>
+<div *ngIf="!isLoading" class="adverts-animation">
+  <div class="row m-0 p-0 d-md-none user-select-none ">
+    <div
+      (click)="switchSort()"
+      style="
+        background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
+          no-repeat;
+        font-size: 0.8rem;
+      "
+      role="button"
+      class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    >
+      <i class="fa-solid fa-arrow-down-short-wide me-2"></i>SORT
+    </div>
+    <div
+      (click)="switchFilter()"
+      style="
+        background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
+          no-repeat;
+        font-size: 0.8rem;
+      "
+      role="button"
+      class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    >
+      <i class="fa-solid fa-filter me-2"></i>FILTER
+    </div>
+    <div
+      (click)="switchLastViewed()"
+      style="
+        background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
+          no-repeat;
+        font-size: 0.8rem;
+      "
+      role="button"
+      class="sort-small-size col-4 pt-4 pb-2 d-flex justify-content-center align-items-center fw-bold opacity-75"
+    >
+      <i class="fa-solid fa-binoculars me-2"></i>LAST VIEWED
+    </div>
+    <div *ngIf="sortStatus" class="mb-4 px-4 mt-3">
+      <app-sorting-section></app-sorting-section>
+    </div>
+
+    <div *ngIf="filterStatus" class="mb-4 px-4 mt-3">
+      <app-filter-section></app-filter-section>
+    </div>
+
+    <div
+      *ngIf="lastViewedStatus"
+      class="mb-4 px-4 mt-3 d-flex flex-column align-items-center"
+    >
+      <app-last-viewed-section></app-last-viewed-section>
+      <div style="width: 250px">
+        <app-help-center-section></app-help-center-section>
       </div>
     </div>
-    <div class="d-flex flex-column align-items-center">
-      <div class="mt-2 d-flex justify-content-center align-items-center">
-        FILTER
-      </div>
 
-      <div class="dropdown" tabindex="1">
-        <i class="db2" tabindex="1"></i>
-        <div class="dropbtn d-flex justify-content-center align-items-center">
-          <i class="fa-solid fa-filter"></i>
-        </div>
-        <div class="dropdown-content px-4 py-3 top-0 ms-5">
-          <div style="width: 400px">
-            <app-filter-section></app-filter-section>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex flex-column align-items-center">
-      <div class="mt-2 d-flex justify-content-center align-items-center">
-        HELP
-      </div>
-      <div class="dropdown" tabindex="1">
-        <i class="db2" tabindex="1"></i>
-
-        <div class="dropbtn d-flex justify-content-center align-items-center">
-          <i class="fa-solid fa-info"></i>
-        </div>
-
-        <div class="dropdown-content px-4 py-3 top-0 ms-5">
-          <div style="width: 300px">
-            <app-last-viewed-section></app-last-viewed-section>
-            <app-help-center-section></app-help-center-section>
-          </div>
-        </div>
-      </div>
+    <div class="p-0 m-0"><hr class="p-0 m-0" /></div>
+    <div class="col-12 col-lg-8 m-0 p-0">
+      <div><app-advert-card></app-advert-card></div>
+      <div><app-advert-card></app-advert-card></div>
+      <div><app-advert-card></app-advert-card></div>
+      <div><app-advert-card></app-advert-card></div>
     </div>
   </div>
-
-  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block" style="z-index: 2;">
+  <div class="row m-0 p-0 d-none d-md-flex">
     <div
-      class="position-sticky top-0 mt-4 pt-2"
+      class="col-md-1 d-none d-md-block d-lg-none m-0 p-0"
       style="
         background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
           no-repeat;
       "
     >
-      <div class="me-3">
-        <app-sorting-section></app-sorting-section>
-        <div class="mt-5 right-section">
-          <app-filter-section></app-filter-section>
+      <div class="d-flex flex-column align-items-center">
+        <div class="mt-5 d-flex justify-content-center align-items-center">
+          SORT
         </div>
-        <div class="left-section-filter">
-          <div class="d-flex flex-column align-items-end mt-5">
-            <div class="mt-2 d-flex justify-content-center align-items-center">
-              FILTER
+        <div class="dropdown" tabindex="1">
+          <i class="db2" tabindex="1"></i>
+          <div class="dropbtn d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-arrow-down-short-wide"></i>
+          </div>
+          <div class="dropdown-content px-4 pt-1 pb-5 top-0 ms-5">
+            <div style="width: 200px" class="my-3">
+              <app-sorting-section></app-sorting-section>
             </div>
-      
-            <div class="dropdown" tabindex="1"  >
-              <i class="db2" tabindex="1"></i>
-              <div class="dropbtn d-flex justify-content-center align-items-center">
-                <i class="fa-solid fa-filter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <div class="mt-2 d-flex justify-content-center align-items-center">
+          FILTER
+        </div>
+
+        <div class="dropdown" tabindex="1">
+          <i class="db2" tabindex="1"></i>
+          <div class="dropbtn d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-filter"></i>
+          </div>
+          <div class="dropdown-content px-4 py-3 top-0 ms-5">
+            <div style="width: 400px">
+              <app-filter-section></app-filter-section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center">
+        <div class="mt-2 d-flex justify-content-center align-items-center">
+          HELP
+        </div>
+        <div class="dropdown" tabindex="1">
+          <i class="db2" tabindex="1"></i>
+
+          <div class="dropbtn d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-info"></i>
+          </div>
+
+          <div class="dropdown-content px-4 py-3 top-0 ms-5">
+            <div style="width: 300px">
+              <app-last-viewed-section></app-last-viewed-section>
+              <app-help-center-section></app-help-center-section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block"
+      style="z-index: 2"
+    >
+      <div
+        class="position-sticky top-0 mt-4 pt-2"
+        style="
+          background: linear-gradient(#0c0c0f81, #0c0c0f81) right/1px 100%
+            no-repeat;
+        "
+      >
+        <div class="me-3">
+          <app-sorting-section></app-sorting-section>
+          <div class="mt-5 right-section">
+            <app-filter-section></app-filter-section>
+          </div>
+          <div class="left-section-filter">
+            <div class="d-flex flex-column align-items-end mt-5">
+              <div
+                class="mt-2 d-flex justify-content-center align-items-center"
+              >
+                FILTER
               </div>
-              <div class="dropdown-content px-4 py-3 top-0 ms-5">
-                <div style="width: 400px">
-                  <app-filter-section></app-filter-section>
+
+              <div class="dropdown" tabindex="1">
+                <i class="db2" tabindex="1"></i>
+                <div
+                  class="dropbtn d-flex justify-content-center align-items-center"
+                >
+                  <i class="fa-solid fa-filter"></i>
+                </div>
+                <div class="dropdown-content px-4 py-3 top-0 ms-5">
+                  <div style="width: 400px">
+                    <app-filter-section></app-filter-section>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-  <div class="col-md-11 col-lg-8">
-    <div class="adverts-wrapper my-5 pb-5">
-      <div
-        *ngFor="let item of cards"
-        class="d-flex justify-content-center align-items-start" 
-      >
-        <div class="each-card" (click)="openPopup()">
-          <app-advert-card></app-advert-card>
+    <div class="col-md-11 col-lg-8">
+      <div class="adverts-wrapper my-5 pb-5">
+        <div
+          *ngFor="let item of cards"
+          class="d-flex justify-content-center align-items-start"
+        >
+          <div class="each-card" (click)="openPopup()">
+            <app-advert-card></app-advert-card>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block right-section">
-    <div
-      class="position-sticky top-0 mt-4 pt-2"
-      style="
-        background: linear-gradient(#0c0c0f81, #0c0c0f81) left/1px 100%
-          no-repeat;
-      "
-    >
-      <div class="mx-3">
-        <app-last-viewed-section></app-last-viewed-section>
-      </div>
-      <div class="mx-3">
-        <app-help-center-section></app-help-center-section>
+    <div class="col-2 col-md-3 col-lg-2 d-md-none d-lg-block right-section">
+      <div
+        class="position-sticky top-0 mt-4 pt-2"
+        style="
+          background: linear-gradient(#0c0c0f81, #0c0c0f81) left/1px 100%
+            no-repeat;
+        "
+      >
+        <div class="mx-3">
+          <app-last-viewed-section></app-last-viewed-section>
+        </div>
+        <div class="mx-3">
+          <app-help-center-section></app-help-center-section>
+        </div>
       </div>
     </div>
   </div>
