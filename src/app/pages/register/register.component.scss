@@ -1,133 +1,44 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-.register-wrapper{
-    width: 100%;
-    height: 100vh;
-    background: rgb(255,185,168);
-    background: linear-gradient(228deg, rgba(255,185,168,1) 0%, rgba(253,123,90,1) 54%, rgba(255,41,79,1) 92%);
-    overflow:hidden;
+.register-button {
+  background-color: $white;
+  color: $pink;
+  border-radius: 18px;
+  font-size: 1.2rem;
 }
 
-.right-big-circle{
-    width: 75vw;
-    height: 75vw;
-    border-radius: 100%;
-    background-color: $white;
-    margin-right: -400px;
-    margin-top: -50px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 50px 75px, rgba(0, 0, 0, 0.35) 0px 75px 75px;
-    z-index: 2;
-
+.register-bottom-text {
+  color: $white;
+  text-decoration: underline;
+  font-weight: lighter;
 }
 
-.circle-1{
-    width: 20vw;
-    height: 20vw;
-    border-radius: 100%;
-    background-color: rgba(242, 154, 179, 0.741);
-    z-index: 1;
-    opacity: .4;
-    margin-bottom: -120px;
+.register-left-section {
+  height: 45vh;
+  overflow-y: auto;
+  background-color: #ffffff11;
 }
 
-.circle-2{
-    width: 30vw;
-    height: 30vw;
-    border-radius: 100%;
-    background-color: rgba(235, 203, 185, 0.342);
-    z-index: 1;
-    opacity: .7;
-    margin-top: -120px;
-    margin-left: 300px;
+.register-left-section::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+  background-color: $grey;
 }
 
-.circle-3{
-    width: 15vw;
-    height: 15vw;
-    border-radius: 100%;
-    background-color: $white;
-    z-index: 1;
-    opacity: .7;
-    margin-top: -95px;
-    margin-left: 630px;
+/* Handle */
+.register-left-section::-webkit-scrollbar-thumb {
+  background: $pink;
+  border-radius: 20px;
 }
 
-.register-content-wrapper{
-    z-index: 2;
+/* Handle on hover */
+.register-left-section::-webkit-scrollbar-thumb:hover {
+  background: $black;
 }
 
-.project-logo{
-    width: 145px;
-    margin: 55px 0px 0px 175px;
+.register-back-button{
+  color: $pink;
+  background-color: $white;
+  border-radius: 100%;
+  font-weight: bolder;
 }
-
-.login-register-flat-design{
-    width: 70%;
-}
-
-.register-button{
-background-color: $white;
-color: $pink;
-border-radius: 18px;
-font-size: 1.2rem
-}
-
-.register-bottom-text{
-    color: $white;
-    text-decoration: underline;
-    font-weight: lighter;
-}
-
-@media screen and (max-width: 620px) {
-    .project-logo{
-        width: 115px;
-        margin: 55px 0px 0px 0px;
-
-    }
-    .project-logo-wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-  
-  }
-
-
-@media screen and (max-width: 990px) {
-    .register-wrapper{
-        width: 100%;
-        height: 100vh;
-        background: rgb(255,185,168);
-        background: linear-gradient(228deg, rgba(255,185,168,1) 0%, rgba(253,123,90,1) 54%, rgba(255,41,79,1) 92%);
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-  
-  }
-
-  .register-left-section{
-    height: 45vh;
-    overflow-y: auto;
-    background-color: #ffffff11;
-  }
-
-  .register-left-section::-webkit-scrollbar {
-    width: 10px;
-    border-radius: 20px;
-    background-color: $grey;
-    
-    
-  }
-  
-  /* Handle */
-  .register-left-section::-webkit-scrollbar-thumb {
-    background: $pink;
-    border-radius: 20px;
-    
-  }
-  
-  /* Handle on hover */
-  .register-left-section::-webkit-scrollbar-thumb:hover {
-    background: $black;
-  }

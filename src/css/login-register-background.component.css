@@ -1,0 +1,107 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+  user-select: none;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.background-wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #ffb9a8;
+  background: linear-gradient(228deg, #ffb9a8 0%, #fd7b5a 54%, #ff294f 92%);
+  overflow: hidden;
+}
+
+.right-big-circle {
+  width: 75vw;
+  height: 75vw;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  margin-right: -400px;
+  margin-top: -50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 50px 75px, rgba(0, 0, 0, 0.35) 0px 75px 75px;
+  z-index: 2;
+}
+
+.circle-1 {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 100%;
+  background-color: rgba(242, 154, 179, 0.741);
+  z-index: 1;
+  opacity: .4;
+  margin-bottom: -120px;
+}
+
+.circle-2 {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 100%;
+  background-color: rgba(235, 203, 185, 0.342);
+  z-index: 1;
+  opacity: .7;
+  margin-top: -120px;
+  margin-left: 300px;
+}
+
+.circle-3 {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  z-index: 1;
+  opacity: .7;
+  margin-top: -95px;
+  margin-left: 630px;
+}
+
+.login-content-wrapper {
+  z-index: 2;
+}
+
+.project-logo {
+  width: 145px;
+  margin: 55px 0px 0px 175px;
+}
+
+.login-register-flat-design {
+  width: 70%;
+}
+
+@media screen and (max-width: 991px) {
+  .project-logo {
+    width: 115px;
+    margin: 55px 0px 0px 0px;
+  }
+  .project-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .background-wrapper {
+    width: 100%;
+    height: 100vh;
+    background: #ffb9a8;
+    background: linear-gradient(228deg, #ffb9a8 0%, #fd7b5a 54%, #ff294f 92%);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1211px) {
+  .login-register-flat-design {
+    width: 80%;
+  }
+}

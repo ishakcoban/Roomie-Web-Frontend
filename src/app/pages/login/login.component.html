@@ -1,33 +1,20 @@
-<div class="login-wrapper position-relative">
-  <div class="position-absolute top-0 d-flex justify-content-end w-100">
-    <div class="right-big-circle"></div>
-  </div>
-  <div
-    class="position-absolute top-0 d-flex justify-content-center align-items-end w-100 vh-100"
-  >
-    <div class="circle-1"></div>
-  </div>
-  <div
-    class="position-absolute top-0 d-flex justify-content-center align-items-start w-100 vh-100"
-  >
-    <div class="circle-2"></div>
-  </div>
-  <div
-    class="position-absolute top-0 d-flex justify-content-center align-items-start w-100 vh-100"
-  >
-    <div class="circle-3"></div>
-  </div>
-  <div class="login-content-wrapper position-absolute top-0 w-100 vh-100">
-    <div class="project-logo-wrapper"><img class="project-logo" src="assets/images/roomieLogo2.png" /></div>
-<div class="row m-0 p-0 d-flex flex-column-reverse flex-lg-row">
-    <div class="col-12 col-lg-5">
-        <div class="mx-4 mx-sm-5 pt-3 pt-md-5"><app-custom-input [input_style] = "inputInfo1"></app-custom-input></div>
-        <div class="mx-4 mx-sm-5"><app-custom-input [input_style] = "inputInfo2"></app-custom-input></div>
-        <div class="mx-4 mx-sm-5 mt-5 d-flex justify-content-center justify-content-md-start"><button class="btn login-button fw-bold px-5 py-1">LOGIN</button></div>
-        <div class="login-bottom-text ms-0 ms-sm-5 mt-3 mb-5 mb-sm-0 mt-md-5 d-flex justify-content-center justify-content-sm-start">No account? create a new account!</div>
+<app-login-register-background>
+  <div class="col-12 col-lg-5">
+    <div class="mx-4 mx-sm-5 pt-3 pt-md-5">
+      <app-custom-input [input_style]="inputInfo1"></app-custom-input>
     </div>
-    <div class="col-12 col-lg-7 m-0 p-0 mt-3 mt-md-0 d-flex align-items-xl-start justify-content-center justify-content-xl-start align-items-center"><img class="login-register-flat-design ms-0 ms-lg-5" src="assets/images/login-register-flat-design.png" /></div>
-    
-</div>  
-</div>
-</div>
+    <div class="mx-4 mx-sm-5">
+      <app-custom-input [input_style]="inputInfo2"></app-custom-input>
+    </div>
+    <div
+      class="mx-4 mx-sm-5 mt-5 d-flex justify-content-center justify-content-lg-start"
+    >
+      <button class="btn login-button fw-bold px-5 py-1">LOGIN</button>
+    </div>
+    <div
+      class="login-bottom-text ms-0 ms-lg-5 mt-3 mb-5 mb-sm-0 mt-md-5 d-flex justify-content-center justify-content-lg-start"
+    >
+      No account? create a new account!
+    </div>
+  </div>
+</app-login-register-background>
