@@ -1,0 +1,20 @@
+@import '../../../styles.scss';
+
+.not-found-logo-img{
+    width: 255px;
+    margin-top: 10%;
+}
+
+@media screen and (max-width: 576px){
+    .not-found-logo-img{
+        width: 160px;
+        margin-top: 20%;
+    }
+  }
+.not-found-button{
+    border-color: $black;
+    color: $black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 12px;
+}
