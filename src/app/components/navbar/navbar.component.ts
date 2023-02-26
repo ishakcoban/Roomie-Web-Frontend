@@ -1,6 +1,8 @@
 import { Component, HostListener, Input } from '@angular/core';
+import { Router } from '@angular/router';
 //import { AuthService } from '../../services/auth.service';
 import * as $ from 'jquery';
+import { AuthService } from 'src/app/services/auth.service';
 import { PopupService } from 'src/app/services/popup.service';
 @Component({
   selector: 'app-navbar',
@@ -8,7 +10,7 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor(private popupService: PopupService) {}
+  constructor(private popupService: PopupService,private authService:AuthService) {}
 
   onLogout() {
     //this.authService.logout();
@@ -48,5 +50,9 @@ export class NavbarComponent {
 
   openPopup() {
     this.popupService.changePopupStatus(true, 'create', 'advert');
+  }
+
+  onSubmit(){
+    this.authService.logout();
   }
 }

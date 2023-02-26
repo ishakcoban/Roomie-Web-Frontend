@@ -1,0 +1,21 @@
+<div class="input-wrapper position-relative mt-5 mx-4 mx-sm-5">
+  <div
+    [ngClass]="
+      background_color == 'white'
+        ? 'input-border-white py-1 ps-3 pe-3 d-flex align-items-center justify-content-center'
+        : 'input-border-black py-1 ps-3 pe-3 d-flex align-items-center justify-content-end'
+    "
+  >
+    <ng-content></ng-content>
+  </div>
+  <div
+    style="font-size: 0.7rem"
+    [ngClass]="
+      header_background_color == 'white'
+        ? 'input-header-white position-absolute top-0 ms-3 px-2'
+        : 'input-header-orange position-absolute top-0 ms-3 px-2'
+    "
+  >
+    {{ header }}
+  </div>
+</div>

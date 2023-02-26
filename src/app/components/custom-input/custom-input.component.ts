@@ -8,12 +8,13 @@ import * as $ from "jquery";
 export class CustomInputComponent {
   // type for input's type(text or password)
   // name for input's name(email,password,usernam,gender,city,district,neighbourhood,)
-  // type for input's type(text or password)
-  // type for input's type(text or password)
-  @Input() input_style:{type:string,name:string,header:string} ={
+  // header for input's header(text or password)
+  // background_color for input's background color(text or password)
+  @Input() input_style:{type:string,name:string,header:string,background_color:string} ={
     type: '',
     name: '',
-    header: ''
+    header: '',
+    background_color:''
   };
   inputOptions!: [];
   isVisible: boolean = false;
@@ -31,7 +32,7 @@ export class CustomInputComponent {
   }
 
 
-  sss(event: any) {
+  inputHandler(event: any) {
     console.log(event.target.value);
   }
 

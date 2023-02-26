@@ -1,12 +1,12 @@
 <div class="input-wrapper position-relative mt-5">
-  <div class="input-border py-1 ps-3 pe-3 m d-flex align-items-center justify-content-end">
+  <div [ngClass]="input_style.background_color == 'white' ? 'input-border-white py-1 ps-3 pe-3 m d-flex align-items-center justify-content-end':'input-border-black py-1 ps-3 pe-3 m d-flex align-items-center justify-content-end'">
     <input
     *ngIf="input_style.name != 'gender'"
       [type]="isVisible ? 'text' : input_style.type"
       class="input-style"
       name="input_style.name"
       ngModel
-      (change)="sss($event)"
+      (change)="inputHandler($event)"
       [disabled]="input_style.name == 'gender'"
     />
 

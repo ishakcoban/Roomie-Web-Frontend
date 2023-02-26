@@ -27,6 +27,8 @@ import { LastViewedSectionComponent } from './components/last-viewed-section/las
 import { HelpCenterSectionComponent } from './components/help-center-section/help-center-section.component';
 import { MyAdvertsComponent } from './pages/my-adverts/my-adverts.component';
 import { LoginRegisterBackgroundComponent } from './components/login-register-background/login-register-background.component';
+import { AuthService } from './services/auth.service';
+import { InputDesignComponent } from './components/input-design/input-design.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,8 @@ import { LoginRegisterBackgroundComponent } from './components/login-register-ba
     LastViewedSectionComponent,
     HelpCenterSectionComponent,
     MyAdvertsComponent,
-    LoginRegisterBackgroundComponent
+    LoginRegisterBackgroundComponent,
+    InputDesignComponent
 
   ],
   imports: [
@@ -61,7 +64,7 @@ import { LoginRegisterBackgroundComponent } from './components/login-register-ba
     FormsModule
     
   ],
-  providers: [/*AuthService,AuthGuard,HttpService*/PopupService],
+  providers: [AuthService,/*AuthGuard,HttpService*/PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

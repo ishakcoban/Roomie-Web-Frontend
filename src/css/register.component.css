@@ -55,3 +55,7 @@ body {
   border-radius: 100%;
   font-weight: bolder;
 }
+
+.option {
+  background-color: #E0E0E0;
+}

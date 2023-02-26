@@ -1,5 +1,5 @@
-<div class="profile-edit-wrapper">
-  <div class="row ">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="profile-edit-wrapper">
+  <div class="row">
     <div class="col-12 col-md-6 d-flex flex-column align-items-between m-0 p-0">
       <div class="position-relative mx-3 ddd">
         <input class="input-file top-0" type="file" id="upload" />
@@ -13,7 +13,10 @@
       <div class="mx-3 create-advert-photo-wrapper mt-3 py-5 mb-3 mb-md-0">
         <div class="position-relative">
           <div class="mx-5 pt-3">
-            <img class="create-advert-photo" src="assets/images/hemo32.jpg" />
+            <img
+              class="create-advert-photo"
+              src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
+            />
           </div>
           <div
             style="padding: 0px 30px 0px 30px"
@@ -33,60 +36,239 @@
         </div>
 
         <div class="position-relative mt-3">
-            <div class="mx-5 pt-3">
-              <img class="create-advert-photo" src="assets/images/hemo32.jpg" />
+          <div class="mx-5 pt-3">
+            <img
+              class="create-advert-photo"
+              src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
+            />
+          </div>
+          <div
+            style="padding: 0px 30px 0px 30px"
+            class="position-absolute top-0 d-flex justify-content-between w-100"
+          >
+            <div
+              class="create-advert-photo-left-circle d-flex justify-content-center align-items-center fw-bold"
+            >
+              1
             </div>
             <div
-              style="padding: 0px 30px 0px 30px"
-              class="position-absolute top-0 d-flex justify-content-between w-100"
+              class="create-advert-photo-right-circle d-flex justify-content-center align-items-center"
             >
-              <div
-                class="create-advert-photo-left-circle d-flex justify-content-center align-items-center fw-bold"
-              >
-                1
-              </div>
-              <div
-                class="create-advert-photo-right-circle d-flex justify-content-center align-items-center"
-              >
-                <i style="font-size: 0.9rem" class="fa-solid fa-trash-can"></i>
-              </div>
+              <i style="font-size: 0.9rem" class="fa-solid fa-trash-can"></i>
             </div>
           </div>
+        </div>
       </div>
     </div>
-    <div class="col-12  col-md-6 m-0 p-0 ">
+    <div class="col-12 col-md-6 m-0 p-0">
       <div class="profile-edit-right-section pb-5">
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo1"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo2"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo3"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo4"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo5"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo6"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo7"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo8"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo9"></app-custom-input>
-        </div>
+        <app-input-design
+          [header]="'Title'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            name="title"
+            ngModel
+          />
+        </app-input-design>
+        <app-input-design
+          [header]="'Content'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            name="content"
+            ngModel
+          />
+        </app-input-design>
+        <app-input-design
+          [header]="'City'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+            style="
+              font-size: 0.8rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="w-100 position-absolute top-0 px-3"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+        <app-input-design
+          [header]="'District'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+            style="
+              font-size: 0.8rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="w-100 position-absolute top-0 px-3"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+        <app-input-design
+          [header]="'Neighbourhood'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+            style="
+              font-size: 0.8rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="w-100 position-absolute top-0 px-3"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+        <app-input-design
+          [header]="'Floor Area(M2)'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+            style="
+              font-size: 0.8rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="w-100 position-absolute top-0 px-3"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+        <app-input-design
+          [header]="'Rooms'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+            style="
+              font-size: 0.8rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="w-100 position-absolute top-0 px-3"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+
       </div>
     </div>
   </div>
   <div class="d-flex align-items-center justify-content-center mt-4">
     <button class="btn profile-edit-button px-5 py-1">Confirm</button>
   </div>
-</div>
+</form>

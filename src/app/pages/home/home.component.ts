@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,13 @@ export class HomeComponent {
   isLoading:boolean = true
 
   ngAfterViewInit(){
-
-    setTimeout(()=>{
       this.isLoading= false;
-    },2000)
+
   }
+  constructor(private authService: AuthService) {}
+  onSubmit() {
+    this.authService.logout();
+  }
+
 
 }

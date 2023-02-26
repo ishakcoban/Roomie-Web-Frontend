@@ -1,36 +1,180 @@
 <app-login-register-background>
-  <div class="col-12 col-lg-5">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="col-12 col-lg-5">
     <div class="register-left-section pb-5 mt-4 mt-lg-0 ms-0 ms-lg-5">
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo1"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo2"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo3"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo4"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo5"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo6"></app-custom-input>
-      </div>
-      <div class="mx-4 mx-sm-5">
-        <app-custom-input [input_style]="inputInfo7"></app-custom-input>
-      </div>
+      <!--username-->
+      <app-input-design
+        [header]="'Username'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="username"
+          ngModel
+        />
+      </app-input-design>
+      <!--first name-->
+      <app-input-design
+        [header]="'First Name'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="firstName"
+          ngModel
+        />
+      </app-input-design>
+      <!--last name-->
+      <app-input-design
+        [header]="'Last Name'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="lastName"
+          ngModel
+        />
+      </app-input-design>
+      <!--gender-->
+      <app-input-design
+        [header]="'Gender'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <select
+          style="
+            font-size: 0.8rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            text-overflow: '';
+            border: none;
+            outline: 0;
+            height: 100%;
+            border-radius: 14px;
+            background-color: transparent;
+            visibility: visible;
+          "
+          role="button"
+          class="w-100 position-absolute top-0 px-3"
+          name="genders"
+          id="genders"
+        >
+          <option class="option" value="">Select your gender</option>
+          <option class="option fw-bold" value="male">Male</option>
+          <option class="option fw-bold" value="female">Female</option>
+        </select>
+        <i
+          role="button"
+          style="font-size: 1.2rem"
+          class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+        ></i>
+      </app-input-design>
+      <!--email address-->
+      <app-input-design
+        [header]="'Email Address'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="email"
+          ngModel
+        />
+      </app-input-design>
+
+      <!--password-->
+      <app-input-design
+        [header]="'Password'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          [type]="isVisible ? 'text' : 'password'"
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="password"
+          ngModel
+        />
+        <i
+          role="button"
+          style="font-size: 1.2rem"
+          [ngClass]="
+            !isVisible
+              ? 'fa-regular fa-eye px-2'
+              : 'fa-sharp fa-solid fa-eye px-2'
+          "
+          (click)="switchPassword()"
+        ></i>
+      </app-input-design>
+
+      <app-input-design
+        [header]="'Password(Again)'"
+        [background_color]="'white'"
+        [header_background_color]="'white'"
+      >
+        <input
+          [type]="isVisible2 ? 'text' : 'password'"
+          style="
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            width: 100%;
+          "
+          name="passwordAgain"
+          ngModel
+        />
+        <i
+          role="button"
+          style="font-size: 1.2rem"
+          [ngClass]="
+            !isVisible2
+              ? 'fa-regular fa-eye px-2'
+              : 'fa-sharp fa-solid fa-eye px-2'
+          "
+          (click)="switchPassword2()"
+        ></i>
+      </app-input-design>
     </div>
 
     <div
       class="mx-4 mx-sm-5 mt-5 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start"
     >
-      <button class="btn register-back-button d-flex justify-content-center align-items-center" routerLink="/login">
+      <button
+        class="btn register-back-button d-flex justify-content-center align-items-center"
+        routerLink="/login"
+      >
         <
       </button>
-      <button class="btn register-button fw-bold px-5 py-1 ms-4" routerLink="/login">REGISTER</button>
+      <button class="btn register-button fw-bold px-5 py-1 ms-4">
+        REGISTER
+      </button>
     </div>
-  </div>
+  </form>
 </app-login-register-background>

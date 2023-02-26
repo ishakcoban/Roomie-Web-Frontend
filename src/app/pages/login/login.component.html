@@ -1,20 +1,59 @@
 <app-login-register-background>
-  <div class="col-12 col-lg-5">
-    <div class="mx-4 mx-sm-5 pt-3 pt-md-5">
-      <app-custom-input [input_style]="inputInfo1"></app-custom-input>
-    </div>
-    <div class="mx-4 mx-sm-5">
-      <app-custom-input [input_style]="inputInfo2"></app-custom-input>
-    </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm"  class="col-12 col-lg-5">
+    <app-input-design
+    [header]="'Email Address'"
+    [background_color]="'white'"
+    [header_background_color]="'white'"
+  >
+    <input
+      style="
+        background-color: transparent;
+        border: none;
+        outline: 0;
+        width: 100%;
+      "
+      name="email"
+      ngModel
+    />
+  </app-input-design>
+
+  <!--password-->
+  <app-input-design
+    [header]="'Password'"
+    [background_color]="'white'"
+    [header_background_color]="'white'"
+  >
+    <input
+      [type]="isVisible ? 'text' : 'password'"
+      style="
+        background-color: transparent;
+        border: none;
+        outline: 0;
+        width: 100%;
+      "
+      name="password"
+      ngModel
+    />
+    <i
+      role="button"
+      style="font-size: 1.2rem"
+      [ngClass]="
+        !isVisible
+          ? 'fa-regular fa-eye px-2'
+          : 'fa-sharp fa-solid fa-eye px-2'
+      "
+      (click)="switchPassword()"
+    ></i>
+  </app-input-design>
     <div
       class="mx-4 mx-sm-5 mt-5 d-flex justify-content-center justify-content-lg-start"
     >
-      <button class="btn login-button fw-bold px-5 py-1" routerLink="/home">LOGIN</button>
+      <button class="btn login-button fw-bold px-5 py-1">LOGIN</button>
     </div>
     <div routerLink="/register"
       class="login-bottom-text ms-0 ms-lg-5 mt-3 mb-5 mb-sm-0 mt-md-5 d-flex justify-content-center justify-content-lg-start"
     >
       No account? create a new account!
     </div>
-  </div>
+  </form>
 </app-login-register-background>

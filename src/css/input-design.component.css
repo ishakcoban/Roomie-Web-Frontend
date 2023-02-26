@@ -29,35 +29,20 @@ body {
   height: 45px;
 }
 
-.input-style {
-  background-color: transparent;
-  border: none;
-  outline: 0;
-  width: 100%;
-}
-
-.input-header {
-  margin-top: -14px;
+.input-header-orange {
+  margin-top: -10px;
   background-color: #FD7B5A;
   color: #FFFFFF;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 500;
   border-radius: 18px;
 }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
-  border: none;
-  outline: 0;
-  height: 100%;
-  border-radius: 14px;
-  background-color: transparent;
-  visibility: visible;
-}
-
-.option {
-  background-color: #E0E0E0;
+.input-header-white {
+  margin-top: -10px;
+  background-color: #FFFFFF;
+  color: #FD7B5A;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 18px;
 }

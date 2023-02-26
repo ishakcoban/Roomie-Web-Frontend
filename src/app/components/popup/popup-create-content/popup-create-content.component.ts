@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LocationService } from 'src/app/services/advert-location.service';
 
 @Component({
@@ -10,18 +11,20 @@ export class PopupCreateContentComponent {
   @Input()
   popup!: { status: boolean; type: string; target: string; };
   header!: string;
-  inputInfo1:{type:string,name:string,header:string} = {type:'text',name:'title',header:'Title'}
-  inputInfo2:{type:string,name:string,header:string} = {type:'text',name:'content',header:'Content'}
-  inputInfo3:{type:string,name:string,header:string} = {type:'text',name:'city',header:'City'}
-  inputInfo4:{type:string,name:string,header:string} = {type:'text',name:'district',header:'District'}
-  inputInfo5:{type:string,name:string,header:string} = {type:'text',name:'neighbourhood',header:'Neighbourhood'}
-  inputInfo6:{type:string,name:string,header:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)'}
-  inputInfo7:{type:string,name:string,header:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)'}
-  inputInfo8:{type:string,name:string,header:string} = {type:'text',name:'rooms',header:'Rooms'}
-  inputInfo9:{type:string,name:string,header:string} = {type:'text',name:'description',header:'Description'}
+  inputInfo1:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'title',header:'Title',background_color:'black'}
+  inputInfo2:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'content',header:'Content',background_color:'black'}
+  inputInfo3:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'city',header:'City',background_color:'black'}
+  inputInfo4:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'district',header:'District',background_color:'black'}
+  inputInfo5:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'neighbourhood',header:'Neighbourhood',background_color:'black'}
+  inputInfo6:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)',background_color:'black'}
+  inputInfo7:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)',background_color:'black'}
+  inputInfo8:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'rooms',header:'Rooms',background_color:'black'}
+  inputInfo9:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'description',header:'Description',background_color:'black'}
   cities:[]=[];
   constructor(private locationService:LocationService){}
-
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+  }
   async ngOnInit() {
     //this.cities.push(await this.locationService.getAllCities());
     /*switch (this.popup.target) {

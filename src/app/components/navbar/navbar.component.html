@@ -71,13 +71,14 @@
             <div
               class="px-3 py-1 mb-2 navbar-dropdown-link"
               routerLink="/login"
+              (click)="onSubmit()"
             >
               <span class="col-3 p-0 m-0"
                 ><img
                   class="navbar-dropdown-icon"
                   src="assets/images/log-out.png"
               /></span>
-              <span class="ms-3 p-0 m-0">Log Out</span>
+              <span class="ms-3 p-0 m-0" >Log Out</span>
             </div>
           </div>
         </div>
@@ -103,28 +104,33 @@
           Create an advert
         </button>
       </div>
-      <div
+      <div routerLink="/home"
         class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
       >
         HOME
       </div>
       <div
+      routerLink="/adverts"
         class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
       >
         ADVERTS
       </div>
       <div
+      routerLink="/profile"
         class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
       >
         PROFILE
       </div>
       <div
+      routerLink="/saved-adverts"
         class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
       >
         SAVED ADVERTS
       </div>
       <div
+      routerLink="/login"
         class="py-1 navbar-small-size-link w-100 d-flex justify-content-center align-items-center"
+        (click)="onSubmit()"
       >
         LOG OUT
       </div>

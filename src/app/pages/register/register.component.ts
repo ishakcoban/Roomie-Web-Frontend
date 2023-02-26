@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  inputInfo1:{type:string,name:string,header:string} = {type:'text',name:'username',header:'Username'}
-  inputInfo2:{type:string,name:string,header:string} = {type:'text',name:'firstName',header:'First Name'}
-  inputInfo3:{type:string,name:string,header:string} = {type:'text',name:'lastName',header:'Last Name'}
-  inputInfo4:{type:string,name:string,header:string} = {type:'text',name:'gender',header:'Gender'}
-  inputInfo5:{type:string,name:string,header:string} = {type:'text',name:'email',header:'Email'}
-  inputInfo6:{type:string,name:string,header:string} = {type:'password',name:'password',header:'Password'}
-  inputInfo7:{type:string,name:string,header:string} = {type:'password',name:'passwordAgain',header:'Password(Again)'}
-
+  isVisible: boolean = false;
+  isVisible2: boolean = false;
+  constructor(private authService: AuthService) {}
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+  }
+  switchPassword() {
+    this.isVisible = !this.isVisible;
+  }
+  switchPassword2() {
+    this.isVisible2 = !this.isVisible2;
+  }
 }
