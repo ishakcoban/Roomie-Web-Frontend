@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+.message-style {
+  color: rgb(207, 47, 47);
+  background-color: $white;
+  font-weight: bold;
+  border-radius: 12px;
+  border-color: rgb(207, 47, 47);
+  border-style: solid;
+  border-width: 2px;
+}

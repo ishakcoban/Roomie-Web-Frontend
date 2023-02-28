@@ -10,10 +10,15 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor(private popupService: PopupService,private authService:AuthService) {}
+  constructor(
+    private popupService: PopupService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onLogout() {
-    //this.authService.logout();
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
   @HostListener('document:click', ['$event.target'])
   onClick(element: HTMLElement) {
@@ -33,17 +38,17 @@ export class NavbarComponent {
 
     if ($('.navbar-small-size-dropdown').hasClass('show')) {
       $('.navbar-small-size-dropdown').removeClass('show');
-      $('.fa-bars').removeClass('d-none');
-      $('.fa-xmark').addClass('d-none');
+      $('.nav-open').removeClass('d-none');
+      $('.nav-close').addClass('d-none');
     } else {
-      if (element.classList.contains('fa-bars')) {
-        $('.fa-bars').addClass('d-none');
-        $('.fa-xmark').removeClass('d-none');
+      if (element.classList.contains('nav-open')) {
+        $('.nav-open').addClass('d-none');
+        $('.nav-close').removeClass('d-none');
         $('.navbar-small-size-dropdown').addClass('show');
       }
-      if (element.classList.contains('fa-xmark')) {
-        $('.fa-xmark').addClass('d-none');
-        $('.fa-bars').removeClass('d-none');
+      if (element.classList.contains('nav-close')) {
+        $('.nav-close').addClass('d-none');
+        $('.nav-open').removeClass('d-none');
       }
     }
   }
@@ -52,7 +57,7 @@ export class NavbarComponent {
     this.popupService.changePopupStatus(true, 'create', 'advert');
   }
 
-  onSubmit(){
+  onSubmit() {
     this.authService.logout();
   }
 }

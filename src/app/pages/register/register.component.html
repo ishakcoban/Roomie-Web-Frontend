@@ -59,6 +59,7 @@
         [header_background_color]="'white'"
       >
         <select
+        (change)="selectGender($event)"
           style="
             font-size: 0.8rem;
             -webkit-appearance: none;
@@ -162,7 +163,10 @@
         ></i>
       </app-input-design>
     </div>
-
+  
+    <div class="ms-0 ms-lg-5 mt-3">
+      <app-success-message [message]="errorMessage"></app-success-message>
+    </div>
     <div
       class="mx-4 mx-sm-5 mt-5 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start"
     >
@@ -172,9 +176,11 @@
       >
         <
       </button>
+     
       <button class="btn register-button fw-bold px-5 py-1 ms-4">
         REGISTER
       </button>
     </div>
   </form>
+
 </app-login-register-background>

@@ -13,7 +13,7 @@ import { SuccessMessageComponent } from './components/success-message/success-me
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.component';
-import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
+import { LoadingIndicatorComponent } from './components/loading-indicators/loading-indicator/loading-indicator.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopupService } from './services/popup.service';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
@@ -28,7 +28,11 @@ import { HelpCenterSectionComponent } from './components/help-center-section/hel
 import { MyAdvertsComponent } from './pages/my-adverts/my-adverts.component';
 import { LoginRegisterBackgroundComponent } from './components/login-register-background/login-register-background.component';
 import { AuthService } from './services/auth.service';
+import { HttpService } from './services/http.service';
 import { InputDesignComponent } from './components/input-design/input-design.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
+import { DenemeComponent } from './deneme/deneme.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,17 +58,20 @@ import { InputDesignComponent } from './components/input-design/input-design.com
     HelpCenterSectionComponent,
     MyAdvertsComponent,
     LoginRegisterBackgroundComponent,
-    InputDesignComponent
+    InputDesignComponent,
+    ButtonLoadingIndicatorComponent,
+    DenemeComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
-  providers: [AuthService,/*AuthGuard,HttpService*/PopupService],
+  providers: [AuthService,/*AuthGuard,*/HttpService,PopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

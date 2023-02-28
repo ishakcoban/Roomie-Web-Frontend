@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,13 +7,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  isLoading:boolean = true
+  isLoading:boolean = true;
+
+  constructor(private authService: AuthService,private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit(){
       this.isLoading= false;
-
+      this.cdr.detectChanges();
   }
-  constructor(private authService: AuthService) {}
+  
   onSubmit() {
     this.authService.logout();
   }

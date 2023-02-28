@@ -1,56 +1,61 @@
 <app-login-register-background>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm"  class="col-12 col-lg-5">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="col-12 col-lg-5">
     <app-input-design
-    [header]="'Email Address'"
-    [background_color]="'white'"
-    [header_background_color]="'white'"
-  >
-    <input
-      style="
-        background-color: transparent;
-        border: none;
-        outline: 0;
-        width: 100%;
-      "
-      name="email"
-      ngModel
-    />
-  </app-input-design>
+      [header]="'Email Address'"
+      [background_color]="'white'"
+      [header_background_color]="'white'"
+    >
+      <input
+        style="
+          background-color: transparent;
+          border: none;
+          outline: 0;
+          width: 100%;
+        "
+        name="email"
+        ngModel
+      />
+    </app-input-design>
 
-  <!--password-->
-  <app-input-design
-    [header]="'Password'"
-    [background_color]="'white'"
-    [header_background_color]="'white'"
-  >
-    <input
-      [type]="isVisible ? 'text' : 'password'"
-      style="
-        background-color: transparent;
-        border: none;
-        outline: 0;
-        width: 100%;
-      "
-      name="password"
-      ngModel
-    />
-    <i
-      role="button"
-      style="font-size: 1.2rem"
-      [ngClass]="
-        !isVisible
-          ? 'fa-regular fa-eye px-2'
-          : 'fa-sharp fa-solid fa-eye px-2'
-      "
-      (click)="switchPassword()"
-    ></i>
-  </app-input-design>
+    <!--password-->
+    <app-input-design
+      [header]="'Password'"
+      [background_color]="'white'"
+      [header_background_color]="'white'"
+    >
+      <input
+        [type]="isVisible ? 'text' : 'password'"
+        style="
+          background-color: transparent;
+          border: none;
+          outline: 0;
+          width: 100%;
+        "
+        name="password"
+        ngModel
+      />
+      <i
+        role="button"
+        style="font-size: 1.2rem"
+        [ngClass]="isVisible ? 'fa-sharp fa-solid fa-eye px-2' : 'fa-regular fa-eye px-2'"
+        (click)="switchPassword()"
+      ></i>
+    </app-input-design>
+    <div class="mx-5 mt-3">
+      <app-success-message [message]="errorMessage"></app-success-message>
+    </div>
+
     <div
       class="mx-4 mx-sm-5 mt-5 d-flex justify-content-center justify-content-lg-start"
     >
-      <button class="btn login-button fw-bold px-5 py-1">LOGIN</button>
+      <button class="btn login-button fw-bold px-5 py-1" [disabled]="isLoading">
+        <span *ngIf="!isLoading">LOGIN</span>
+        <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center"><app-button-loading-indicator></app-button-loading-indicator></div>
+      </button>
     </div>
-    <div routerLink="/register"
+
+    <div
+      routerLink="/register"
       class="login-bottom-text ms-0 ms-lg-5 mt-3 mb-5 mb-sm-0 mt-md-5 d-flex justify-content-center justify-content-lg-start"
     >
       No account? create a new account!
