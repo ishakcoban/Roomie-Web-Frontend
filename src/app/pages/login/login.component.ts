@@ -19,7 +19,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private httpService: HttpService,
-    private router:Router,
+    private router: Router,
     private successMessageToggleService: SuccessMessageToggleService
   ) {}
   onSubmit(form: NgForm) {
@@ -56,7 +56,6 @@ export class LoginComponent {
     }
   }
   switchPassword() {
-     
     this.isVisible = !this.isVisible;
   }
 }

@@ -32,7 +32,7 @@ import { HttpService } from './services/http.service';
 import { InputDesignComponent } from './components/input-design/input-design.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
-import { DenemeComponent } from './deneme/deneme.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +60,7 @@ import { DenemeComponent } from './deneme/deneme.component';
     LoginRegisterBackgroundComponent,
     InputDesignComponent,
     ButtonLoadingIndicatorComponent,
-    DenemeComponent
+    ErrorMessageComponent
 
   ],
   imports: [
