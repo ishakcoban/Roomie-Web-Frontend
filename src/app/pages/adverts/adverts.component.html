@@ -174,9 +174,10 @@
       <div class="adverts-wrapper my-5 pb-5">
         <div
           *ngFor="let item of cards"
-          class="d-flex justify-content-center align-items-start"
+          class="d-flex justify-content-center align-items-start position-relative"
+          
         >
-          <div class="each-card" (click)="openPopup()">
+          <div class="each-card">
             <app-advert-card></app-advert-card>
           </div>
         </div>

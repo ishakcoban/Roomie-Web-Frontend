@@ -3,7 +3,7 @@
     <div style="z-index: 3; position: relative;" >
       <div style="z-index: 3;" class="position-relative" ><app-navbar></app-navbar></div>
       
-      <div class="position-absolute w-100 mt-4" style="z-index: 2;" ><app-success-message></app-success-message></div>
+      <app-success-message></app-success-message>
       
     </div>
     
@@ -16,6 +16,8 @@
     <!--<app-sorting-section></app-sorting-section>-->
     <!--<app-photo-slider></app-photo-slider>-->
     <router-outlet></router-outlet>
+    
+    
   </div>
   <div class="app-popup position-absolute top-0 user-select-none">
     <app-popup></app-popup>

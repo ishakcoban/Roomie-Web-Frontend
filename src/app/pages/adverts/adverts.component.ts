@@ -19,9 +19,7 @@ export class AdvertsComponent {
     this.cards.push(4);
   }
 
-  openPopup() {
-    this.popupService.changePopupStatus(true, 'show', 'advert');
-  }
+
 
   switchSort() {
     if (this.sortStatus == false) {

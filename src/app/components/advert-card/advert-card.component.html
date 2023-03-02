@@ -1,8 +1,8 @@
-<div class="card d-none d-md-block w-100" role="button">
+<div class="card d-none d-md-block w-100" role="button" (click)="openPopup()">
   <div
     class="position-absolute w-100 py-2 d-flex justify-content-end align-items-center p-4"
   >
-    <i id="elementID" class="far fa-bookmark me-1 mt-2"></i>
+    <i (click)="switchBookmark($event)" id="elementID" [ngClass]="bookmarkStatus ? 'fa-solid fa-bookmark me-1 mt-2' : 'far fa-bookmark me-1 mt-2'"></i>
   </div>
   <img
     src="https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg"
@@ -47,6 +47,7 @@
     </div>
   </div>
 </div>
+
 <!--different size for small size-->
 <div class="card-2 d-block d-md-none m-0">
   <div class="d-flex justify-content-between align-items-center ms-2 mt-2">
@@ -64,8 +65,13 @@
       <i id="elementID" class="far fa-bookmark me-4"></i>
     </div>
   </div>
- <div class="mt-2"><img class="w-100" src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp" /></div>
-  
+  <div class="mt-2">
+    <img
+      class="w-100"
+      src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
+    />
+  </div>
+
   <div class="">
     <div class="d-flex justify-content-end">
       <div class="card-money-content p-1 px-3 fw-bold">1250 t</div>

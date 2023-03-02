@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { PopupService } from 'src/app/services/popup.service';
 import { HttpService } from 'src/app/services/http.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
 @Component({
   selector: 'app-popup-update-content',
   templateUrl: './popup-update-content.component.html',
@@ -27,13 +28,15 @@ export class PopupUpdateContentComponent {
   genderInputValue!: string;
   isLoading: boolean = false;
   popupTarget: string = '';
+  errorMessage:string = '';
   @ViewChild('myname')
   selectTag!: ElementRef;
   constructor(
     private http: HttpClient,
     private popupService: PopupService,
     private httpService: HttpService,
-    private authService: AuthService
+    private authService: AuthService,
+    private successMessageToggleService: SuccessMessageToggleService
   ) {}
 
   ngOnInit() {
@@ -47,7 +50,6 @@ export class PopupUpdateContentComponent {
       }
     );*/
     // inserting old values to input area
-
   }
 
   checkInputValuesWithOldValues() {
@@ -102,12 +104,12 @@ export class PopupUpdateContentComponent {
   }
 
   ngAfterViewInit() {
-    /* this.isLoading = true;
+    //this.isLoading = true;
+    this.errorMessage = 'sadasdasd'
     setTimeout(() => {
       this.http
         .get<any>('https://api.npms.io/v2/search?q=scope:angular')
         .subscribe((data) => {
-
           this.oldUsername = data.results[0].package.name;
           this.usernameInputValue = data.results[0].package.name;
           this.oldFirstName = data.results[0].package.name;
@@ -124,7 +126,7 @@ export class PopupUpdateContentComponent {
             this.selectTag.nativeElement.options
           );
           let index = 0;
-          console.log(selectTagOptions);
+          //console.log(selectTagOptions);
           selectTagOptions.map((option: any) => {
             if (option.value == 'male') {
               this.genderInputValue = option.value;
@@ -134,13 +136,17 @@ export class PopupUpdateContentComponent {
             index++;
           });
 
-          this.isLoading = false;
+          //this.isLoading = false;
         });
-    }, 5000);-*/
+    }, 1000);
   }
 
   onSubmit(form: NgForm) {
-    let data = {
+    this.successMessageToggleService.openMessageBox(
+      'Your information updated successfully!'
+    );
+    this.popupService.changePopupStatus(false, '-', '-');
+    /*let data = {
       ApplicationUserId: this.authService.id,
       Username: (document.getElementById('username')! as HTMLSelectElement)
         .value,
@@ -157,6 +163,6 @@ export class PopupUpdateContentComponent {
     setTimeout(() => {
       // close popup
       this.popupService.changePopupStatus(false, '-', '-');
-    }, 1500);
+    }, 1500);*/
   }
 }
