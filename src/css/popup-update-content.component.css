@@ -47,7 +47,10 @@ body {
 .profile-edit-button {
   background-color: #f14d6b;
   color: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 576px) {
@@ -63,4 +66,8 @@ body {
     border-color: #00000047;
     border-style: solid;
   }
+}
+
+.option {
+  background-color: #E0E0E0;
 }

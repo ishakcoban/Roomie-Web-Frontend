@@ -34,5 +34,8 @@ body {
 .profile-button {
   background-color: #f14d6b;
   color: #FFFFFF;
-  border-radius: 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.1rem;
 }

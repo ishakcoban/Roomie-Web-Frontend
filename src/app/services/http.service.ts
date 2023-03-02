@@ -9,12 +9,13 @@ import {
 
   @Injectable({ providedIn: 'root' })
   export class HttpService {
-    baseURL: string = 'https://3d19-2a02-e0-6758-ae00-89c6-9569-91d6-3d47.eu.ngrok.io/';
+    baseURL: string = 'https://c681-2a02-e0-6758-ae00-5411-f13e-2f71-b35e.eu.ngrok.io/';
     constructor(private http: HttpClient, private authService: AuthService) {}
   
     createHttpRequest(endpoint: string, requestType: string, data: object) {
       const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
+    
        // Authorization: `Bearer ${this.authService.token}`,
       });
   

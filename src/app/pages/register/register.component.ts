@@ -23,6 +23,7 @@ export class RegisterComponent {
   errorMessage:string = '';
   constructor(private authService: AuthService,private httpService:HttpService,private router:Router) {}
   onSubmit(form: NgForm) {
+    console.log(form.value)
     let data = {
       Username: form.value.username.toString(),
       Email: form.value.email.toString(),
@@ -37,18 +38,19 @@ export class RegisterComponent {
       data.FirstName.length == 0 ||
       data.LastName.length == 0 ||
       data.Email.length == 0 ||
-      data.Gender.length == undefined ||
+      data.Gender == undefined ||
       data.Password.length == 0 ||
-      this.passwordAgain.length == 0
+      form.value.passwordAgain.toString().length == 0
     ) {
       this.errorMessage = 'You must fill all the areas!';
-    } else if (data.Password != this.passwordAgain) {
+    } else if (form.value.password != form.value.passwordAgain) {
       this.errorMessage = "Passwords don't match each other!";
     } else {
 
       this.errorMessage = '';
       this.isLoading = true;
       setTimeout(() => {
+        console.log('called http')
         this.httpService
           .createHttpRequest('api/Account/register', 'POST', data)
           ?.subscribe(
@@ -56,13 +58,13 @@ export class RegisterComponent {
               console.log(res);
 
               this.errorMessage = '';
-              this.router.navigate(['/login']);
+              //this.router.navigate(['/login']);
             },
             (error) => {
               if (error.status == 400) {
                 this.errorMessage = 'Email or password is not valid!';
               }
-              console.log(error.status);
+              console.log(error);
             }
           );
         this.isLoading = false;

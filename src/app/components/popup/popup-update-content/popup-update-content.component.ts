@@ -1,29 +1,162 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { PopupService } from 'src/app/services/popup.service';
+import { HttpService } from 'src/app/services/http.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-popup-update-content',
   templateUrl: './popup-update-content.component.html',
-  styleUrls: ['./popup-update-content.component.scss']
+  styleUrls: ['./popup-update-content.component.scss'],
 })
 export class PopupUpdateContentComponent {
+  // Determine the popup target(profile or advert)
   @Input()
-  popup!: { status: boolean; type: string; target: string; };
+  popup!: { status: boolean; type: string; target: string };
   header!: string;
-  inputInfo1:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'username',header:'Username',background_color:'black'}
-  inputInfo2:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'firstName',header:'First Name',background_color:'black'}
-  inputInfo3:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'lastName',header:'Last Name',background_color:'black'}
-  inputInfo4:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'gender',header:'Gender',background_color:'black'}
-  inputInfo5:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'email',header:'Email',background_color:'black'}
-  inputInfo6:{type:string,name:string,header:string,background_color:string} = {type:'password',name:'password',header:'Password',background_color:'black'}
+  oldUsername!: string;
+  oldFirstName!: string;
+  oldLastName!: string;
+  oldGender!: string;
+  oldEmail!: string;
+  disabled: boolean = true;
+  usernameInputValue!: string;
+  firstNameInputValue!: string;
+  lastNameInputValue!: string;
+  emailInputValue!: string;
+  genderInputValue!: string;
+  isLoading: boolean = false;
+  popupTarget: string = '';
+  @ViewChild('myname')
+  selectTag!: ElementRef;
+  constructor(
+    private http: HttpClient,
+    private popupService: PopupService,
+    private httpService: HttpService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    /*switch (this.popup.target) {
-      case 'list':
-        this.header = 'Update the list’s name';
-        break;
-      case 'task':
-        this.header = 'Update the task’s name';
-        break;
-    }*/
+    // get user information
+    /*   this.httpService.createHttpRequest('api/Account/13', 'GET', {})?.subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );*/
+    // inserting old values to input area
+
+  }
+
+  checkInputValuesWithOldValues() {
+    console.log(
+      (document.getElementById('genders')! as HTMLSelectElement).value
+    );
+    if (
+      this.oldUsername !=
+      (document.getElementById('username')! as HTMLSelectElement).value
+    ) {
+      return false;
+    }
+
+    if (
+      this.oldFirstName !=
+      (document.getElementById('firstname')! as HTMLSelectElement).value
+    ) {
+      return false;
+    }
+
+    if (
+      this.oldLastName !=
+      (document.getElementById('lastname')! as HTMLSelectElement).value
+    ) {
+      return false;
+    }
+
+    if (
+      this.oldEmail !=
+      (document.getElementById('email')! as HTMLSelectElement).value
+    ) {
+      return false;
+    }
+
+    if (
+      this.genderInputValue != '' &&
+      this.oldGender != this.genderInputValue
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  inputStatus() {
+    this.disabled = this.checkInputValuesWithOldValues();
+  }
+
+  selectGender(event: Event) {
+    this.genderInputValue = (event.target as HTMLInputElement).value.toString();
+    this.inputStatus();
+  }
+
+  ngAfterViewInit() {
+    /* this.isLoading = true;
+    setTimeout(() => {
+      this.http
+        .get<any>('https://api.npms.io/v2/search?q=scope:angular')
+        .subscribe((data) => {
+
+          this.oldUsername = data.results[0].package.name;
+          this.usernameInputValue = data.results[0].package.name;
+          this.oldFirstName = data.results[0].package.name;
+          this.firstNameInputValue = data.results[0].package.name;
+          this.oldLastName = data.results[0].package.name;
+          this.lastNameInputValue = data.results[0].package.name;
+          this.oldEmail = data.results[0].package.name;
+          this.emailInputValue = data.results[0].package.name;
+          this.oldGender = 'male';
+          this.genderInputValue = 'male';
+
+          // inserting gender value to html tag
+          var selectTagOptions = Array.from(
+            this.selectTag.nativeElement.options
+          );
+          let index = 0;
+          console.log(selectTagOptions);
+          selectTagOptions.map((option: any) => {
+            if (option.value == 'male') {
+              this.genderInputValue = option.value;
+              this.selectTag.nativeElement.selectedIndex = index;
+            }
+
+            index++;
+          });
+
+          this.isLoading = false;
+        });
+    }, 5000);-*/
+  }
+
+  onSubmit(form: NgForm) {
+    let data = {
+      ApplicationUserId: this.authService.id,
+      Username: (document.getElementById('username')! as HTMLSelectElement)
+        .value,
+      Email: (document.getElementById('email')! as HTMLSelectElement).value,
+      Gender: (document.getElementById('genders')! as HTMLSelectElement).value,
+      FirstName: (document.getElementById('firstname')! as HTMLSelectElement)
+        .value,
+      LastName: (document.getElementById('lastname')! as HTMLSelectElement)
+        .value,
+      PublicId: 'h6hn8qajao1ui0xpmdrh',
+      ImageUrl:
+        'https://res.cloudinary.com/ddkjxhjyy/image/upload/v1675018114/h6hn8qajao1ui0xpmdrh.jpg',
+    };
+    setTimeout(() => {
+      // close popup
+      this.popupService.changePopupStatus(false, '-', '-');
+    }, 1500);
   }
 }

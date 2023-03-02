@@ -1,35 +1,145 @@
-<div class="profile-edit-wrapper">
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
+  <app-loading-indicator></app-loading-indicator>
+</div>
+
+
+<form *ngIf="this.popup.target == 'profile'" class="profile-edit-wrapper" (ngSubmit)="onSubmit(f)" #f="ngForm">
   <div class="row py-1">
     <div
       class="col-12 col-sm-4 col-md-6 d-flex flex-column align-items-center justify-content-center m-0 p-0"
     >
       <img class="profile-edit-img" src="assets/images/devImage-F.png" />
-      <div class="fw-bold mt-3 fs-5">Name Surname</div>
+      <div class="fw-bold mt-3 fs-5">{{ oldFirstName }} {{ oldLastName }}</div>
     </div>
-    <div class="col-12 col-sm-8 col-md-6  m-0 p-0">
+    <div class="col-12 col-sm-8 col-md-6 m-0 p-0">
       <div class="profile-edit-right-section pb-5">
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo1"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo2"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo3"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo4"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo5"></app-custom-input>
-        </div>
-        <div class="mx-sm-4">
-          <app-custom-input [input_style]="inputInfo6"></app-custom-input>
-        </div>
+        <app-input-design
+          [header]="'Username'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            id="username"
+            (input)="inputStatus()"
+            [value]="usernameInputValue"
+            name="username"
+            ngModel
+          />
+        </app-input-design>
+
+        <app-input-design
+          [header]="'First Name'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            id="firstname"
+            (input)="inputStatus()"
+            [value]="firstNameInputValue"
+            name="firstName"
+            ngModel
+          />
+        </app-input-design>
+
+        <app-input-design
+          [header]="'Last Name'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            id="lastname"
+            (input)="inputStatus()"
+            [value]="lastNameInputValue"
+            name="lastName"
+            ngModel
+          />
+        </app-input-design>
+
+        <app-input-design
+          [header]="'Gender'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <select
+          #myname
+            (change)="selectGender($event)"
+            style="
+              font-size: 1rem;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              text-indent: 1px;
+              text-overflow: '';
+              border: none;
+              outline: 0;
+              height: 100%;
+              border-radius: 14px;
+              background-color: transparent;
+              visibility: visible;
+            "
+            role="button"
+            class="position-absolute top-0 px-3 w-100"
+            name="genders"
+            id="genders"
+          >
+            <option class="option" value="">Select your gender</option>
+            <option class="option fw-bold" value="male">Male</option>
+            <option class="option fw-bold" value="female">Female</option>
+          </select>
+          <i
+            role="button"
+            style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+          ></i>
+        </app-input-design>
+
+        <app-input-design
+          [header]="'Email Address'"
+          [background_color]="'black'"
+          [header_background_color]="'orange'"
+        >
+          <input
+            style="
+              background-color: transparent;
+              border: none;
+              outline: 0;
+              width: 100%;
+            "
+            id="email"
+            (input)="inputStatus()"
+            name="email"
+            [value]="emailInputValue"
+            ngModel
+          />
+        </app-input-design>
       </div>
     </div>
   </div>
   <div class="d-flex align-items-center justify-content-center mt-4">
-    <button class="btn profile-edit-button px-5 py-1">Confirm</button>
+    <button class="btn profile-edit-button px-5 py-1" [disabled]="disabled">
+      Confirm
+    </button>
   </div>
-</div>
+</form>
+
+
+<form *ngIf="this.popup.target == 'advert'">
+Edit advert popup
+</form>

@@ -27,7 +27,6 @@ export class PopupComponent implements OnInit {
     
   }
   ngOnInit() {
-    console.log('called'+  'asdasdasdas');
     this.popupService.getMessage().subscribe((data:any) => {
       
       this.popupStatus = data.status;
