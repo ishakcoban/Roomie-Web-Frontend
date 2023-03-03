@@ -22,12 +22,12 @@ export class AppComponent {
     header: 'Name',
   };
   isVisible: boolean = false;
-  navStatus:boolean= false;
+  navStatus: boolean = false;
   auth: boolean;
-constructor(private router:Router,private authService: AuthService){
+  constructor(private router: Router, private authService: AuthService) {
+    this.auth = authService.loggedIn;
+  }
 
-  this.auth = authService.loggedIn;
-}
   @HostListener('document:click', ['$event.target'])
   onClick(element: HTMLElement) {
     if ($('div').attr('background-color') == '#E0E0E0') {
@@ -38,9 +38,6 @@ constructor(private router:Router,private authService: AuthService){
     }*/
 
     //console.log($( 'select' ).attr('disabled'))
-    
-
-
   }
   ngDoCheck() {
     this.auth = this.authService.loggedIn;

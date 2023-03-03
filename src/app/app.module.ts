@@ -33,6 +33,8 @@ import { InputDesignComponent } from './components/input-design/input-design.com
 import {HttpClientModule} from '@angular/common/http';
 import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { NgxImageSwiperModule } from 'ngx-image-swiper';
+import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     LoginRegisterBackgroundComponent,
     InputDesignComponent,
     ButtonLoadingIndicatorComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    PhotoSliderComponent
 
   ],
   imports: [
@@ -68,7 +71,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxImageSwiperModule
     
   ],
   providers: [AuthService,/*AuthGuard,*/HttpService,PopupService],

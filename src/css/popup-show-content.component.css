@@ -2,6 +2,7 @@
 body {
   background-color: #E0E0E0;
   user-select: none;
+  overflow-x: hidden;
 }
 
 :root {
@@ -93,4 +94,11 @@ body {
 
 .popup-close-btn {
   width: 25px;
+}
+
+.image-swiper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
 }

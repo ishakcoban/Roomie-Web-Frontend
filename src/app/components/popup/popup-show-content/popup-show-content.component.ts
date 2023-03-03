@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PopupService } from 'src/app/services/popup.service';
-
+import { NgxSwiperConfig } from 'ngx-image-swiper';
 @Component({
   selector: 'app-popup-show-content',
   templateUrl: './popup-show-content.component.html',

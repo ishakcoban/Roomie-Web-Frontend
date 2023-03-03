@@ -9,7 +9,7 @@
   <!-- create advert popup size popup size col-8 col-sm-10 col-md-7 col-lg-6 col-xl-4-->
   <div
     [ngClass]="popupData.type != 'show' ? 
-    'popup-content-wrapper d-flex flex-column col-10 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0'
+    'popup-content-wrapper  d-flex flex-column col-10 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0'
      : 
      'popup-content-wrapper-show d-flex flex-column col-12 col-sm-11 col-lg-9 col-xl-7 my-5 my-md-0'
      "
@@ -26,7 +26,7 @@
 
     <div
       [ngClass]="
-        popupData.type != 'show' ? 'popup-content mx-5 mb-3' : 'popup-content'
+        popupData.type != 'show' ? 'popup-content mx-5 mb-3 position-relative' : 'popup-content position-relative'
       "
       [ngSwitch]="popupData.type"
     >
@@ -43,6 +43,16 @@
         [popup]="popupData"
         *ngSwitchCase="'update'"
       ></app-popup-update-content>
+      <div *ngIf="popupData.type == 'show'" style="right: 0;" class="position-absolute top-0 me-3 mt-3 mb-3">
+        <img
+          role="button"
+          (click)="changePopupStatus()"
+          class="popup-close-btn"
+          src="assets/images/close.png"
+        />
+      </div>
     </div>
+    
   </div>
+
 </div>
