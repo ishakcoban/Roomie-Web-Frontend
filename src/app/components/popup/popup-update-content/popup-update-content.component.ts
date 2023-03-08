@@ -5,6 +5,7 @@ import { PopupService } from 'src/app/services/popup.service';
 import { HttpService } from 'src/app/services/http.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
+import { LocationService } from 'src/app/services/advert-location.service';
 @Component({
   selector: 'app-popup-update-content',
   templateUrl: './popup-update-content.component.html',
@@ -31,24 +32,28 @@ export class PopupUpdateContentComponent {
   errorMessage:string = '';
   @ViewChild('myname')
   selectTag!: ElementRef;
+  cities:string[]=[];
   constructor(
     private http: HttpClient,
     private popupService: PopupService,
     private httpService: HttpService,
     private authService: AuthService,
-    private successMessageToggleService: SuccessMessageToggleService
+    private successMessageToggleService: SuccessMessageToggleService,
+    private locationService:LocationService
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+     this.cities = await this.locationService.getAllCities();
+
     // get user information
-    /*   this.httpService.createHttpRequest('api/Account/13', 'GET', {})?.subscribe(
+       this.httpService.createHttpRequest('api/Account/1', 'GET', {})?.subscribe(
       (res) => {
         console.log(res);
       },
       (error) => {
         console.log(error);
       }
-    );*/
+    );
     // inserting old values to input area
   }
 

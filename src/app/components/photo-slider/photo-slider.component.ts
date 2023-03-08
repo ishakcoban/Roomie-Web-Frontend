@@ -15,6 +15,8 @@ export class PhotoSliderComponent {
     loop: false,
     keyboardNavigation: false,
     imgBackgroundSize: 'contain',
+    swipeThreshold:5,
+    
   };
 
   images = [

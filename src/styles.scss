@@ -21,13 +21,13 @@ $black: #0C0C0F;
   * {
     box-sizing: border-box;
   }
-  
+ 
   .navigation__button--right{
     background-color: $grey !important;
   }
 
-  .navigation__button:disabled{
-    display: none !important;
+.navigation__button:disabled{
+    visibility: hidden !important;
   }
 
   .navigation__button--left{
@@ -50,4 +50,5 @@ $black: #0C0C0F;
 
   .image{
     background-color: transparent !important;
+    
   }

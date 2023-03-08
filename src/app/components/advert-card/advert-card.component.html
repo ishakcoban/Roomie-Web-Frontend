@@ -2,7 +2,27 @@
   <div
     class="position-absolute w-100 py-2 d-flex justify-content-end align-items-center p-4"
   >
-    <i (click)="switchBookmark($event)" id="elementID" [ngClass]="bookmarkStatus ? 'fa-solid fa-bookmark me-1 mt-2' : 'far fa-bookmark me-1 mt-2'"></i>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <i
+        (click)="editAdvert($event)"
+        id="edit"
+        role="button"
+        class="fa-regular fa-pen-to-square mt-2"
+      ></i>
+      <i
+        (click)="removeAdvert($event)"
+        id="bin"
+        role="button"
+        class="fa-solid fa-trash-can mt-2"
+      ></i>
+      <i
+        (click)="switchBookmark($event)"
+        id="elementID"
+        [ngClass]="
+          bookmarkStatus ? 'fa-solid fa-bookmark mt-2' : 'far fa-bookmark mt-2'
+        "
+      ></i>
+    </div>
   </div>
   <img
     src="https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg"
@@ -65,12 +85,8 @@
       <i id="elementID" class="far fa-bookmark me-4"></i>
     </div>
   </div>
-  <div class="mt-2">
-    <img
-      class="w-100"
-      src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
-    />
-  </div>
+
+  <div class="slider-wrapper mt-2"><app-photo-slider></app-photo-slider></div>
 
   <div class="">
     <div class="d-flex justify-content-end">

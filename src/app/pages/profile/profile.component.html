@@ -2,19 +2,33 @@
 <div class="d-flex justify-content-center">
   <img class="profile-user-img" src="assets/images/devImage-F.png" />
 </div>
-<div class="d-flex justify-content-center mt-3 fw-bold fs-5">Name Surname</div>
-<div class="d-flex justify-content-center mt-3">
-  <div class="profile-vertical-line"></div>
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
+  <app-loading-indicator></app-loading-indicator>
 </div>
-<div class="row m-0 p-0 mt-4">
-  <div class="col-2 col-sm-4 col-md-4 col-lg-5"></div>
-  <div class="col-4 col-sm-2 col-md-2 col-lg-1 p-0 fw-bold">
-    <div style="margin-left: -30px;">Username <br />First Name<br />Last Name<br />Email Address<br />Gender<br />Password</div>
-    
+<div *ngIf="!isLoading">
+  <div class="d-flex justify-content-center mt-3 fw-bold fs-5">
+    {{userData.firstName}} {{userData.lastName}}
   </div>
-  <div class="col-4 col-sm-3 col-md-3 col-lg-3">asdasdsasddsasdadsdas<br />asdasdsasddsasdadsdas<br />asdasdsasddsasdadsdas<br />asdasdsasddsasdadsdas<br />asdasdsasddsasdadsdas<br />asdasdsasddsasdadsdas</div>
-  <div class="col-2 col-sm-4 col-md-3 col-lg-3"></div>
-</div>
-<div class="d-flex justify-content-center align-items-center mt-5">
-  <button class="btn profile-button px-5 py-2" (click)="openPopup()">Edit Profile Information</button>
+  <div class="d-flex justify-content-center mt-3">
+    <div class="profile-vertical-line"></div>
+  </div>
+  <div class="row m-0 p-0 mt-4">
+    <div class="col-2 col-sm-4 col-md-4 col-lg-5"></div>
+    <div class="col-4 col-sm-2 col-md-2 col-lg-1 p-0 fw-bold">
+      <div style="margin-left: -30px">
+        Username <br />First Name<br />Last Name<br />Email Address<br />Gender<br />Password
+      </div>
+    </div>
+    <div class="col-4 col-sm-3 col-md-3 col-lg-3">
+      {{ userData.username }}<br />{{ userData.firstName }}<br />{{
+        userData.lastName
+      }}<br />{{ userData.email }}<br />{{ userData.gender }}<br />**********
+    </div>
+    <div class="col-2 col-sm-4 col-md-3 col-lg-3"></div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center mt-5">
+    <button class="btn profile-button px-5 py-2" (click)="openPopup()">
+      Edit Profile Information
+    </button>
+  </div>
 </div>

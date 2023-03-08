@@ -5,23 +5,35 @@ import { SuccessMessageToggleService } from 'src/app/services/success-message-to
 @Component({
   selector: 'app-advert-card',
   templateUrl: './advert-card.component.html',
-  styleUrls: ['./advert-card.component.scss']
+  styleUrls: ['./advert-card.component.scss'],
 })
 export class AdvertCardComponent {
-  showInfoStatus:boolean= false;
-  bookmarkStatus:boolean=false;
+  showInfoStatus: boolean = false;
+  bookmarkStatus: boolean = false;
 
-  constructor(private popupService:PopupService,private successMessageToggleService:SuccessMessageToggleService){}
-  showInfo(){
+  constructor(
+    private popupService: PopupService,
+    private successMessageToggleService: SuccessMessageToggleService
+  ) {}
+  showInfo() {
     this.showInfoStatus = !this.showInfoStatus;
-
   }
-  switchBookmark(e:Event){
+  switchBookmark(e: Event) {
     e.stopPropagation();
-    this.successMessageToggleService.openMessageBox('The advert saved successfully!')
+    this.successMessageToggleService.openMessageBox(
+      'The advert saved successfully!'
+    );
     this.bookmarkStatus = !this.bookmarkStatus;
   }
   openPopup() {
     this.popupService.changePopupStatus(true, 'show', 'advert');
+  }
+  editAdvert(e: Event) {
+    e.stopPropagation();
+    this.popupService.changePopupStatus(true, 'update', 'advert');
+  }
+
+  removeAdvert(e: Event) {
+    e.stopPropagation();
   }
 }

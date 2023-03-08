@@ -14,6 +14,36 @@ body {
   box-sizing: border-box;
 }
 
+.navigation__button--right {
+  background-color: #E0E0E0 !important;
+}
+
+.navigation__button:disabled {
+  visibility: hidden !important;
+}
+
+.navigation__button--left {
+  background-color: #E0E0E0 !important;
+}
+
+.pagination__dot {
+  box-shadow: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #f14d6b !important;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: transparent !important;
+}
+
+.pagination__dot--active {
+  background-color: #f14d6b !important;
+}
+
+.image {
+  background-color: transparent !important;
+}
+
 .adverts-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -2,10 +2,40 @@
   <div
     class="col-12 col-md-6 m-0 p-0 d-flex justify-content-center align-items-center show-content show-content-bg position-relative"
   >
-  <app-photo-slider></app-photo-slider>
+    <div class="w-100 h-100 position-relative">
+      <app-photo-slider></app-photo-slider>
+      <div class="position-absolute top-0" style="right: 0;">
+        <div class="pe-2 pt-2" >
+          <i
+            (click)="editAdvert($event)"
+            id="edit2"
+            role="button"
+            class="fa-regular fa-pen-to-square me-3"
+          ></i>
+          <i
+            (click)="removeAdvert($event)"
+            id="bin2"
+            role="button"
+            class="fa-solid fa-trash-can me-3"
+          ></i>
+          <i
+            (click)="switchBookmark($event)"
+            id="elementID2"
+            role="button"
+            [ngClass]="
+              bookmarkStatus
+                ? 'fa-solid fa-bookmark me-1'
+                : 'far fa-bookmark me-1'
+            "
+          ></i>
+        </div>
+      </div>
+    </div>
 
     <!--  <img class="advert-photo" src="https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg" />-->
-  <div class="position-absolute top-0 align-self-end me-3 mt-3 mb-3 w-100 d-flex justify-content-end d-md-none">
+    <div
+      class="position-absolute top-0 align-self-end me-3 mt-3 mb-3 w-100 d-flex justify-content-end d-md-none"
+    >
       <img
         role="button"
         (click)="changePopupStatus()"
@@ -25,6 +55,7 @@
         <div class="fw-bold" style="font-size: 0.9rem">Name Surname</div>
         <div style="font-size: 0.7rem">1 hour</div>
       </div>
+
     </div>
     <hr class="mx-4" />
     <div class="fw-bold ms-4 mt-3" style="font-size: 0.9rem">Header</div>

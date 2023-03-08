@@ -19,7 +19,7 @@ body {
 }
 
 .navigation__button:disabled {
-  display: none !important;
+  visibility: hidden !important;
 }
 
 .navigation__button--left {

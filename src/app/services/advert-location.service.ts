@@ -5,31 +5,55 @@ import { Subject } from 'rxjs';
 export class LocationService {
   private subject = new Subject();
 
-  async readLocation(){
+  async readLocation() {
     let response = await fetch('../../assets/data.json');
     return response.json();
-
   }
 
-  async getAllCities(/*_city: string,_description:string,_neighbourhood:string*/) {
+  async getAllCities() {
     let locationData = await this.readLocation();
     console.log(locationData);
-    let cities = [];
-    cities.push('Select a city')
+    let cities: string[] = [];
 
     locationData.forEach((element: any) => {
-        cities.push(element.name)
+      cities.push(element.name);
     });
 
     return cities;
   }
-  getAllDistricts(){
 
+  async getAllDistricts() {
+    let locationData = await this.readLocation();
+
+   /* districts = [];
+
+    int count = 0;
+    data.insert(0, '');
+
+    for (var element in getData[selectedCityOfIndex]['towns']) {
+      if (count == 0) {
+        districts.add('District');
+      }
+      districts.add(element['name']);
+
+      count++;
+    }*/
   }
-  getAllNeighbourhoods(){
-    
+
+  async selectCity() {
+    let locationData = await this.readLocation();
+    console.log(locationData);
+    let cities: string[] = [];
+
+    locationData.forEach((element: any) => {
+      cities.push(element.name);
+    });
+
+    return cities;
   }
-getMessage():any {
+
+  getAllNeighbourhoods() {}
+  getMessage(): any {
     return this.subject.asObservable();
   }
 }
