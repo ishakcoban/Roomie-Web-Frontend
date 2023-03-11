@@ -41,8 +41,9 @@ export class LoginComponent {
               console.log(res);
 
               this.errorMessage = '';
-              //this.authService.login(res.applicationUserId,res.token);
-              this.router.navigate(['/home']);
+              this.authService.login(res.applicationUserId,res.token)
+              this.authService.changeNavbarStatus(true);
+              //this.router.navigate(['/home']);
             },
             (error) => {
               if (error.status == 400) {

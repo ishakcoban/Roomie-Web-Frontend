@@ -10,6 +10,7 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  auth: boolean = localStorage.getItem('token') == null ? false : true;
   constructor(
     private popupService: PopupService,
     private authService: AuthService,
@@ -18,6 +19,7 @@ export class NavbarComponent {
 
   onLogout() {
     this.authService.logout();
+    this.authService.changeNavbarStatus(false);
     this.router.navigate(['/login']);
   }
   @HostListener('document:click', ['$event.target'])
@@ -59,5 +61,13 @@ export class NavbarComponent {
 
   onSubmit() {
     this.authService.logout();
+  }
+
+  ngOnInit() {
+    this.authService
+      .getMessageNavbar()
+      .subscribe((data: { status: boolean }) => {
+        this.auth = data.status;
+      });
   }
 }

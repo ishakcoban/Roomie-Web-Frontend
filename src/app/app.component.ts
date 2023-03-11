@@ -39,10 +39,4 @@ export class AppComponent {
 
     //console.log($( 'select' ).attr('disabled'))
   }
-  ngDoCheck() {
-    this.auth = this.authService.loggedIn;
-  }
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-  }
 }
