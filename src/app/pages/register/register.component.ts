@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
+import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
 
 @Component({
   selector: 'app-register',
@@ -20,17 +21,22 @@ export class RegisterComponent {
   email!: string;
   password!: string;
   passwordAgain!: string;
-  errorMessage:string = '';
-  constructor(private authService: AuthService,private httpService:HttpService,private router:Router) {}
+  errorMessage: string = '';
+  constructor(
+    private authService: AuthService,
+    private httpService: HttpService,
+    private router: Router,
+    private successMessageToggleService: SuccessMessageToggleService,
+  ) {}
   onSubmit(form: NgForm) {
-    console.log(form.value)
+    console.log(form.value);
     let data = {
       Username: form.value.username.toString(),
       Email: form.value.email.toString(),
       Gender: this.gender,
       FirstName: form.value.firstName.toString(),
       LastName: form.value.lastName.toString(),
-      Password: form.value.password.toString().trim()
+      Password: form.value.password.toString().trim(),
     };
 
     if (
@@ -46,30 +52,25 @@ export class RegisterComponent {
     } else if (form.value.password != form.value.passwordAgain) {
       this.errorMessage = "Passwords don't match each other!";
     } else {
-
       this.errorMessage = '';
       this.isLoading = true;
       setTimeout(() => {
-        console.log('called http')
         this.httpService
           .createHttpRequest('api/Account/register', 'POST', data)
           ?.subscribe(
             (res) => {
-              console.log(res);
-
               this.errorMessage = '';
-              //this.router.navigate(['/login']);
+              this.successMessageToggleService.openMessageBox('You registered successfully!')
+              this.router.navigate(['/login']);
             },
             (error) => {
               if (error.status == 400) {
-                this.errorMessage = 'Email or password is not valid!';
+                this.errorMessage = 'Not valid!';
               }
-              console.log(error);
             }
           );
         this.isLoading = false;
       }, 2500);
-
     }
   }
 

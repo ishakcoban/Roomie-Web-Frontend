@@ -27,40 +27,60 @@ export class PopupUpdateContentComponent {
   lastNameInputValue!: string;
   emailInputValue!: string;
   genderInputValue!: string;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   popupTarget: string = '';
-  errorMessage:string = '';
+  errorMessage: string = '';
+  genders: string[] = [];
   @ViewChild('myname')
   selectTag!: ElementRef;
-  cities:string[]=[];
+  cities: string[] = [];
   constructor(
-    private http: HttpClient,
     private popupService: PopupService,
     private httpService: HttpService,
     private authService: AuthService,
     private successMessageToggleService: SuccessMessageToggleService,
-    private locationService:LocationService
+    private locationService: LocationService
   ) {}
 
-  async ngOnInit() {
-     this.cities = await this.locationService.getAllCities();
+  ngOnInit() {
+    //this.cities = await this.locationService.getAllCities();
+    setTimeout(() => {
+      this.httpService
+        .createHttpRequest('api/Account/1', 'GET', {})
+        ?.subscribe((res) => {
+          this.oldUsername = res.username;
+          this.usernameInputValue = res.username;
+          this.oldFirstName = res.firstName;
+          this.firstNameInputValue = res.firstName;
+          this.oldLastName = res.lastName;
+          this.lastNameInputValue = res.lastName;
+          this.oldEmail = res.email;
+          this.emailInputValue = res.email;
+          this.oldGender = res.gender;
+          this.genderInputValue = res.gender;
+          this.genders.push('Male', 'Female');
 
-    // get user information
-       this.httpService.createHttpRequest('api/Account/1', 'GET', {})?.subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    // inserting old values to input area
+          // inserting gender value to html tag
+          /* var selectTagOptions = Array.from(
+            this.selectTag.nativeElement.options
+          );
+          let index = 0;*/
+          //console.log(selectTagOptions);
+          /* selectTagOptions.map((option: any) => {
+            if (option.value == 'male') {
+              this.genderInputValue = option.value;
+              this.selectTag.nativeElement.selectedIndex = index;
+            }
+
+            index++;
+          });*/
+
+          this.isLoading = false;
+        });
+    }, 1000);
   }
 
   checkInputValuesWithOldValues() {
-    console.log(
-      (document.getElementById('genders')! as HTMLSelectElement).value
-    );
     if (
       this.oldUsername !=
       (document.getElementById('username')! as HTMLSelectElement).value
@@ -110,49 +130,13 @@ export class PopupUpdateContentComponent {
 
   ngAfterViewInit() {
     //this.isLoading = true;
-    this.errorMessage = 'sadasdasd'
-    setTimeout(() => {
-      this.http
-        .get<any>('https://api.npms.io/v2/search?q=scope:angular')
-        .subscribe((data) => {
-          this.oldUsername = data.results[0].package.name;
-          this.usernameInputValue = data.results[0].package.name;
-          this.oldFirstName = data.results[0].package.name;
-          this.firstNameInputValue = data.results[0].package.name;
-          this.oldLastName = data.results[0].package.name;
-          this.lastNameInputValue = data.results[0].package.name;
-          this.oldEmail = data.results[0].package.name;
-          this.emailInputValue = data.results[0].package.name;
-          this.oldGender = 'male';
-          this.genderInputValue = 'male';
-
-          // inserting gender value to html tag
-          var selectTagOptions = Array.from(
-            this.selectTag.nativeElement.options
-          );
-          let index = 0;
-          //console.log(selectTagOptions);
-          selectTagOptions.map((option: any) => {
-            if (option.value == 'male') {
-              this.genderInputValue = option.value;
-              this.selectTag.nativeElement.selectedIndex = index;
-            }
-
-            index++;
-          });
-
-          //this.isLoading = false;
-        });
-    }, 1000);
+    //this.errorMessage = 'sadasdasd';
   }
 
   onSubmit(form: NgForm) {
-    this.successMessageToggleService.openMessageBox(
-      'Your information updated successfully!'
-    );
-    this.popupService.changePopupStatus(false, '-', '-');
-    /*let data = {
-      ApplicationUserId: this.authService.id,
+
+    let data = {
+      ApplicationUserId: 1,
       Username: (document.getElementById('username')! as HTMLSelectElement)
         .value,
       Email: (document.getElementById('email')! as HTMLSelectElement).value,
@@ -161,13 +145,25 @@ export class PopupUpdateContentComponent {
         .value,
       LastName: (document.getElementById('lastname')! as HTMLSelectElement)
         .value,
-      PublicId: 'h6hn8qajao1ui0xpmdrh',
+      PublicId: null,
       ImageUrl:
-        'https://res.cloudinary.com/ddkjxhjyy/image/upload/v1675018114/h6hn8qajao1ui0xpmdrh.jpg',
+        null,
     };
     setTimeout(() => {
-      // close popup
-      this.popupService.changePopupStatus(false, '-', '-');
-    }, 1500);*/
+      this.httpService.createHttpRequest('api/Account', 'PUT', data)?.subscribe(
+        (res) => {
+          console.log(res);
+          this.successMessageToggleService.openMessageBox(
+            'Your information updated successfully!'
+          );
+
+          // close popup
+          this.popupService.changePopupStatus(false, '-', '-');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }, 1500);
   }
 }

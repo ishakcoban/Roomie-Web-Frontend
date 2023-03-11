@@ -177,8 +177,10 @@
         <
       </button>
      
-      <button class="btn register-button fw-bold px-5 py-1 ms-4">
-        REGISTER
+      <button class="btn register-button fw-bold px-5 py-1 ms-4" [disabled]="isLoading">
+        <span *ngIf="!isLoading">REGISTER</span>
+        <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center"><app-button-loading-indicator></app-button-loading-indicator></div>
+ 
       </button>
     </div>
   </form>

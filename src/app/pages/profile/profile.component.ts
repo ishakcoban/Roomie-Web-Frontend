@@ -36,7 +36,6 @@ export class ProfileComponent {
     setTimeout(() => {
       this.httpService.createHttpRequest('api/Account/1', 'GET', {})?.subscribe(
         (res) => {
-          console.log(res.username)
           this.userData.username = res.username;
           this.userData.firstName = res.firstName;
           this.userData.lastName = res.lastName;
