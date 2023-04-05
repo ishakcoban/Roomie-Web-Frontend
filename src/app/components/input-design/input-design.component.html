@@ -1,4 +1,4 @@
-<div class="input-wrapper position-relative mt-5 mx-4 mx-sm-5">
+<div class="input-wrapper position-relative m-0 p-0">
   <div
     [ngClass]="
       background_color == 'white'
@@ -9,11 +9,10 @@
     <ng-content></ng-content>
   </div>
   <div
-    style="font-size: 0.7rem"
     [ngClass]="
       header_background_color == 'white'
-        ? 'input-header-white position-absolute top-0 ms-3 px-2'
-        : 'input-header-orange position-absolute top-0 ms-3 px-2'
+        ? 'input-header-white position-absolute top-0 ms-3'
+        : 'input-header-orange position-absolute top-0 ms-3'
     "
   >
     {{ header }}

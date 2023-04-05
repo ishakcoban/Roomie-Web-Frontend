@@ -5,7 +5,7 @@
   border-color: $black;
   border-style: solid;
   border-width: 2px;
-  height: 45px;
+  height: 50px;
 }
 
 .input-border-white {
@@ -13,23 +13,25 @@
   border-color: $white;
   border-style: solid;
   border-width: 2px;
-  height: 45px;
+  height: 50px;
 }
 
 .input-header-orange {
   margin-top: -10px;
   background-color: $orange;
   color: $white;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
   border-radius: 18px;
+  padding: 3px 10px 3px 10px;
 }
 
 .input-header-white {
     margin-top: -10px;
     background-color: $white;
-    color: $orange;
-    font-size: 0.8rem;
+    color: $pink;
+    font-size: 0.7rem;
     font-weight: 500;
     border-radius: 18px;
+    padding: 3px 10px 3px 10px;
   }

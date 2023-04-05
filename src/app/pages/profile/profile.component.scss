@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .top-gradient {
   width: 100%;
@@ -11,23 +11,52 @@
   );
 }
 
-.profile-user-img{
-    width: 100px;
-    margin-top: -45px;
+.profile-user-img {
+  width: 114px;
+  background-color: $grey;
+  border-radius: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 7px 14px,
+    rgba(0, 0, 0, 0.15) 0px 10px 10px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: $white;
 }
 
-.profile-vertical-line{
-    width: 2px;
-    height: 30px;
-    background-color: $pink;
+.profile-user-img-wrapper {
+  margin-top: -45px;
+  width: 120px;
+  height: 120px;
+  background-color: $grey;
+  border-radius: 100%;
 }
 
-.profile-button{
-    background-color: $pink;
-    color: $white;
-    border-radius: 12px;
-    font-weight: bold;
-    font-family: 'Comfortaa', cursive;
-    font-size: 1.1rem;
+.profile-user-img-wrapper:hover {
+  cursor: pointer;
+}
 
+.profile-vertical-line {
+  width: 2px;
+  height: 30px;
+  background-color: $pink;
+}
+
+.profile-button {
+  background-color: $pink;
+  color: $white;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: "Comfortaa", cursive;
+  font-size: 1.1rem;
+}
+
+.profile-user-img-edit-icon-wrapper {
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: $grey;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $black;
 }

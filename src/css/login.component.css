@@ -51,8 +51,13 @@ body {
   font-size: 1.2rem;
 }
 
+.login-button:hover {
+  background-color: #c9cece;
+}
+
 .login-bottom-text {
   color: #FFFFFF;
   text-decoration: underline;
-  font-weight: lighter;
+  font-weight: normal;
+  font-size: .8rem;
 }

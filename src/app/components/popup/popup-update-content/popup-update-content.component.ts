@@ -46,7 +46,7 @@ export class PopupUpdateContentComponent {
     //this.cities = await this.locationService.getAllCities();
     setTimeout(() => {
       this.httpService
-        .createHttpRequest('api/Account/1', 'GET', {})
+        .createHttpRequest('api/Account/' + this.authService.getByUserId(), 'GET', {})
         ?.subscribe((res) => {
           this.oldUsername = res.username;
           this.usernameInputValue = res.username;
@@ -134,20 +134,19 @@ export class PopupUpdateContentComponent {
   }
 
   onSubmit(form: NgForm) {
-
     let data = {
-      ApplicationUserId: 1,
-      Username: (document.getElementById('username')! as HTMLSelectElement)
+      "ApplicationUserId": this.authService.getByUserId(),
+      "Username": (document.getElementById('username')! as HTMLSelectElement)
         .value,
-      Email: (document.getElementById('email')! as HTMLSelectElement).value,
-      Gender: (document.getElementById('genders')! as HTMLSelectElement).value,
-      FirstName: (document.getElementById('firstname')! as HTMLSelectElement)
+      "Email": (document.getElementById('email')! as HTMLSelectElement).value,
+      "Gender": (document.getElementById('genders')! as HTMLSelectElement).value,
+      "FirstName": (document.getElementById('firstname')! as HTMLSelectElement)
         .value,
-      LastName: (document.getElementById('lastname')! as HTMLSelectElement)
+      "LastName": (document.getElementById('lastname')! as HTMLSelectElement)
         .value,
-      PublicId: null,
-      ImageUrl:
-        null,
+      "PublicId": 'h6hn8qajao1ui0xpmdrh',
+      "ImageUrl":
+        'https://res.cloudinary.com/ddkjxhjyy/image/upload/v1675018114/h6hn8qajao1ui0xpmdrh.jpg',
     };
     setTimeout(() => {
       this.httpService.createHttpRequest('api/Account', 'PUT', data)?.subscribe(

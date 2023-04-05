@@ -7,6 +7,14 @@
   font-size: 1.2rem;
 }
 
+.register-back-button:hover {
+  background-color: rgb(201, 206, 206);
+}
+
+.register-button:hover {
+  background-color: rgb(201, 206, 206);
+}
+
 .register-bottom-text {
   color: $white;
   text-decoration: underline;
@@ -36,13 +44,13 @@
   background: $black;
 }
 
-.register-back-button{
+.register-back-button {
   color: $pink;
   background-color: $white;
   border-radius: 100%;
   font-weight: bolder;
 }
 
-.option{
+.option {
   background-color: $grey;
 }

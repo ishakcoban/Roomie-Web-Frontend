@@ -26,26 +26,27 @@ export class RegisterComponent {
     private authService: AuthService,
     private httpService: HttpService,
     private router: Router,
-    private successMessageToggleService: SuccessMessageToggleService,
+    private successMessageToggleService: SuccessMessageToggleService
   ) {}
   onSubmit(form: NgForm) {
-    console.log(form.value);
+ 
     let data = {
-      Username: form.value.username.toString(),
-      Email: form.value.email.toString(),
-      Gender: this.gender,
-      FirstName: form.value.firstName.toString(),
-      LastName: form.value.lastName.toString(),
-      Password: form.value.password.toString().trim(),
+      userName: form.value.username.toString(),
+      firstName: form.value.firstName.toString(),
+      lastName: form.value.lastName.toString(),
+      gender: this.gender,
+      email: form.value.email.toString(),
+      photoUrl: null,
+      password: form.value.password.toString().trim(),
     };
 
     if (
-      data.Username.length == 0 ||
-      data.FirstName.length == 0 ||
-      data.LastName.length == 0 ||
-      data.Email.length == 0 ||
-      data.Gender == undefined ||
-      data.Password.length == 0 ||
+      data.userName.length == 0 ||
+      data.firstName.length == 0 ||
+      data.lastName.length == 0 ||
+      data.gender == undefined ||
+      data.email.length == 0 ||
+      data.password.length == 0 ||
       form.value.passwordAgain.toString().length == 0
     ) {
       this.errorMessage = 'You must fill all the areas!';
@@ -56,14 +57,17 @@ export class RegisterComponent {
       this.isLoading = true;
       setTimeout(() => {
         this.httpService
-          .createHttpRequest('api/Account/register', 'POST', data)
+          .createHttpRequest('auth/register', 'POST', data)
           ?.subscribe(
             (res) => {
               this.errorMessage = '';
-              this.successMessageToggleService.openMessageBox('You registered successfully!')
+              this.successMessageToggleService.openMessageBox(
+                'You registered successfully!'
+              );
               this.router.navigate(['/login']);
             },
             (error) => {
+              console.log(error);
               if (error.status == 400) {
                 this.errorMessage = 'Not valid!';
               }

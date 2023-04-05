@@ -24,32 +24,45 @@ export class LoginComponent {
   ) {}
   onSubmit(form: NgForm) {
     let data = {
-      Email: form.value.email.toString().trim(),
-      Password: form.value.password.toString().trim(),
-    };
+      email: form.value.email.toString().trim(),
+      password: form.value.password.toString().trim(),
+    }
+   /* if (this.checkInputType(form.value.email)) {
 
-    if (data.Email.length == 0 || data.Password.length == 0) {
+      data = {
+        email: form.value.email.toString().trim(),
+        password: form.value.password.toString().trim(),
+      }
+    }else{
+      data = {
+        userName: form.value.email.toString().trim(),
+        password: form.value.password.toString().trim(),
+      }
+    }*/
+
+    if (form.value.email.length == 0 || form.value.password.length == 0) {
       this.errorMessage = 'You must fill all the areas!';
     } else {
       this.errorMessage = '';
       this.isLoading = true;
       setTimeout(() => {
         this.httpService
-          .createHttpRequest('api/Account/login', 'POST', data)
+          .createHttpRequest('auth/login', 'POST', data)
           ?.subscribe(
             (res) => {
               console.log(res);
 
               this.errorMessage = '';
-              this.authService.login(res.applicationUserId,res.token)
+              this.authService.login(res.token)
               this.authService.changeNavbarStatus(true);
-              //this.router.navigate(['/home']);
+              console.log(this.authService.getByUserId());
+             // this.router.navigate(['/']);
             },
             (error) => {
               if (error.status == 400) {
                 this.errorMessage = 'Email or password is not valid!';
               }
-              console.log(error.status);
+              console.log(error);
             }
           );
         this.isLoading = false;
@@ -58,5 +71,19 @@ export class LoginComponent {
   }
   switchPassword() {
     this.isVisible = !this.isVisible;
+  }
+
+  checkInputType(userInfo: string) {
+    if (
+      userInfo
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
+    ) {
+      return true;
+    }
+
+    return false;
   }
 }

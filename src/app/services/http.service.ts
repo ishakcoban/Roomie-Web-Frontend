@@ -9,15 +9,13 @@ import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  baseURL: string = 'http://localhost:5101/';
+  baseURL: string = 'http://localhost:8080/';
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
-    let token =
-      'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwiZXhwIjoxNjc4OTA1OTY3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMDEvIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MTAxLyJ9.MDpp4dio5mLkTTztEbd2huDhQgGIUTs2JvKsIJXf13Wh1wUZjvEAaM_24PQPd9zKp0sCli4jT4RYfyRvS9DrUw';
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
-     // .set('Authorization', `bearer ${token}`);
+      //.set('Authorization', `bearer ${this.authService.token}`);
 
      /* {
         'Access-Control-Allow-Origin': '*',

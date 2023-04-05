@@ -12,7 +12,7 @@ import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.compo
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'home',/*canActivate:[AuthGuard]*/component:HomeComponent},
+  {path:'',/*canActivate:[AuthGuard]*/component:HomeComponent},
   {path:'adverts',/*canActivate:[AuthGuard]*/component:AdvertsComponent},
   {path:'my-adverts',/*canActivate:[AuthGuard]*/component:MyAdvertsComponent},
   {path:'saved-adverts',/*canActivate:[AuthGuard]*/component:SavedAdvertsComponent},

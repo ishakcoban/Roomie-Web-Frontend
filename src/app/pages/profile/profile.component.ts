@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
 
@@ -28,26 +29,30 @@ export class ProfileComponent {
   isLoading: boolean = true;
   constructor(
     private popupService: PopupService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
     this.isLoading = true;
     setTimeout(() => {
-      this.httpService.createHttpRequest('api/Account/1', 'GET', {})?.subscribe(
-        (res) => {
-          this.userData.username = res.username;
-          this.userData.firstName = res.firstName;
-          this.userData.lastName = res.lastName;
-          this.userData.email = res.email;
-          this.userData.gender = res.gender;
-          this.isLoading = false;
-        },
-        (error) => {
-          console.log(error);
-          this.isLoading = false;
-        }
-      );
+      this.httpService
+        .createHttpRequest('api/Account/' + this.authService.getByUserId(), 'GET', {})
+        ?.subscribe(
+          (res) => {
+            console.log(res)
+            this.userData.username = res.username;
+            this.userData.firstName = res.firstName;
+            this.userData.lastName = res.lastName;
+            this.userData.email = res.email;
+            this.userData.gender = res.gender;
+            this.isLoading = false;
+          },
+          (error) => {
+            console.log(error);
+            this.isLoading = false;
+          }
+        );
     }, 2500);
   }
 

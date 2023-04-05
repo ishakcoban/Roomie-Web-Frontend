@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-
+import jwt_decode from 'jwt-decode';
 export class AuthService {
   loggedIn: boolean = localStorage.getItem('token') == null ? false : true;
   token: string | null = localStorage.getItem('token');
-  id: string | null = localStorage.getItem('id');
+  decoded!: { exp: Number; iat: Number; jti: string; sub: string };
   private subject = new Subject();
 
   changeNavbarStatus(_status: boolean) {
@@ -25,16 +25,17 @@ export class AuthService {
     return promise;
   }
 
-  login(userId: number, token: string) {
-    localStorage.setItem('id', userId.toString());
+  login(token: string) {
     localStorage.setItem('token', token);
     this.loggedIn = true;
   }
 
   logout() {
-    localStorage.removeItem('id');
     localStorage.removeItem('token');
     this.loggedIn = false;
-
+  }
+  getByUserId() {
+    this.decoded = jwt_decode(this.token!);
+    return this.decoded.jti;
   }
 }
