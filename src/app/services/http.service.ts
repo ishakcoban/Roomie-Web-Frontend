@@ -9,22 +9,18 @@ import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  baseURL: string = 'http://localhost:8080/';
+  baseURL: string = 'http://localhost:8080';
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      //.set('Authorization', `bearer ${this.authService.token}`);
 
-     /* {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
-        'Access-Control-Allow-Headers': 'Content-Type, x-requested-with'
-      }
-    */
 
-    const requestOptions = { headers: headers };
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authService.token}`,
+    });
+    let options = { headers: headers };
     //console.log(headers)
     switch (requestType.toUpperCase()) {
       case 'POST':
@@ -32,26 +28,31 @@ export class HttpService {
       //  .pipe(catchError(this.handleError));
 
       case 'GET':
+        
         return this.http
-          .get(this.baseURL + endpoint, requestOptions)
+          .get(this.baseURL + endpoint, options)
           .pipe(catchError(this.handleError));
 
       case 'PUT':
-        // headers.append('Authorization', `Bearer ${token}`)
-        // console.log(data);
         return this.http
-          .put(this.baseURL + endpoint, requestOptions, data)
+          .put(this.baseURL + endpoint, data, options)
+          .pipe(catchError(this.handleError));
+
+      case 'PATCH':
+        return this.http
+          .patch(this.baseURL + endpoint, data, options)
           .pipe(catchError(this.handleError));
 
       case 'DELETE':
         return this.http
-          .delete(this.baseURL + endpoint, requestOptions)
+          .delete(this.baseURL + endpoint, options)
           .pipe(catchError(this.handleError));
     }
     return null;
   }
 
   handleError(errorRes: HttpErrorResponse) {
+    console.log(errorRes);
     let errorMessage = 'An unknown error occured!';
     if (!errorRes.error) {
       return throwError(errorMessage);

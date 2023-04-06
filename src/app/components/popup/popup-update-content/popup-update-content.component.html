@@ -15,134 +15,143 @@
         <div
           class="col-12 col-sm-4 col-md-6 d-flex flex-column align-items-center justify-content-center m-0 p-0"
         >
-          <img class="profile-edit-img" src="assets/images/roomieSingular.png" />
+          <img
+            class="profile-edit-img"
+            src="assets/images/roomieSingular.png"
+          />
           <div class="fw-bold mt-3 fs-5">
             {{ oldFirstName }} {{ oldLastName }}
           </div>
         </div>
         <div class="col-12 col-sm-8 col-md-6 m-0 p-0">
           <div class="profile-edit-right-section pb-5">
-            <app-input-design
-              [header]="'Username'"
-              [background_color]="'black'"
-              [header_background_color]="'orange'"
-            >
-              <input
-                style="
-                  background-color: transparent;
-                  border: none;
-                  outline: 0;
-                  width: 100%;
-                "
-                id="username"
-                (input)="inputStatus()"
-                [(ngModel)]="usernameInputValue"
-                name="username"
-                ngModel
-              />
-            </app-input-design>
-
-            <app-input-design
-              [header]="'First Name'"
-              [background_color]="'black'"
-              [header_background_color]="'orange'"
-            >
-              <input
-                style="
-                  background-color: transparent;
-                  border: none;
-                  outline: 0;
-                  width: 100%;
-                "
-                id="firstname"
-                (input)="inputStatus()"
-                [(ngModel)]="firstNameInputValue"
-                name="firstName"
-                ngModel
-              />
-            </app-input-design>
-
-            <app-input-design
-              [header]="'Last Name'"
-              [background_color]="'black'"
-              [header_background_color]="'orange'"
-            >
-              <input
-                style="
-                  background-color: transparent;
-                  border: none;
-                  outline: 0;
-                  width: 100%;
-                "
-                id="lastname"
-                (input)="inputStatus()"
-                [(ngModel)]="lastNameInputValue"
-                name="lastName"
-                ngModel
-              />
-            </app-input-design>
-
-            <app-input-design
-              [header]="'Gender'"
-              [background_color]="'black'"
-              [header_background_color]="'orange'"
-            >
-              <select
-                #myname
-                (change)="selectGender($event)"
-                style="
-                  font-size: 1rem;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  text-indent: 1px;
-                  text-overflow: '';
-                  border: none;
-                  outline: 0;
-                  height: 100%;
-                  border-radius: 14px;
-                  background-color: transparent;
-                  visibility: visible;
-                "
-                role="button"
-                class="position-absolute top-0 px-3 w-100"
-                name="genders"
-                id="genders"
+            <div class="mt-4 mx-3">
+              <app-input-design
+                [header]="'Username'"
+                [background_color]="'black'"
+                [header_background_color]="'orange'"
               >
-                <option class="option" value="">Select your gender</option>
-                <option
-                  *ngFor="let gender of genders"
-                  class="option fw-bold"
-                  [value]="gender"
+                <input
+                  style="
+                    background-color: transparent;
+                    border: none;
+                    outline: 0;
+                    width: 100%;
+                  "
+                  id="username"
+                  (input)="inputStatus()"
+                  [(ngModel)]="usernameInputValue"
+                  name="username"
+                  ngModel
+                />
+              </app-input-design>
+            </div>
+            <div class="mt-4 mx-3">
+              <app-input-design
+                [header]="'First Name'"
+                [background_color]="'black'"
+                [header_background_color]="'orange'"
+              >
+                <input
+                  style="
+                    background-color: transparent;
+                    border: none;
+                    outline: 0;
+                    width: 100%;
+                  "
+                  id="firstname"
+                  (input)="inputStatus()"
+                  [(ngModel)]="firstNameInputValue"
+                  name="firstName"
+                  ngModel
+                />
+              </app-input-design>
+            </div>
+            <div class="mt-4 mx-3">
+              <app-input-design
+                [header]="'Last Name'"
+                [background_color]="'black'"
+                [header_background_color]="'orange'"
+              >
+                <input
+                  style="
+                    background-color: transparent;
+                    border: none;
+                    outline: 0;
+                    width: 100%;
+                  "
+                  id="lastname"
+                  (input)="inputStatus()"
+                  [(ngModel)]="lastNameInputValue"
+                  name="lastName"
+                  ngModel
+                />
+              </app-input-design>
+            </div>
+            <div class="mt-4 mx-3">
+              <app-input-design
+                [header]="'Gender'"
+                [background_color]="'black'"
+                [header_background_color]="'orange'"
+              >
+                <select
+                  #myname
+                  (change)="selectGender($event)"
+                  style="
+                    font-size: 1rem;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    text-indent: 1px;
+                    text-overflow: '';
+                    border: none;
+                    outline: 0;
+                    height: 100%;
+                    border-radius: 14px;
+                    background-color: transparent;
+                    visibility: visible;
+                  "
+                  role="button"
+                  class="position-absolute top-0 px-3 w-100"
+                  name="genders"
+                  id="genders"
                 >
-                  {{ gender }}
-                </option>
-              </select>
-              <i
-                role="button"
-                style="font-size: 1.2rem"
-                class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-              ></i>
-            </app-input-design>
-
-            <app-input-design
-              [header]="'Email Address'"
-              [background_color]="'black'"
-              [header_background_color]="'orange'"
-            >
-              <input
-                style="
-                  background-color: transparent;
-                  border: none;
-                  outline: 0;
-                  width: 100%;
-                "
-                id="email"
-                (input)="inputStatus()"
-                name="email"
-                [(ngModel)]="emailInputValue"
-                ngModel
-              />
-            </app-input-design>
+                  <option class="option" value="">Select your gender</option>
+                  <option
+                    *ngFor="let gender of genders"
+                    class="option fw-bold"
+                    [value]="gender"
+                  >
+                    {{ gender }}
+                  </option>
+                </select>
+                <i
+                  role="button"
+                  style="font-size: 1.2rem"
+                  class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+                ></i>
+              </app-input-design>
+            </div>
+            <div class="mt-4 mx-3">
+              <app-input-design
+                [header]="'Email Address'"
+                [background_color]="'black'"
+                [header_background_color]="'orange'"
+              >
+                <input
+                  style="
+                    background-color: transparent;
+                    border: none;
+                    outline: 0;
+                    width: 100%;
+                  "
+                  id="email"
+                  (input)="inputStatus()"
+                  name="email"
+                  [(ngModel)]="emailInputValue"
+                  ngModel
+                />
+              </app-input-design>
+            </div>
           </div>
         </div>
       </div>

@@ -26,8 +26,8 @@ export class LoginComponent {
     let data = {
       email: form.value.email.toString().trim(),
       password: form.value.password.toString().trim(),
-    }
-   /* if (this.checkInputType(form.value.email)) {
+    };
+    /* if (this.checkInputType(form.value.email)) {
 
       data = {
         email: form.value.email.toString().trim(),
@@ -47,16 +47,15 @@ export class LoginComponent {
       this.isLoading = true;
       setTimeout(() => {
         this.httpService
-          .createHttpRequest('auth/login', 'POST', data)
+          .createHttpRequest('/auth/login', 'POST', data)
           ?.subscribe(
             (res) => {
               console.log(res);
 
               this.errorMessage = '';
-              this.authService.login(res.token)
+              this.authService.login(res.token);
               this.authService.changeNavbarStatus(true);
-              console.log(this.authService.getByUserId());
-             // this.router.navigate(['/']);
+              this.router.navigate(['/']);
             },
             (error) => {
               if (error.status == 400) {

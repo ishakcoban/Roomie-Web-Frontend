@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PopupService } from 'src/app/services/popup.service';
 import { HttpService } from 'src/app/services/http.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -39,17 +39,19 @@ export class PopupUpdateContentComponent {
     private httpService: HttpService,
     private authService: AuthService,
     private successMessageToggleService: SuccessMessageToggleService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit() {
     //this.cities = await this.locationService.getAllCities();
     setTimeout(() => {
       this.httpService
-        .createHttpRequest('api/Account/' + this.authService.getByUserId(), 'GET', {})
+        .createHttpRequest('/user', 'GET', {})
         ?.subscribe((res) => {
-          this.oldUsername = res.username;
-          this.usernameInputValue = res.username;
+          console.log(res);
+          this.oldUsername = res.userName;
+          this.usernameInputValue = res.userName;
           this.oldFirstName = res.firstName;
           this.firstNameInputValue = res.firstName;
           this.oldLastName = res.lastName;
@@ -135,21 +137,20 @@ export class PopupUpdateContentComponent {
 
   onSubmit(form: NgForm) {
     let data = {
-      "ApplicationUserId": this.authService.getByUserId(),
-      "Username": (document.getElementById('username')! as HTMLSelectElement)
+      //id: this.authService.getByUserId(),
+      userName: (document.getElementById('username')! as HTMLSelectElement)
         .value,
-      "Email": (document.getElementById('email')! as HTMLSelectElement).value,
-      "Gender": (document.getElementById('genders')! as HTMLSelectElement).value,
-      "FirstName": (document.getElementById('firstname')! as HTMLSelectElement)
+      email: (document.getElementById('email')! as HTMLSelectElement).value,
+      gender: (document.getElementById('genders')! as HTMLSelectElement).value,
+      firstName: (document.getElementById('firstname')! as HTMLSelectElement)
         .value,
-      "LastName": (document.getElementById('lastname')! as HTMLSelectElement)
+      lastName: (document.getElementById('lastname')! as HTMLSelectElement)
         .value,
-      "PublicId": 'h6hn8qajao1ui0xpmdrh',
-      "ImageUrl":
-        'https://res.cloudinary.com/ddkjxhjyy/image/upload/v1675018114/h6hn8qajao1ui0xpmdrh.jpg',
+
     };
+    
     setTimeout(() => {
-      this.httpService.createHttpRequest('api/Account', 'PUT', data)?.subscribe(
+      this.httpService.createHttpRequest('/user', 'PATCH', data)?.subscribe(
         (res) => {
           console.log(res);
           this.successMessageToggleService.openMessageBox(

@@ -10,7 +10,7 @@ import { PopupService } from 'src/app/services/popup.service';
 })
 export class ProfileComponent {
   userData: {
-    username: string;
+    userName: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -18,7 +18,7 @@ export class ProfileComponent {
     imageUrl: string;
     publicId: string;
   } = {
-    username: '',
+    userName: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -35,13 +35,14 @@ export class ProfileComponent {
 
   ngOnInit() {
     this.isLoading = true;
+    
     setTimeout(() => {
       this.httpService
-        .createHttpRequest('api/Account/' + this.authService.getByUserId(), 'GET', {})
+        .createHttpRequest('/user', 'GET', {})
         ?.subscribe(
           (res) => {
             console.log(res)
-            this.userData.username = res.username;
+            this.userData.userName = res.userName;
             this.userData.firstName = res.firstName;
             this.userData.lastName = res.lastName;
             this.userData.email = res.email;

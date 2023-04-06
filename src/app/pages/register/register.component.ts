@@ -57,7 +57,7 @@ export class RegisterComponent {
       this.isLoading = true;
       setTimeout(() => {
         this.httpService
-          .createHttpRequest('auth/register', 'POST', data)
+          .createHttpRequest('/auth/register', 'POST', data)
           ?.subscribe(
             (res) => {
               this.errorMessage = '';
