@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class LocationService {
   private subject = new Subject();
-
+  selectedCity?: number
   async readLocation() {
     let response = await fetch('../../assets/data.json');
     return response.json();
@@ -22,22 +22,26 @@ export class LocationService {
     return cities;
   }
 
-  async getAllDistricts() {
+  async getAllDistricts(selectedCity: number) {
+    let locationData = await this.readLocation();
+    this.selectedCity = selectedCity
+    let districts: string[] = [];
+    locationData[selectedCity]['towns'].forEach((element: any) => {
+      districts.push(element.name);
+    });
+    return districts;
+  }
+
+  async getAllNeighbourhoods(selectedDistrict: number) {
     let locationData = await this.readLocation();
 
-   /* districts = [];
-
-    int count = 0;
-    data.insert(0, '');
-
-    for (var element in getData[selectedCityOfIndex]['towns']) {
-      if (count == 0) {
-        districts.add('District');
-      }
-      districts.add(element['name']);
-
-      count++;
-    }*/
+    let neighbourhoods: string[] = [];
+    locationData[this.selectedCity!]['towns'][selectedDistrict].districts.forEach((element: any) => {
+      element.quarters.forEach((element: any) => {
+        neighbourhoods.push(element.name)
+      });
+    });
+    return neighbourhoods;
   }
 
   async selectCity() {
@@ -52,7 +56,6 @@ export class LocationService {
     return cities;
   }
 
-  getAllNeighbourhoods() {}
   getMessage(): any {
     return this.subject.asObservable();
   }

@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .toast-wrapper {
   border-radius: 12px;
   background: #fff;
@@ -25,7 +27,7 @@
   justify-content: center;
   height: 35px;
   min-width: 35px;
-  background-color: #4070f4;
+  background-color: $green;
   color: #fff;
   font-size: 20px;
   border-radius: 50%;
@@ -77,7 +79,7 @@
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: #4070f4;
+  background-color: $green;
 }
 
 .progress.active:before {

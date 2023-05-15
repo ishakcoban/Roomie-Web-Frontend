@@ -1,3 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #E0E0E0;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.navigation__button--right {
+  background-color: #E0E0E0 !important;
+}
+
+.navigation__button:disabled {
+  visibility: hidden !important;
+}
+
+.navigation__button--left {
+  background-color: #E0E0E0 !important;
+}
+
+.pagination__dot {
+  box-shadow: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #f14d6b !important;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: transparent !important;
+}
+
+.pagination__dot--active {
+  background-color: #f14d6b !important;
+}
+
+.image {
+  background-color: transparent !important;
+}
+
 .toast-wrapper {
   border-radius: 12px;
   background: #fff;
@@ -23,7 +69,7 @@
   justify-content: center;
   height: 35px;
   min-width: 35px;
-  background-color: #4070f4;
+  background-color: #28d754;
   color: #fff;
   font-size: 20px;
   border-radius: 50%;
@@ -74,7 +120,7 @@
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: #4070f4;
+  background-color: #28d754;
 }
 
 .progress.active:before {

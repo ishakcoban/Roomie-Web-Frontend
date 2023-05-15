@@ -47,7 +47,7 @@ export class PopupUpdateContentComponent {
     //this.cities = await this.locationService.getAllCities();
     setTimeout(() => {
       this.httpService
-        .createHttpRequest('/user', 'GET', {})
+        .createHttpRequest('api/users', 'GET', {})
         ?.subscribe((res) => {
           console.log(res);
           this.oldUsername = res.userName;
@@ -150,7 +150,7 @@ export class PopupUpdateContentComponent {
     };
     
     setTimeout(() => {
-      this.httpService.createHttpRequest('/user', 'PATCH', data)?.subscribe(
+      this.httpService.createHttpRequest('api/users', 'PUT', data)?.subscribe(
         (res) => {
           console.log(res);
           this.successMessageToggleService.openMessageBox(

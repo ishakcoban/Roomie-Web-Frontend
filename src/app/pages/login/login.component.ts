@@ -47,7 +47,7 @@ export class LoginComponent {
       this.isLoading = true;
       setTimeout(() => {
         this.httpService
-          .createHttpRequest('/auth/login', 'POST', data)
+          .createHttpRequest('api/auth/login', 'POST', data)
           ?.subscribe(
             (res) => {
               console.log(res);

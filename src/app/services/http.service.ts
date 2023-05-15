@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  baseURL: string = 'http://localhost:8080';
+  baseURL: string = 'http://localhost:8080/';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -21,7 +21,6 @@ export class HttpService {
       'Authorization': `Bearer ${this.authService.token}`,
     });
     let options = { headers: headers };
-    //console.log(headers)
     switch (requestType.toUpperCase()) {
       case 'POST':
         return this.http.post<any>(this.baseURL + endpoint, data);

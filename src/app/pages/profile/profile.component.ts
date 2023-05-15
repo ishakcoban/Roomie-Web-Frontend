@@ -38,7 +38,7 @@ export class ProfileComponent {
     
     setTimeout(() => {
       this.httpService
-        .createHttpRequest('/user', 'GET', {})
+        .createHttpRequest('api/users', 'GET', {})
         ?.subscribe(
           (res) => {
             console.log(res)

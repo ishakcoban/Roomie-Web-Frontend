@@ -134,7 +134,7 @@
 
 #elementID {
   color: $pink;
-  font-size: 1.2em;
+  font-size: 1.7rem;
 }
 
 #edit {
@@ -154,8 +154,9 @@
 .card-bottom-line {
   background-color: $black;
   width: 100%;
-  height: 1px;
   opacity: 0.5;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 @media screen and (min-width: 990px) and (max-width: 1224px) {

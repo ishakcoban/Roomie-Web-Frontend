@@ -62,209 +62,262 @@
     </div>
     <div class="col-12 col-md-6 m-0 p-0">
       <div class="profile-edit-right-section pb-5">
-        <app-input-design
-          [header]="'Title'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <input
-            style="
-              background-color: transparent;
-              border: none;
-              outline: 0;
-              width: 100%;
-            "
-            name="title"
-            ngModel
-          />
-        </app-input-design>
-        <app-input-design
-          [header]="'Content'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <input
-            style="
-              background-color: transparent;
-              border: none;
-              outline: 0;
-              width: 100%;
-            "
-            name="content"
-            ngModel
-          />
-        </app-input-design>
-        <app-input-design
-          [header]="'City'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <select
-            style="
-              font-size: 0.8rem;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              text-indent: 1px;
-              text-overflow: '';
-              border: none;
-              outline: 0;
-              height: 100%;
-              border-radius: 14px;
-              background-color: transparent;
-              visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
+        <div class="mx-4 mt-4">
+          <app-input-design
+            [header]="'Title'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
           >
-            <option class="option" value="">Select your gender</option>
-            <option class="option fw-bold" value="male">Male</option>
-            <option class="option fw-bold" value="female">Female</option>
-          </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
-        </app-input-design>
-        <app-input-design
-          [header]="'District'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <select
-            style="
-              font-size: 0.8rem;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              text-indent: 1px;
-              text-overflow: '';
-              border: none;
-              outline: 0;
-              height: 100%;
-              border-radius: 14px;
-              background-color: transparent;
-              visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
+            <input
+              style="
+                background-color: transparent;
+                border: none;
+                outline: 0;
+                width: 100%;
+              "
+              name="title"
+              ngModel
+            />
+          </app-input-design>
+        </div>
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'Description'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
           >
-            <option class="option" value="">Select your gender</option>
-            <option class="option fw-bold" value="male">Male</option>
-            <option class="option fw-bold" value="female">Female</option>
-          </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
-        </app-input-design>
-        <app-input-design
-          [header]="'Neighbourhood'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <select
-            style="
-              font-size: 0.8rem;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              text-indent: 1px;
-              text-overflow: '';
-              border: none;
-              outline: 0;
-              height: 100%;
-              border-radius: 14px;
-              background-color: transparent;
-              visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
+            <input
+              style="
+                background-color: transparent;
+                border: none;
+                outline: 0;
+                width: 100%;
+              "
+              name="description"
+              ngModel
+            />
+          </app-input-design>
+        </div>
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'City'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
           >
-            <option class="option" value="">Select your gender</option>
-            <option class="option fw-bold" value="male">Male</option>
-            <option class="option fw-bold" value="female">Female</option>
-          </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
-        </app-input-design>
-        <app-input-design
-          [header]="'Floor Area(M2)'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <select
-            style="
-              font-size: 0.8rem;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              text-indent: 1px;
-              text-overflow: '';
-              border: none;
-              outline: 0;
-              height: 100%;
-              border-radius: 14px;
-              background-color: transparent;
-              visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
+            <select
+              (change)="selectCity($event)"
+              style="
+                font-size: 0.8rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                border: none;
+                outline: 0;
+                height: 100%;
+                border-radius: 14px;
+                background-color: transparent;
+                visibility: visible;
+              "
+              role="button"
+              class="w-100 position-absolute top-0 px-3"
+              name="cities"
+              id="cities"
+            >
+              <option class="option" value="">Select your city</option>
+              <option
+                *ngFor="let city of cities;let i = index"
+                class="option fw-bold"
+                [value]="i"
+              >
+                {{ city }}
+              </option>
+            </select>
+            <i
+              role="button"
+              style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+            ></i>
+          </app-input-design>
+        </div>
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'District'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
           >
-            <option class="option" value="">Select your gender</option>
-            <option class="option fw-bold" value="male">Male</option>
-            <option class="option fw-bold" value="female">Female</option>
-          </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
-        </app-input-design>
-        <app-input-design
-          [header]="'Rooms'"
-          [background_color]="'black'"
-          [header_background_color]="'orange'"
-        >
-          <select
-            style="
-              font-size: 0.8rem;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              text-indent: 1px;
-              text-overflow: '';
-              border: none;
-              outline: 0;
-              height: 100%;
-              border-radius: 14px;
-              background-color: transparent;
-              visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
+            <select
+              (change)="selectDistrict($event)"
+              style="
+                font-size: 0.8rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                border: none;
+                outline: 0;
+                height: 100%;
+                border-radius: 14px;
+                background-color: transparent;
+                visibility: visible;
+              "
+              role="button"
+              class="w-100 position-absolute top-0 px-3"
+              name="genders"
+              id="genders"
+            >
+              <option class="option" value="">Select your district</option>
+              <option
+                *ngFor="let district of districts;let i = index"
+                class="option fw-bold"
+                [value]="i"
+              >
+                {{ district }}
+              </option>
+            </select>
+            <i
+              role="button"
+              style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+            ></i>
+          </app-input-design>
+        </div>
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'Neighbourhood'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
           >
-            <option class="option" value="">Select your gender</option>
-            <option class="option fw-bold" value="male">Male</option>
-            <option class="option fw-bold" value="female">Female</option>
-          </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
-        </app-input-design>
+            <select
+              (change)="selectNeighbourhood($event)"
+              style="
+                font-size: 0.8rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                border: none;
+                outline: 0;
+                height: 100%;
+                border-radius: 14px;
+                background-color: transparent;
+                visibility: visible;
+              "
+              role="button"
+              class="w-100 position-absolute top-0 px-3"
+              name="genders"
+              id="genders"
+            >
+              <option class="option" value="">Select your neighbourhood</option>
+              <option
+                *ngFor="let neighbourhood of neighbourhoods;let i = index"
+                class="option fw-bold"
+                [value]="i"
+              >
+                {{ neighbourhood }}
+              </option>
+            </select>
+            <i
+              role="button"
+              style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+            ></i>
+          </app-input-design>
+        </div>
 
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'Floor Area(M2)'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
+          >
+            <select
+              (change)="selectGender($event)"
+              style="
+                font-size: 0.8rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                border: none;
+                outline: 0;
+                height: 100%;
+                border-radius: 14px;
+                background-color: transparent;
+                visibility: visible;
+              "
+              role="button"
+              class="w-100 position-absolute top-0 px-3"
+              name="genders"
+              id="genders"
+            >
+              <option class="option" value="">Select your gender</option>
+              <option class="option fw-bold" value="male">Male</option>
+              <option class="option fw-bold" value="female">Female</option>
+            </select>
+            <i
+              role="button"
+              style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+            ></i>
+          </app-input-design>
+        </div>
+
+        <div class="mx-4 mt-3">
+          <app-input-design
+            [header]="'Rooms'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
+          >
+            <select
+              (change)="selectGender($event)"
+              style="
+                font-size: 0.8rem;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                border: none;
+                outline: 0;
+                height: 100%;
+                border-radius: 14px;
+                background-color: transparent;
+                visibility: visible;
+              "
+              role="button"
+              class="w-100 position-absolute top-0 px-3"
+              name="genders"
+              id="genders"
+            >
+              <option class="option" value="">Select your gender</option>
+              <option class="option fw-bold" value="male">Male</option>
+              <option class="option fw-bold" value="female">Female</option>
+            </select>
+            <i
+              role="button"
+              style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
+            ></i>
+          </app-input-design>
+        </div>
+        <div class="mx-4 mt-4">
+          <app-input-design
+            [header]="'Price'"
+            [background_color]="'black'"
+            [header_background_color]="'black'"
+          >
+            <input
+              style="
+                background-color: transparent;
+                border: none;
+                outline: 0;
+                width: 100%;
+              "
+              name="price"
+              ngModel
+            />
+          </app-input-design>
+        </div>
       </div>
     </div>
   </div>
