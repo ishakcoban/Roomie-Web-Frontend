@@ -121,14 +121,14 @@
               "
               role="button"
               class="w-100 position-absolute top-0 px-3"
-              name="cities"
-              id="cities"
+              name="city"
+              #selectedCity
             >
-              <option class="option" value="">Select your city</option>
+              <option class="option" value="">Select a city</option>
               <option
-                *ngFor="let city of cities;let i = index"
+                *ngFor="let city of cities; let i = index"
                 class="option fw-bold"
-                [value]="i"
+                [value]="city"
               >
                 {{ city }}
               </option>
@@ -163,14 +163,17 @@
               "
               role="button"
               class="w-100 position-absolute top-0 px-3"
-              name="genders"
-              id="genders"
+              name="district"
+              #selectedDistrict
+             
             >
-              <option class="option" value="">Select your district</option>
+              <option class="option" value="">
+                Select a district
+              </option>
               <option
-                *ngFor="let district of districts;let i = index"
+                *ngFor="let district of districts; let i = index"
                 class="option fw-bold"
-                [value]="i"
+                [value]="district"
               >
                 {{ district }}
               </option>
@@ -205,14 +208,16 @@
               "
               role="button"
               class="w-100 position-absolute top-0 px-3"
-              name="genders"
-              id="genders"
+              name="neighbourhood"
+              #selectedNeighbourhood
             >
-              <option class="option" value="">Select your neighbourhood</option>
+              <option class="option" value="">
+                Select a neighbourhood
+              </option>
               <option
-                *ngFor="let neighbourhood of neighbourhoods;let i = index"
+                *ngFor="let neighbourhood of neighbourhoods; let i = index"
                 class="option fw-bold"
-                [value]="i"
+                [value]="neighbourhood"
               >
                 {{ neighbourhood }}
               </option>

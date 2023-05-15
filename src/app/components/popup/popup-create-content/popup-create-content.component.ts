@@ -1,79 +1,66 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LocationService } from 'src/app/services/advert-location.service';
 
 @Component({
   selector: 'app-popup-create-content',
   templateUrl: './popup-create-content.component.html',
-  styleUrls: ['./popup-create-content.component.scss']
+  styleUrls: ['./popup-create-content.component.scss'],
 })
 export class PopupCreateContentComponent {
+  @ViewChild('selectedDistrict')
+  selectedDistrict!: ElementRef<HTMLSelectElement>;
+  @ViewChild('selectedNeighbourhood')
+  selectedNeighbourhood!: ElementRef<HTMLSelectElement>;
+  @ViewChild('selectedCity')
+  selectedCity!: ElementRef<HTMLSelectElement>;
   @Input()
-  popup!: { status: boolean; type: string; target: string; };
+  popup!: { status: boolean; type: string; target: string };
   header!: string;
   gender!: string;
-  /*inputInfo1:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'title',header:'Title',background_color:'black'}
-  inputInfo2:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'content',header:'Content',background_color:'black'}
-  inputInfo3:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'city',header:'City',background_color:'black'}
-  inputInfo4:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'district',header:'District',background_color:'black'}
-  inputInfo5:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'neighbourhood',header:'Neighbourhood',background_color:'black'}
-  inputInfo6:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)',background_color:'black'}
-  inputInfo7:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'floorArea',header:'FloorArea(M2)',background_color:'black'}
-  inputInfo8:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'rooms',header:'Rooms',background_color:'black'}
-  inputInfo9:{type:string,name:string,header:string,background_color:string} = {type:'text',name:'description',header:'Description',background_color:'black'}*/
-  cities:string[]=[];
-  districts:string[]=[];
-  neighbourhoods:string[]=[];
-  constructor(private locationService:LocationService){}
+  cities: string[] = [];
+  districts: string[] = [];
+  neighbourhoods: string[] = [];
+
+  constructor(private locationService: LocationService) {}
   onSubmit(form: NgForm) {
+    form.value.city = this.selectedCity.nativeElement.value;
+    form.value.district = this.selectedDistrict.nativeElement.value;
+    form.value.neighbourhood = this.selectedNeighbourhood.nativeElement.value;
     console.log(form.value);
   }
   async ngOnInit() {
-    
     this.cities = await this.locationService.getAllCities();
-    /*switch (this.popup.target) {
-      case 'list':
-        this.header = 'Update the list’s name';
-        break;
-      case 'task':
-        this.header = 'Update the task’s name';
-        break;
-    }*/
   }
   async selectCity(event: Event) {
-
     let selectedCity = (event.target as HTMLInputElement).value.toString();
-
-    if(selectedCity.length == 0){
-      this.districts = []
-    }else{
-      this.districts = await this.locationService.getAllDistricts(+selectedCity)
+    this.neighbourhoods = [];
+    if (selectedCity.length == 0) {
+      this.districts = [];
+    } else {
+      this.districts = await this.locationService.getAllDistricts(selectedCity);
     }
-    
-
   }
 
   async selectDistrict(event: Event) {
-
     let selectedDistrict = (event.target as HTMLInputElement).value.toString();
-    if(selectedDistrict.length == 0){
-      this.neighbourhoods = []
-    }else{
-      this.neighbourhoods = await this.locationService.getAllNeighbourhoods(+selectedDistrict)
+    if (selectedDistrict.length == 0) {
+      this.neighbourhoods = [];
+    } else {
+      this.neighbourhoods = await this.locationService.getAllNeighbourhoods(
+        selectedDistrict
+      );
     }
-    
-
   }
   async selectNeighbourhood(event: Event) {
-
-    //let selectedDistrict = (event.target as HTMLInputElement).value.toString();
-    //this.districts = await this.locationService.getAllDistricts(selectedCity);
-    //this.neighbourhoods = await this.locationService.getAllNeighbourhoods(+selectedDistrict)
-
+    let selectedNeighbourhood = (
+      event.target as HTMLInputElement
+    ).value.toString();
   }
   selectGender(event: Event) {
     this.gender = (event.target as HTMLInputElement).value.toString();
   }
+
   /*var upload = document.getElementById('upload');
 
 function onFile() {

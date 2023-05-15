@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class LocationService {
   private subject = new Subject();
-  selectedCity?: number
+  selectedCity?: string;
   async readLocation() {
     let response = await fetch('../../assets/data.json');
     return response.json();
@@ -22,38 +22,39 @@ export class LocationService {
     return cities;
   }
 
-  async getAllDistricts(selectedCity: number) {
+  async getAllDistricts(selectedCity: string) {
     let locationData = await this.readLocation();
-    this.selectedCity = selectedCity
+    this.selectedCity = selectedCity;
     let districts: string[] = [];
-    locationData[selectedCity]['towns'].forEach((element: any) => {
-      districts.push(element.name);
+    locationData.forEach((city: any) => {
+      if (city.name === selectedCity) {
+        city['towns'].forEach((district: any) => {
+          districts.push(district.name);
+        });
+      }
     });
     return districts;
   }
 
-  async getAllNeighbourhoods(selectedDistrict: number) {
+  async getAllNeighbourhoods(selectedDistrict: string) {
     let locationData = await this.readLocation();
 
     let neighbourhoods: string[] = [];
-    locationData[this.selectedCity!]['towns'][selectedDistrict].districts.forEach((element: any) => {
-      element.quarters.forEach((element: any) => {
-        neighbourhoods.push(element.name)
-      });
+
+    locationData.forEach((city: any) => {
+      if (city.name === this.selectedCity) {
+        city['towns'].forEach((district: any) => {
+          if (district.name == selectedDistrict) {
+            district.districts.forEach((districts: any) => {
+              districts.quarters.forEach((neighbourhood: any) => {
+                neighbourhoods.push(neighbourhood.name);
+              });
+            });
+          }
+        });
+      }
     });
     return neighbourhoods;
-  }
-
-  async selectCity() {
-    let locationData = await this.readLocation();
-    console.log(locationData);
-    let cities: string[] = [];
-
-    locationData.forEach((element: any) => {
-      cities.push(element.name);
-    });
-
-    return cities;
   }
 
   getMessage(): any {
