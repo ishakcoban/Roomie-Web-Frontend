@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LocationService } from 'src/app/services/advert-location.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-popup-create-content',
@@ -22,12 +23,49 @@ export class PopupCreateContentComponent {
   districts: string[] = [];
   neighbourhoods: string[] = [];
 
-  constructor(private locationService: LocationService) {}
+  constructor(
+    private locationService: LocationService,
+    private httpService: HttpService
+  ) {}
   onSubmit(form: NgForm) {
     form.value.city = this.selectedCity.nativeElement.value;
     form.value.district = this.selectedDistrict.nativeElement.value;
     form.value.neighbourhood = this.selectedNeighbourhood.nativeElement.value;
+    form.value.floorArea = +form.value.floorArea;
+    form.value.rooms = +form.value.rooms;
     console.log(form.value);
+
+    let data = {
+      header: form.value.header,
+      description: form.value.description,
+      location: {
+        city: form.value.city,
+        district: form.value.district,
+        neighbourhood: form.value.neighbourhood,
+      },
+      floorArea: form.value.floorArea,
+      rooms: form.value.rooms,
+      price: form.value.price,
+    };
+
+    this.httpService
+      .createHttpRequest('api/adverts', 'POST', data)
+      ?.subscribe(
+        (res) => {
+          console.log(res)
+        /*  this.errorMessage = '';
+          this.successMessageToggleService.openMessageBox(
+            'You registered successfully!'
+          );
+          this.router.navigate(['/login']);*/
+        },
+        (error) => {
+          console.log(error);
+          /*if (error.status == 400) {
+            this.errorMessage = 'Not valid!';
+          }*/
+        }
+      );
   }
   async ngOnInit() {
     this.cities = await this.locationService.getAllCities();

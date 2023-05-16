@@ -64,7 +64,7 @@
       <div class="profile-edit-right-section pb-5">
         <div class="mx-4 mt-4">
           <app-input-design
-            [header]="'Title'"
+            [header]="'Header'"
             [background_color]="'black'"
             [header_background_color]="'black'"
           >
@@ -75,7 +75,7 @@
                 outline: 0;
                 width: 100%;
               "
-              name="title"
+              name="header"
               ngModel
             />
           </app-input-design>
@@ -253,12 +253,17 @@
               "
               role="button"
               class="w-100 position-absolute top-0 px-3"
-              name="genders"
-              id="genders"
+              name="floorArea"
+              ngModel
             >
-              <option class="option" value="">Select your gender</option>
-              <option class="option fw-bold" value="male">Male</option>
-              <option class="option fw-bold" value="female">Female</option>
+              <option class="option" value="">Select a floor area</option>
+              <option
+                *ngFor="let number of [30, 40, 50, 60, 70, 80, 90, 100]"
+                class="option fw-bold"
+                [value]="number"
+              >
+                {{ number }}
+              </option>
             </select>
             <i
               role="button"
@@ -291,12 +296,17 @@
               "
               role="button"
               class="w-100 position-absolute top-0 px-3"
-              name="genders"
-              id="genders"
+              name="rooms"
+              ngModel
             >
-              <option class="option" value="">Select your gender</option>
-              <option class="option fw-bold" value="male">Male</option>
-              <option class="option fw-bold" value="female">Female</option>
+            <option class="option" value="">Select room number</option>
+            <option
+              *ngFor="let number of [1,2,3,4,5]"
+              class="option fw-bold"
+              [value]="number"
+            >
+              {{ number }}
+            </option>
             </select>
             <i
               role="button"
@@ -319,6 +329,8 @@
                 width: 100%;
               "
               name="price"
+              type="number" 
+              min="0"
               ngModel
             />
           </app-input-design>
