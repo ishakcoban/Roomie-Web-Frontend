@@ -32,7 +32,7 @@
   <div class="card__overlay">
     <div class="card__header">
       <div class="d-flex justify-content-end">
-        <div class="card-money-content p-1 px-3 fw-bold">1250 t</div>
+        <div class="card-money-content p-1 px-3 fw-bold">{{advert.price}} t</div>
       </div>
       <div class="d-flex align-items-center mb-3">
         <img
@@ -41,8 +41,8 @@
           alt=""
         />
         <div class="ms-2 d-flex flex-column justify-content-center">
-          <h3 class="card__title">Jessica Parker</h3>
-          <span class="card__status">1 hour ago</span>
+          <h3 class="card__title">{{advert.user.firstName}} {{advert.user.lastName}}</h3>
+          <span class="card__status">{{advert.createdDate}}</span>
         </div>
       </div>
       <div class="d-flex justify-content-end align-items-center">
@@ -50,20 +50,19 @@
           <div class="dot"></div>
         </div>
         <div class="city-district-content-1 mx-1">city</div>
-        <div class="city-district-content-2 py-1 ps-3 pe-3">Eskisehir</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-3">{{advert.location.city}}</div>
       </div>
       <div class="d-flex justify-content-end align-items-center pt-2 pb-3">
         <div class="line d-flex justify-content-end align-items-center">
           <div class="dot"></div>
         </div>
         <div class="city-district-content-1 mx-1">district</div>
-        <div class="city-district-content-2 py-1 ps-3 pe-5">Tepebasi</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.district}}</div>
       </div>
     </div>
 
     <div class="card__description p-1 px-4 pb-3">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-      blanditiis
+      {{advert.description}}
     </div>
   </div>
 </div>
@@ -77,8 +76,8 @@
       <div
         class="d-flex flex-column justify-content-center align-items-start ms-3"
       >
-        <div class="fw-bold" style="font-size: 0.9rem">Name Surname</div>
-        <div style="font-size: 0.7rem">1 hour</div>
+        <div class="fw-bold" style="font-size: 0.9rem">{{advert.user.firstName}} {{advert.user.lastName}}</div>
+        <div style="font-size: 0.7rem">{{advert.createdDate}}</div>
       </div>
     </div>
 
@@ -91,11 +90,10 @@
 <div><img class="w-100" src="https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg"/></div>
   <div>
     <div class="d-flex justify-content-end">
-      <div class="card-money-content p-1 px-3 fw-bold">1250 t</div>
+      <div class="card-money-content p-1 px-3 fw-bold">{{advert.price}}</div>
     </div>
     <div class="card__description p-1 px-4 pb-3 fw-bold">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-      blanditiis
+      {{advert.description}}
     </div>
 
     <div class="d-flex justify-content-end align-items-center">
@@ -103,14 +101,14 @@
         <div class="dot"></div>
       </div>
       <div class="city-district-content-1 mx-1">city</div>
-      <div class="city-district-content-2 py-1 ps-3 pe-5">Eskisehir</div>
+      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.city}}</div>
     </div>
     <div class="d-flex justify-content-end align-items-center pt-2">
       <div class="line d-flex justify-content-end align-items-center">
         <div class="dot"></div>
       </div>
       <div class="city-district-content-1 mx-1">district</div>
-      <div class="city-district-content-2 py-1 ps-3 pe-5">Tepebasi</div>
+      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.district}}</div>
     </div>
     <div *ngIf="showInfoStatus" class="user-select-none" (click)="showInfo()">
       <div class="d-flex justify-content-end align-items-center pt-2">
@@ -119,7 +117,7 @@
         </div>
         <div class="city-district-content-1 mx-1">neighbourhood</div>
 
-        <div class="city-district-content-2 py-1 ps-3 pe-5">Tepebasi</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.neighbourhood}}</div>
       </div>
       <div class="d-flex justify-content-end align-items-center pt-2">
         <div class="line d-flex justify-content-end align-items-center">
@@ -127,7 +125,7 @@
         </div>
         <div class="city-district-content-1 mx-1">floor area(m2)</div>
 
-        <div class="city-district-content-2 py-1 ps-3 pe-5">111</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.floorArea}}</div>
       </div>
       <div class="d-flex justify-content-end align-items-center pt-2 pb-3">
         <div class="line d-flex justify-content-end align-items-center">
@@ -135,13 +133,11 @@
         </div>
         <div class="city-district-content-1 mx-1">rooms</div>
 
-        <div class="city-district-content-2 py-1 ps-3 pe-5">3</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.rooms}}</div>
       </div>
     </div>
     <div *ngIf="showInfoStatus" class="card__description p-1 px-4 pb-3">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
-      blanditiis consectetur adipisicing elit. Asperiores, blanditiis
-      consectetur adipisicing elit. Asperiores, blanditiis
+      {{advert.description}}
     </div>
     <div
       *ngIf="!showInfoStatus"

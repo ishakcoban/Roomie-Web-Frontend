@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
@@ -7,19 +9,40 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./adverts.component.scss'],
 })
 export class AdvertsComponent {
-  cards: [number] = [0];
+  cards!: [];
   sortStatus: boolean = false;
   filterStatus: boolean = false;
   lastViewedStatus: boolean = false;
   isLoading: boolean = true;
-  constructor(private popupService: PopupService) {
-    this.cards.push(1);
-    this.cards.push(2);
-    this.cards.push(3);
-    this.cards.push(4);
+
+  constructor(
+    private popupService: PopupService,
+    private httpService: HttpService,
+    private router: Router
+  ) {}
+
+  initialiseInvites() {
+    throw new Error('Method not implemented.');
   }
+  ngOnInit() {
+    this.isLoading = true;
 
-
+    setTimeout(() => {
+      this.httpService
+        .createHttpRequest('api/adverts/getAll', 'GET', {})
+        ?.subscribe(
+          (res) => {
+            console.log(res);
+            this.cards = res;
+            this.isLoading = false;
+          },
+          (error) => {
+            console.log(error);
+            this.isLoading = false;
+          }
+        );
+    }, 2500);
+  }
 
   switchSort() {
     if (this.sortStatus == false) {
@@ -44,9 +67,10 @@ export class AdvertsComponent {
   }
 
   ngAfterViewInit() {
-
-      this.isLoading = false;
-
+    this.isLoading = false;
+    console.log(
+      'called afterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'
+    );
   }
 
   // Close the dropdown menu if the user clicks outside of it

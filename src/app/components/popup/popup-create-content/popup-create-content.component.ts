@@ -1,7 +1,10 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LocationService } from 'src/app/services/advert-location.service';
 import { HttpService } from 'src/app/services/http.service';
+import { PopupService } from 'src/app/services/popup.service';
+import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
 
 @Component({
   selector: 'app-popup-create-content',
@@ -22,11 +25,21 @@ export class PopupCreateContentComponent {
   cities: string[] = [];
   districts: string[] = [];
   neighbourhoods: string[] = [];
+  errorMessage: string = '';
 
   constructor(
     private locationService: LocationService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private router: Router,
+    private popupService: PopupService,
+    private successMessageToggleService: SuccessMessageToggleService
   ) {}
+
+  reloadCurrentRoute() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/adverts']);
+    });
+  }
   onSubmit(form: NgForm) {
     form.value.city = this.selectedCity.nativeElement.value;
     form.value.district = this.selectedDistrict.nativeElement.value;
@@ -48,24 +61,24 @@ export class PopupCreateContentComponent {
       price: form.value.price,
     };
 
-    this.httpService
-      .createHttpRequest('api/adverts', 'POST', data)
-      ?.subscribe(
-        (res) => {
-          console.log(res)
-        /*  this.errorMessage = '';
-          this.successMessageToggleService.openMessageBox(
-            'You registered successfully!'
-          );
-          this.router.navigate(['/login']);*/
-        },
-        (error) => {
-          console.log(error);
-          /*if (error.status == 400) {
+    this.httpService.createHttpRequest('api/adverts', 'POST', data)?.subscribe(
+      (res) => {
+        console.log(res);
+        this.errorMessage = '';
+        this.successMessageToggleService.openMessageBox(
+          'You registered successfully!'
+        );
+        // close popup
+        this.popupService.changePopupStatus(false, '-', '-');
+        this.reloadCurrentRoute();
+      },
+      (error) => {
+        console.log(error);
+        /*if (error.status == 400) {
             this.errorMessage = 'Not valid!';
           }*/
-        }
-      );
+      }
+    );
   }
   async ngOnInit() {
     this.cities = await this.locationService.getAllCities();

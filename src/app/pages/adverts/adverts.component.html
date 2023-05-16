@@ -59,10 +59,7 @@
 
     <div class="p-0 m-0"><hr class="p-0 m-0" /></div>
     <div class="col-12 col-lg-8 m-0 p-0">
-      <div><app-advert-card></app-advert-card></div>
-      <div><app-advert-card></app-advert-card></div>
-      <div><app-advert-card></app-advert-card></div>
-      <div><app-advert-card></app-advert-card></div>
+      <div *ngFor="let card of cards"><app-advert-card [advert] = "card"></app-advert-card></div>
     </div>
   </div>
   <div class="row m-0 p-0 d-none d-md-flex">
@@ -173,12 +170,12 @@
     <div class="col-md-11 col-lg-8">
       <div class="adverts-wrapper my-5 pb-5">
         <div
-          *ngFor="let item of cards"
+          *ngFor="let card of cards"
           class="d-flex justify-content-center align-items-start position-relative"
           
         >
           <div class="each-card">
-            <app-advert-card></app-advert-card>
+            <app-advert-card [advert] = "card"></app-advert-card>
           </div>
         </div>
       </div>

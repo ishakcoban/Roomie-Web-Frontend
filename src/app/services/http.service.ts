@@ -14,20 +14,18 @@ export class HttpService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
-
-
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.authService.token}`,
+      Authorization: `Bearer ${this.authService.token}`,
     });
     let options = { headers: headers };
     switch (requestType.toUpperCase()) {
       case 'POST':
-        return this.http.post<any>(this.baseURL + endpoint, data);
-      //  .pipe(catchError(this.handleError));
+        return this.http
+          .post<any>(this.baseURL + endpoint, data, options)
+          .pipe(catchError(this.handleError));
 
       case 'GET':
-        
         return this.http
           .get(this.baseURL + endpoint, options)
           .pipe(catchError(this.handleError));
