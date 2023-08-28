@@ -189,13 +189,9 @@
     <div
       class="mx-4 mx-sm-5 mt-5 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start"
     >
-      <button
-        class="btn register-back-button d-flex justify-content-center align-items-center"
-        routerLink="/login"
-      >
-        <i class="fa-solid fa-arrow-left"></i>
-      </button>
-
+      <div class="register-back-button" routerLink="/login">
+        <i class="fa-solid fa-arrow-left back-button-icon"></i>
+      </div>
       <button
         class="btn register-button fw-bold px-5 py-1 ms-4"
         [disabled]="isLoading"
