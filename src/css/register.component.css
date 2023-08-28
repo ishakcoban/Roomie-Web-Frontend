@@ -92,7 +92,18 @@ body {
   color: #f14d6b;
   background-color: #FFFFFF;
   border-radius: 100%;
+  width: 25px;
+  height: 25px;
   font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.back-button-icon {
+  font-size: 1.2rem;
 }
 
 .option {
