@@ -14,14 +14,14 @@ export class HttpService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
+    let headers = new HttpHeaders();
+
+    headers = headers.set('Content-Type', 'application/json');
 
     if (this.authService.token != null) {
-      headers.set('Authorization', `Bearer ${this.authService.token}`);
+      headers = headers.set('Authorization', `Bearer ${this.authService.token}`);
     }
-    
+
     let options = { headers: headers };
     switch (requestType.toUpperCase()) {
       case 'POST':
