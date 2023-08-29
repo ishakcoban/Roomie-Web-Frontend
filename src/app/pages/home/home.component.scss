@@ -27,6 +27,13 @@
 
 }
 
+@media screen and (max-width: 904px) {
+  .home-link-font{
+    font-size: .8rem;
+  }
+
+}
+
 .home-top-header {
   background-color: $orange;
   font-weight: bold;

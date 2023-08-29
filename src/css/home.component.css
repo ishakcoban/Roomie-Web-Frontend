@@ -67,6 +67,12 @@ body {
   }
 }
 
+@media screen and (max-width: 904px) {
+  .home-link-font {
+    font-size: .8rem;
+  }
+}
+
 .home-top-header {
   background-color: #FD7B5A;
   font-weight: bold;
