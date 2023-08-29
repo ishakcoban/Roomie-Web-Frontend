@@ -41,7 +41,6 @@ export class ProfileComponent {
         .createHttpRequest('api/users', 'GET', {})
         ?.subscribe(
           (res) => {
-            console.log(res)
             this.userData.userName = res.userName;
             this.userData.firstName = res.firstName;
             this.userData.lastName = res.lastName;
@@ -50,7 +49,6 @@ export class ProfileComponent {
             this.isLoading = false;
           },
           (error) => {
-            console.log(error);
             this.isLoading = false;
           }
         );
