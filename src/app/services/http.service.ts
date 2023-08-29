@@ -16,8 +16,12 @@ export class HttpService {
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.authService.token}`,
     });
+
+    if (this.authService.token != null) {
+      headers.set('Authorization', `Bearer ${this.authService.token}`);
+    }
+    
     let options = { headers: headers };
     switch (requestType.toUpperCase()) {
       case 'POST':
