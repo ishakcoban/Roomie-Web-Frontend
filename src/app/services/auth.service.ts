@@ -27,6 +27,7 @@ export class AuthService {
 
   login(token: string) {
     localStorage.setItem('token', token);
+    this.token = localStorage.getItem('token')
     this.loggedIn = true;
   }
 

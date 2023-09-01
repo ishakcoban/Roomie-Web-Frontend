@@ -16,6 +16,7 @@ import { SavedAdvertsComponent } from './pages/saved-adverts/saved-adverts.compo
 import { LoadingIndicatorComponent } from './components/loading-indicators/loading-indicator/loading-indicator.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PopupService } from './services/popup.service';
+import { ProfileService } from './services/profile.service';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
 import { PopupUpdateContentComponent } from './components/popup/popup-update-content/popup-update-content.component';
@@ -30,11 +31,12 @@ import { LoginRegisterBackgroundComponent } from './components/login-register-ba
 import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
 import { InputDesignComponent } from './components/input-design/input-design.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { NgxImageSwiperModule } from 'ngx-image-swiper';
 import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
+import { NgxRerenderModule } from 'ngx-rerender';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,8 +65,7 @@ import { PhotoSliderComponent } from './components/photo-slider/photo-slider.com
     InputDesignComponent,
     ButtonLoadingIndicatorComponent,
     ErrorMessageComponent,
-    PhotoSliderComponent
-
+    PhotoSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,10 +73,15 @@ import { PhotoSliderComponent } from './components/photo-slider/photo-slider.com
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    NgxImageSwiperModule
-    
+    NgxImageSwiperModule,
+    NgxRerenderModule,
   ],
-  providers: [AuthService,/*AuthGuard,*/HttpService,PopupService],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    /*AuthGuard,*/ HttpService,
+    PopupService,
+    ProfileService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

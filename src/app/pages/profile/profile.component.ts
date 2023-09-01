@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,31 +28,42 @@ export class ProfileComponent {
     publicId: '',
   };
   isLoading: boolean = true;
+  profilePageStatus: boolean = true;
+
   constructor(
     private popupService: PopupService,
     private httpService: HttpService,
-    private authService: AuthService
+    private authService: AuthService,
+    private profileService: ProfileService
   ) {}
 
   ngOnInit() {
     this.isLoading = true;
-    
+    console.log('calisti');
+    this.profileService.getMessage().subscribe((data: any) => {
+      console.log(data);
+      this.fetchData();
+    });
+
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.isLoading = true;
     setTimeout(() => {
-      this.httpService
-        .createHttpRequest('api/users', 'GET', {})
-        ?.subscribe(
-          (res) => {
-            this.userData.userName = res.userName;
-            this.userData.firstName = res.firstName;
-            this.userData.lastName = res.lastName;
-            this.userData.email = res.email;
-            this.userData.gender = res.gender;
-            this.isLoading = false;
-          },
-          (error) => {
-            this.isLoading = false;
-          }
-        );
+      this.httpService.createHttpRequest('api/users', 'GET', {})?.subscribe(
+        (res) => {
+          this.userData.userName = res.userName;
+          this.userData.firstName = res.firstName;
+          this.userData.lastName = res.lastName;
+          this.userData.email = res.email;
+          this.userData.gender = res.gender;
+          this.isLoading = false;
+        },
+        (error) => {
+          this.isLoading = false;
+        }
+      );
     }, 2500);
   }
 

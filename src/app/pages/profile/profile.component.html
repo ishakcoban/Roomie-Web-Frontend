@@ -6,7 +6,6 @@
     <img class="profile-user-img p-2" src="assets/images/roomieSingular.png" />
     <div
       class="profile-user-img-edit-icon-wrapper position-absolute mt-1 me-1 d-flex justify-content-center align-items-center"
-      
     >
       <i
         id="edit"
@@ -17,9 +16,11 @@
     </div>
   </div>
 </div>
+
 <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
   <app-loading-indicator></app-loading-indicator>
 </div>
+
 <div *ngIf="!isLoading">
   <div class="d-flex justify-content-center mt-3 fw-bold fs-5">
     {{ userData.firstName }} {{ userData.lastName }}

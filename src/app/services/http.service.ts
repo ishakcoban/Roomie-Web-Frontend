@@ -19,7 +19,10 @@ export class HttpService {
     headers = headers.set('Content-Type', 'application/json');
 
     if (this.authService.token != null) {
-      headers = headers.set('Authorization', `Bearer ${this.authService.token}`);
+      headers = headers.set(
+        'Authorization',
+        `Bearer ${this.authService.token}`
+      );
     }
 
     let options = { headers: headers };
