@@ -1,4 +1,12 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PopupService } from 'src/app/services/popup.service';
@@ -6,6 +14,8 @@ import { HttpService } from 'src/app/services/http.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
 import { LocationService } from 'src/app/services/advert-location.service';
+import { ProfileService } from 'src/app/services/profile.service';
+
 @Component({
   selector: 'app-popup-update-content',
   templateUrl: './popup-update-content.component.html',
@@ -27,20 +37,23 @@ export class PopupUpdateContentComponent {
   lastNameInputValue!: string;
   emailInputValue!: string;
   genderInputValue!: string;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
+  isPopupLoading: boolean = true;
   popupTarget: string = '';
   errorMessage: string = '';
   genders: string[] = [];
   @ViewChild('myname')
   selectTag!: ElementRef;
   cities: string[] = [];
+  public trigger: boolean = true;
   constructor(
     private popupService: PopupService,
     private httpService: HttpService,
     private authService: AuthService,
     private successMessageToggleService: SuccessMessageToggleService,
     private locationService: LocationService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private profileService: ProfileService
   ) {}
 
   ngOnInit() {
@@ -77,37 +90,25 @@ export class PopupUpdateContentComponent {
             index++;
           });*/
 
-          this.isLoading = false;
+          this.isPopupLoading = false;
         });
     }, 1000);
   }
 
   checkInputValuesWithOldValues() {
-    if (
-      this.oldUsername !=
-      (document.getElementById('username')! as HTMLSelectElement).value
-    ) {
+    if (this.oldUsername != this.usernameInputValue) {
       return false;
     }
 
-    if (
-      this.oldFirstName !=
-      (document.getElementById('firstname')! as HTMLSelectElement).value
-    ) {
+    if (this.oldFirstName != this.firstNameInputValue) {
       return false;
     }
 
-    if (
-      this.oldLastName !=
-      (document.getElementById('lastname')! as HTMLSelectElement).value
-    ) {
+    if (this.oldLastName != this.lastNameInputValue) {
       return false;
     }
 
-    if (
-      this.oldEmail !=
-      (document.getElementById('email')! as HTMLSelectElement).value
-    ) {
+    if (this.oldEmail != this.emailInputValue) {
       return false;
     }
 
@@ -138,17 +139,13 @@ export class PopupUpdateContentComponent {
   onSubmit(form: NgForm) {
     let data = {
       //id: this.authService.getByUserId(),
-      userName: (document.getElementById('username')! as HTMLSelectElement)
-        .value,
-      email: (document.getElementById('email')! as HTMLSelectElement).value,
-      gender: (document.getElementById('genders')! as HTMLSelectElement).value,
-      firstName: (document.getElementById('firstname')! as HTMLSelectElement)
-        .value,
-      lastName: (document.getElementById('lastname')! as HTMLSelectElement)
-        .value,
-
+      userName: this.usernameInputValue,
+      email: this.emailInputValue,
+      gender: this.genderInputValue,
+      firstName: this.firstNameInputValue,
+      lastName: this.lastNameInputValue,
     };
-    
+    this.isLoading = true;
     setTimeout(() => {
       this.httpService.createHttpRequest('api/users', 'PUT', data)?.subscribe(
         (res) => {
@@ -157,6 +154,7 @@ export class PopupUpdateContentComponent {
             'Your information updated successfully!'
           );
 
+          this.profileService.changeProfilePageStatus(false);
           // close popup
           this.popupService.changePopupStatus(false, '-', '-');
         },
@@ -164,6 +162,7 @@ export class PopupUpdateContentComponent {
           console.log(error);
         }
       );
+      this.isLoading = false;
     }, 1500);
   }
 }

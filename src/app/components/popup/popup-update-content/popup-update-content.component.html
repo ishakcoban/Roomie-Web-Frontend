@@ -1,12 +1,12 @@
 <!-- loading indicator-->
-<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
+<div *ngIf="isPopupLoading" class="d-flex justify-content-center align-items-center">
   <app-loading-indicator></app-loading-indicator>
 </div>
 <!-- profile update-->
-<div *ngIf="!isLoading">
+<div *ngIf="!isPopupLoading">
   <div *ngIf="this.popup.target == 'profile'">
     <form
-      *ngIf="!isLoading"
+      *ngIf="!isPopupLoading"
       class="profile-edit-wrapper"
       (ngSubmit)="onSubmit(f)"
       #f="ngForm"
@@ -159,8 +159,14 @@
         <app-error-message [message]="errorMessage"></app-error-message>
       </div>
       <div class="d-flex align-items-center justify-content-center mt-4">
-        <button class="btn profile-edit-button px-5 py-1" [disabled]="disabled">
-          Confirm
+        <button class="btn profile-edit-button px-5 py-1" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Confirm</span>
+          <div
+          *ngIf="isLoading"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <app-button-loading-indicator></app-button-loading-indicator>
+        </div>
         </button>
       </div>
     </form>

@@ -68,9 +68,6 @@ export class AdvertsComponent {
 
   ngAfterViewInit() {
     this.isLoading = false;
-    console.log(
-      'called afterrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr'
-    );
   }
 
   // Close the dropdown menu if the user clicks outside of it
