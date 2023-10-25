@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgxSwiperConfig } from 'ngx-image-swiper';
 
 @Component({
   selector: 'app-photo-slider',
@@ -7,17 +6,6 @@ import { NgxSwiperConfig } from 'ngx-image-swiper';
   styleUrls: ['./photo-slider.component.scss'],
 })
 export class PhotoSliderComponent {
-  swiperConfig: NgxSwiperConfig = {
-    navigationPlacement: 'inside',
-    pagination: true,
-    paginationPlacement: 'inside',
-    borderRadius: 0,
-    loop: false,
-    keyboardNavigation: false,
-    imgBackgroundSize: 'contain',
-    swipeThreshold:5,
-    
-  };
 
   images = [
     'https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg',

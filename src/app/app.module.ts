@@ -34,9 +34,8 @@ import { InputDesignComponent } from './components/input-design/input-design.com
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
-import { NgxImageSwiperModule } from 'ngx-image-swiper';
 import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
-import { NgxRerenderModule } from 'ngx-rerender';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +71,7 @@ import { NgxRerenderModule } from 'ngx-rerender';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule,
-    NgxImageSwiperModule,
-    NgxRerenderModule,
+    HttpClientModule
   ],
   providers: [
     AuthService,

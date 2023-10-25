@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { PopupService } from 'src/app/services/popup.service';
-import { NgxSwiperConfig } from 'ngx-image-swiper';
 @Component({
   selector: 'app-popup-show-content',
   templateUrl: './popup-show-content.component.html',
@@ -9,15 +8,6 @@ import { NgxSwiperConfig } from 'ngx-image-swiper';
 export class PopupShowContentComponent {
   @Input()
   popup!: { status: boolean; type: string; target: string };
-  swiperConfig: NgxSwiperConfig = {
-    navigationPlacement: 'inside',
-    pagination: true,
-    paginationPlacement: 'inside',
-    borderRadius: 0,
-    loop: false,
-    keyboardNavigation: false,
-    imgBackgroundSize: 'contain',
-  };
   bookmarkStatus: boolean = false;
   images = [
     'https://elleparalia.gr/wp-content/uploads/2022/09/brakfast-4-copy-1200x800.jpg',
