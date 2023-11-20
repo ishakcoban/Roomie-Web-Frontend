@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as $ from "jquery";
 @Component({
   selector: 'app-sorting-section',
   templateUrl: './sorting-section.component.html',
@@ -16,6 +15,5 @@ ngOnInit(){
   //$("#checkbox").prop("checked",false)
 }
   controlSwitch(){
-   console.log($("#checkbox").prop("checked"));
   }
 }

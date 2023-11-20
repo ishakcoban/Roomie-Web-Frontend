@@ -3,74 +3,44 @@
     <div class="register-left-section pb-5 pt-5 mt-4 mt-lg-0 ms-0 ms-lg-5">
       <!--username-->
       <div class="mx-5">
-        <app-input-design
-          [header]="'Username'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            style="
+        <app-input-design [header]="'Username'" [background_color]="'white'" [header_background_color]="'white'">
+          <input style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="username"
-            ngModel
-          />
+            " name="username" ngModel />
         </app-input-design>
       </div>
 
       <!--first name-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'First Name'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            style="
+        <app-input-design [header]="'First Name'" [background_color]="'white'" [header_background_color]="'white'">
+          <input style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="firstName"
-            ngModel
-          />
+            " name="firstName" ngModel />
         </app-input-design>
       </div>
 
       <!--last name-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'Last Name'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            style="
+        <app-input-design [header]="'Last Name'" [background_color]="'white'" [header_background_color]="'white'">
+          <input style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="lastName"
-            ngModel
-          />
+            " name="lastName" ngModel />
         </app-input-design>
       </div>
 
       <!--gender-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'Gender'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <select
-            (change)="selectGender($event)"
-            style="
+        <app-input-design [header]="'Gender'" [background_color]="'white'" [header_background_color]="'white'">
+          <select (change)="selectGender($event)" style="
               font-size: 0.8rem;
               -webkit-appearance: none;
               -moz-appearance: none;
@@ -82,103 +52,59 @@
               border-radius: 14px;
               background-color: transparent;
               visibility: visible;
-            "
-            role="button"
-            class="w-100 position-absolute top-0 px-3"
-            name="genders"
-            id="genders"
-          >
+            " role="button" class="w-100 position-absolute top-0 px-3" name="genders" id="genders">
             <option class="option" value="">Select your gender</option>
             <option class="option fw-bold" value="male">Male</option>
             <option class="option fw-bold" value="female">Female</option>
           </select>
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-          ></i>
+          <i role="button" style="font-size: 1.2rem"
+            class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
         </app-input-design>
       </div>
 
       <!--email address-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'Email Address'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            style="
+        <app-input-design [header]="'Email Address'" [background_color]="'white'" [header_background_color]="'white'">
+          <input style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="email"
-            ngModel
-          />
+            " name="email" ngModel />
         </app-input-design>
       </div>
 
       <!--password-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'Password'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            [type]="isVisible ? 'text' : 'password'"
-            style="
+        <app-input-design [header]="'Password'" [background_color]="'white'" [header_background_color]="'white'">
+          <input [type]="isVisible ? 'text' : 'password'" style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="password"
-            ngModel
-          />
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            [ngClass]="
+            " name="password" ngModel />
+          <i role="button" style="font-size: 1.2rem" [ngClass]="
               !isVisible
                 ? 'fa-regular fa-eye px-2'
                 : 'fa-sharp fa-solid fa-eye px-2'
-            "
-            (click)="switchPassword()"
-          ></i>
+            " (click)="switchPassword()"></i>
         </app-input-design>
       </div>
 
       <!--password again-->
       <div class="mt-4 mx-5">
-        <app-input-design
-          [header]="'Password(Again)'"
-          [background_color]="'white'"
-          [header_background_color]="'white'"
-        >
-          <input
-            [type]="isVisible2 ? 'text' : 'password'"
-            style="
+        <app-input-design [header]="'Password(Again)'" [background_color]="'white'" [header_background_color]="'white'">
+          <input [type]="isVisible2 ? 'text' : 'password'" style="
               background-color: transparent;
               border: none;
               outline: 0;
               width: 100%;
-            "
-            name="passwordAgain"
-            ngModel
-          />
-          <i
-            role="button"
-            style="font-size: 1.2rem"
-            [ngClass]="
+            " name="passwordAgain" ngModel />
+          <i role="button" style="font-size: 1.2rem" [ngClass]="
               !isVisible2
                 ? 'fa-regular fa-eye px-2'
                 : 'fa-sharp fa-solid fa-eye px-2'
-            "
-            (click)="switchPassword2()"
-          ></i>
+            " (click)="switchPassword2()"></i>
         </app-input-design>
       </div>
     </div>
@@ -186,24 +112,17 @@
     <div class="ms-0 ms-lg-5 mt-3">
       <app-error-message [message]="errorMessage"></app-error-message>
     </div>
-    <div
-      class="mx-4 mx-sm-5 mt-5 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start"
-    >
-      <div class="register-back-button" routerLink="/login">
-        <i class="fa-solid fa-arrow-left back-button-icon"></i>
-      </div>
-      <button
-        class="btn register-button fw-bold px-5 py-1 ms-4"
-        [disabled]="isLoading"
-      >
+    <div class="mx-4 mx-sm-5 mt-5 mb-5 mb-lg-0 d-flex justify-content-center justify-content-lg-start">
+      <button class="btn register-button fw-bold px-5 py-1" [disabled]="isLoading">
         <span *ngIf="!isLoading">REGISTER</span>
-        <div
-          *ngIf="isLoading"
-          class="d-flex justify-content-center align-items-center"
-        >
+        <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center">
           <app-button-loading-indicator></app-button-loading-indicator>
         </div>
       </button>
+    </div>
+    <div routerLink="/login"
+      class="register-bottom-text ms-0 ms-lg-5 mt-3 mb-5 mb-lg-0 mt-md-4 d-flex justify-content-center align-items-center justify-content-lg-start">
+      <div role="button">You have an account? Sign in!</div>
     </div>
   </form>
 </app-login-register-background>

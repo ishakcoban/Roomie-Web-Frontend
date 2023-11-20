@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,13 +27,16 @@ export class PopupCreateContentComponent {
   districts: string[] = [];
   neighbourhoods: string[] = [];
   errorMessage: string = '';
+  selectedFiles: FormData = new FormData();
+  previewedImages: string[] = [];
 
   constructor(
     private locationService: LocationService,
     private httpService: HttpService,
     private router: Router,
     private popupService: PopupService,
-    private successMessageToggleService: SuccessMessageToggleService
+    private successMessageToggleService: SuccessMessageToggleService,
+    private http: HttpClient
   ) {}
 
   reloadCurrentRoute() {
@@ -61,7 +65,7 @@ export class PopupCreateContentComponent {
       price: form.value.price,
     };
 
-    this.httpService.createHttpRequest('api/adverts', 'POST', data)?.subscribe(
+    /*this.httpService.createHttpRequest('api/adverts', 'POST', data)?.subscribe(
       (res) => {
         console.log(res);
         this.errorMessage = '';
@@ -76,9 +80,50 @@ export class PopupCreateContentComponent {
         console.log(error);
         /*if (error.status == 400) {
             this.errorMessage = 'Not valid!';
-          }*/
+          }
       }
-    );
+    );*/
+
+    /************************************/
+    if (this.selectedFiles.has('files')) {
+        this.httpService.createHttpRequest('api/adverts/upload','POST',this.selectedFiles)
+        ?.subscribe( (res) => {
+          console.log(res);
+    
+        },
+        (error) => {
+    
+          console.log(error);
+        });
+      }
+
+   /* this.httpService
+    .createHttpRequest('api/adverts/upload', 'POST', formData)
+    ?.subscribe(
+      (res) => {
+        console.log(res);
+
+      },
+      (error) => {
+
+        console.log(error);
+      }
+    );*/
+  
+    /*if (this.selectedFile) {
+      this.uploadService.uploadFile(this.selectedFile).subscribe((event: HttpEvent<any>) => {
+        switch (event.type) {
+          case HttpEventType.UploadProgress:
+            this.progress = Math.round((event.loaded / event.total) * 100);
+            break;
+          case HttpEventType.Response:
+            console.log('File uploaded successfully!');
+            this.selectedFile = null;
+            this.progress = 0;
+            break;
+        }
+      });
+    }*/
   }
   async ngOnInit() {
     this.cities = await this.locationService.getAllCities();
@@ -112,6 +157,30 @@ export class PopupCreateContentComponent {
     this.gender = (event.target as HTMLInputElement).value.toString();
   }
 
+  onSelectFile(event: any) {
+
+    let files = event.target.files;
+
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(files[i]);
+
+      reader.onload = (_event) => {
+        // Process each file here
+        this.previewedImages.push(reader.result as string);
+        console.log(this.previewedImages)
+       // const url = reader.result as string;
+       // console.log('File URL:', url);
+      };
+    }
+    //this.files = event.target.files;
+//console.log(this.files)
+    /*for (const file of this.files) {
+      this.selectedFiles.append('files', file);
+    }*/
+    
+  }
   /*var upload = document.getElementById('upload');
 
 function onFile() {
@@ -136,20 +205,5 @@ function onFile() {
         window.alert('File type ' + file.type + ' not supported');
     }
 }
-
-upload.addEventListener('dragenter', function (e) {
-    upload.parentNode.className = 'area dragging';
-}, false);
-
-upload.addEventListener('dragleave', function (e) {
-    upload.parentNode.className = 'area';
-}, false);
-
-upload.addEventListener('dragdrop', function (e) {
-    onFile();
-}, false);
-
-upload.addEventListener('change', function (e) {
-    onFile();
-}, false);*/
+*/
 }

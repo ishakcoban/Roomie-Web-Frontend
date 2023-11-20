@@ -72,6 +72,9 @@
               "browserTarget": "roomie-web:build:development"
             }
           },
+          "options": {
+            "browserTarget": "roomie-web:build"
+            },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

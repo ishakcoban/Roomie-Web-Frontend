@@ -1,26 +1,25 @@
 <div class="position-relative">
-  <div class="position-absolute top-0 w-100">
-    <div style="z-index: 3; position: relative;" >
-      <div style="z-index: 3;" class="position-relative" ><app-navbar></app-navbar></div>
-      
+
+  <div class="position-absolute top-0 w-100 overflow-hidden">
+
+    <div style="z-index: 3; position: relative;">
+      <div style="z-index: 3;" class="position-relative"><app-navbar></app-navbar></div>
       <app-success-message></app-success-message>
-      
     </div>
-    
+
     <!--<form >
-        <!--<app-adverts></app-adverts>
-        <app-custom-input [input_style] = "inputInfo3"></app-custom-input>
-        <app-custom-input [input_style] = "inputInfo4"></app-custom-input>
-        
-      </form>-->
+          <app-adverts></app-adverts>
+          <app-custom-input [input_style] = "inputInfo3"></app-custom-input>
+          <app-custom-input [input_style] = "inputInfo4"></app-custom-input>
+          
+        </form>-->
     <!--<app-sorting-section></app-sorting-section>-->
-    <!--<app-photo-slider></app-photo-slider>-->
     <router-outlet></router-outlet>
-    
-    
+
+
   </div>
+
   <div class="app-popup position-absolute top-0 user-select-none">
     <app-popup></app-popup>
   </div>
 </div>
-

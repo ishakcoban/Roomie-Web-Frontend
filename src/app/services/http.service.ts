@@ -16,7 +16,9 @@ export class HttpService {
   createHttpRequest(endpoint: string, requestType: string, data: {}) {
     let headers = new HttpHeaders();
 
-    headers = headers.set('Content-Type', 'application/json');
+    //headers = headers.set('Content-Type', 'multipart/form-data');
+    //headers = headers.set('Access-Control-Allow-Origin','*');
+    //headers = headers.set('Access-Control-Allow-Methods' ,'GET, POST, PATCH, PUT, DELETE, OPTIONS');
 
     if (this.authService.token != null) {
       headers = headers.set(

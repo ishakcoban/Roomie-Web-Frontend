@@ -31,7 +31,7 @@ import { LoginRegisterBackgroundComponent } from './components/login-register-ba
 import { AuthService } from './services/auth.service';
 import { HttpService } from './services/http.service';
 import { InputDesignComponent } from './components/input-design/input-design.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ButtonLoadingIndicatorComponent } from './components/loading-indicators/button-loading-indicator/button-loading-indicator.component';
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
 import { PhotoSliderComponent } from './components/photo-slider/photo-slider.component';
@@ -77,7 +77,7 @@ import { PhotoSliderComponent } from './components/photo-slider/photo-slider.com
     AuthService,
     /*AuthGuard,*/ HttpService,
     PopupService,
-    ProfileService,
+    ProfileService
   ],
   bootstrap: [AppComponent],
 })

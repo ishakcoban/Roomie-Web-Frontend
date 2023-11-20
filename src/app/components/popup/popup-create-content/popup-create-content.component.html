@@ -1,112 +1,61 @@
 <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="profile-edit-wrapper">
   <div class="row">
     <div class="col-12 col-md-6 d-flex flex-column align-items-between m-0 p-0">
+
+      <!-- File uploading section -->
+
       <div class="position-relative mx-3 ddd">
-        <input class="input-file top-0" type="file" id="upload" />
-        <div
-          class="input-file-style position-absolute top-0 d-flex justify-content-center align-items-center"
-        >
+        <input class="input-file top-0" type="file" id="upload" (change)="onSelectFile($event)" multiple />
+        <div class="input-file-style position-absolute top-0 d-flex justify-content-center align-items-center">
           <i class="fa-solid fa-upload" style="font-size: 1.7rem"></i>
         </div>
       </div>
 
       <div class="mx-3 create-advert-photo-wrapper mt-3 py-5 mb-3 mb-md-0">
-        <div class="position-relative">
-          <div class="mx-5 pt-3">
-            <img
-              class="create-advert-photo"
-              src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
-            />
-          </div>
-          <div
-            style="padding: 0px 30px 0px 30px"
-            class="position-absolute top-0 d-flex justify-content-between w-100"
-          >
-            <div
-              class="create-advert-photo-left-circle d-flex justify-content-center align-items-center fw-bold"
-            >
-              1
+        <div *ngIf="this.previewedImages && this.previewedImages.length > 0">
+          <div [ngClass]="{'position-relative': true, 'mt-3': i > 0}" *ngFor="let url of this.previewedImages; let i = index">
+            <div class="mx-5 pt-3">
+              <img class="create-advert-photo" [src]="url"  />
             </div>
-            <div
-              class="create-advert-photo-right-circle d-flex justify-content-center align-items-center"
-            >
-              <i style="font-size: 0.9rem" class="fa-solid fa-trash-can"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="position-relative mt-3">
-          <div class="mx-5 pt-3">
-            <img
-              class="create-advert-photo"
-              src="https://www.xotels.com/wp-content/uploads/2020/03/aparthotel-hotel-room-type-example-xotels-600x449.webp"
-            />
-          </div>
-          <div
-            style="padding: 0px 30px 0px 30px"
-            class="position-absolute top-0 d-flex justify-content-between w-100"
-          >
-            <div
-              class="create-advert-photo-left-circle d-flex justify-content-center align-items-center fw-bold"
-            >
-              1
-            </div>
-            <div
-              class="create-advert-photo-right-circle d-flex justify-content-center align-items-center"
-            >
-              <i style="font-size: 0.9rem" class="fa-solid fa-trash-can"></i>
+            <div style="padding: 0px 30px 0px 30px"
+              class="position-absolute top-0 d-flex justify-content-between w-100">
+              <div class="create-advert-photo-left-circle d-flex justify-content-center align-items-center fw-bold">
+                {{i + 1}}
+              </div>
+              <div class="create-advert-photo-right-circle d-flex justify-content-center align-items-center">
+                <i style="font-size: 0.9rem" class="fa-solid fa-trash-can"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
     <div class="col-12 col-md-6 m-0 p-0">
       <div class="profile-edit-right-section pb-5">
         <div class="mx-4 mt-4">
-          <app-input-design
-            [header]="'Header'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <input
-              style="
+          <app-input-design [header]="'Header'" [background_color]="'black'" [header_background_color]="'black'">
+            <input style="
                 background-color: transparent;
                 border: none;
                 outline: 0;
                 width: 100%;
-              "
-              name="header"
-              ngModel
-            />
+              " name="header" ngModel />
           </app-input-design>
         </div>
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'Description'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <input
-              style="
+          <app-input-design [header]="'Description'" [background_color]="'black'" [header_background_color]="'black'">
+            <input style="
                 background-color: transparent;
                 border: none;
                 outline: 0;
                 width: 100%;
-              "
-              name="description"
-              ngModel
-            />
+              " name="description" ngModel />
           </app-input-design>
         </div>
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'City'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <select
-              (change)="selectCity($event)"
-              style="
+          <app-input-design [header]="'City'" [background_color]="'black'" [header_background_color]="'black'">
+            <select (change)="selectCity($event)" style="
                 font-size: 0.8rem;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -118,37 +67,19 @@
                 border-radius: 14px;
                 background-color: transparent;
                 visibility: visible;
-              "
-              role="button"
-              class="w-100 position-absolute top-0 px-3"
-              name="city"
-              #selectedCity
-            >
+              " role="button" class="w-100 position-absolute top-0 px-3" name="city" #selectedCity>
               <option class="option" value="">Select a city</option>
-              <option
-                *ngFor="let city of cities; let i = index"
-                class="option fw-bold"
-                [value]="city"
-              >
+              <option *ngFor="let city of cities; let i = index" class="option fw-bold" [value]="city">
                 {{ city }}
               </option>
             </select>
-            <i
-              role="button"
-              style="font-size: 1.2rem"
-              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-            ></i>
+            <i role="button" style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
           </app-input-design>
         </div>
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'District'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <select
-              (change)="selectDistrict($event)"
-              style="
+          <app-input-design [header]="'District'" [background_color]="'black'" [header_background_color]="'black'">
+            <select (change)="selectDistrict($event)" style="
                 font-size: 0.8rem;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -160,40 +91,21 @@
                 border-radius: 14px;
                 background-color: transparent;
                 visibility: visible;
-              "
-              role="button"
-              class="w-100 position-absolute top-0 px-3"
-              name="district"
-              #selectedDistrict
-             
-            >
+              " role="button" class="w-100 position-absolute top-0 px-3" name="district" #selectedDistrict>
               <option class="option" value="">
                 Select a district
               </option>
-              <option
-                *ngFor="let district of districts; let i = index"
-                class="option fw-bold"
-                [value]="district"
-              >
+              <option *ngFor="let district of districts; let i = index" class="option fw-bold" [value]="district">
                 {{ district }}
               </option>
             </select>
-            <i
-              role="button"
-              style="font-size: 1.2rem"
-              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-            ></i>
+            <i role="button" style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
           </app-input-design>
         </div>
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'Neighbourhood'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <select
-              (change)="selectNeighbourhood($event)"
-              style="
+          <app-input-design [header]="'Neighbourhood'" [background_color]="'black'" [header_background_color]="'black'">
+            <select (change)="selectNeighbourhood($event)" style="
                 font-size: 0.8rem;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -205,40 +117,24 @@
                 border-radius: 14px;
                 background-color: transparent;
                 visibility: visible;
-              "
-              role="button"
-              class="w-100 position-absolute top-0 px-3"
-              name="neighbourhood"
-              #selectedNeighbourhood
-            >
+              " role="button" class="w-100 position-absolute top-0 px-3" name="neighbourhood" #selectedNeighbourhood>
               <option class="option" value="">
                 Select a neighbourhood
               </option>
-              <option
-                *ngFor="let neighbourhood of neighbourhoods; let i = index"
-                class="option fw-bold"
-                [value]="neighbourhood"
-              >
+              <option *ngFor="let neighbourhood of neighbourhoods; let i = index" class="option fw-bold"
+                [value]="neighbourhood">
                 {{ neighbourhood }}
               </option>
             </select>
-            <i
-              role="button"
-              style="font-size: 1.2rem"
-              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-            ></i>
+            <i role="button" style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
           </app-input-design>
         </div>
 
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'Floor Area(M2)'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <select
-              (change)="selectGender($event)"
-              style="
+          <app-input-design [header]="'Floor Area(M2)'" [background_color]="'black'"
+            [header_background_color]="'black'">
+            <select (change)="selectGender($event)" style="
                 font-size: 0.8rem;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -250,38 +146,20 @@
                 border-radius: 14px;
                 background-color: transparent;
                 visibility: visible;
-              "
-              role="button"
-              class="w-100 position-absolute top-0 px-3"
-              name="floorArea"
-              ngModel
-            >
+              " role="button" class="w-100 position-absolute top-0 px-3" name="floorArea" ngModel>
               <option class="option" value="">Select a floor area</option>
-              <option
-                *ngFor="let number of [30, 40, 50, 60, 70, 80, 90, 100]"
-                class="option fw-bold"
-                [value]="number"
-              >
+              <option *ngFor="let number of [30, 40, 50, 60, 70, 80, 90, 100]" class="option fw-bold" [value]="number">
                 {{ number }}
               </option>
             </select>
-            <i
-              role="button"
-              style="font-size: 1.2rem"
-              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-            ></i>
+            <i role="button" style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
           </app-input-design>
         </div>
 
         <div class="mx-4 mt-3">
-          <app-input-design
-            [header]="'Rooms'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <select
-              (change)="selectGender($event)"
-              style="
+          <app-input-design [header]="'Rooms'" [background_color]="'black'" [header_background_color]="'black'">
+            <select (change)="selectGender($event)" style="
                 font-size: 0.8rem;
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -293,52 +171,32 @@
                 border-radius: 14px;
                 background-color: transparent;
                 visibility: visible;
-              "
-              role="button"
-              class="w-100 position-absolute top-0 px-3"
-              name="rooms"
-              ngModel
-            >
-            <option class="option" value="">Select room number</option>
-            <option
-              *ngFor="let number of [1,2,3,4,5]"
-              class="option fw-bold"
-              [value]="number"
-            >
-              {{ number }}
-            </option>
+              " role="button" class="w-100 position-absolute top-0 px-3" name="rooms" ngModel>
+              <option class="option" value="">Select room number</option>
+              <option *ngFor="let number of [1,2,3,4,5]" class="option fw-bold" [value]="number">
+                {{ number }}
+              </option>
             </select>
-            <i
-              role="button"
-              style="font-size: 1.2rem"
-              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"
-            ></i>
+            <i role="button" style="font-size: 1.2rem"
+              class="fa-solid fa-chevron-down px-2 w-100 d-flex justify-content-end"></i>
           </app-input-design>
         </div>
         <div class="mx-4 mt-4">
-          <app-input-design
-            [header]="'Price'"
-            [background_color]="'black'"
-            [header_background_color]="'black'"
-          >
-            <input
-              style="
+          <app-input-design [header]="'Price'" [background_color]="'black'" [header_background_color]="'black'">
+            <input style="
                 background-color: transparent;
                 border: none;
                 outline: 0;
                 width: 100%;
-              "
-              name="price"
-              type="number" 
-              min="0"
-              ngModel
-            />
+              " name="price" type="number" min="0" ngModel />
           </app-input-design>
         </div>
       </div>
     </div>
   </div>
+
   <div class="d-flex align-items-center justify-content-center mt-4">
     <button class="btn profile-edit-button px-5 py-1">Confirm</button>
   </div>
+
 </form>
