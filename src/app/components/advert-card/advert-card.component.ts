@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
 import { SuccessMessageToggleService } from 'src/app/services/success-message-toggle.service';
 
@@ -36,15 +37,26 @@ export class AdvertCardComponent {
   };
   constructor(
     private popupService: PopupService,
-    private successMessageToggleService: SuccessMessageToggleService
-  ) {
-  
-  }
+    private successMessageToggleService: SuccessMessageToggleService,
+    private httpService: HttpService
+  ) {}
   showInfo() {
     this.showInfoStatus = !this.showInfoStatus;
   }
   switchBookmark(e: Event) {
     e.stopPropagation();
+    this.httpService.createHttpRequest(
+      'api/savedAdverts/' + this.advert.id,
+      'PATCH',
+      {}
+    )?.subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.successMessageToggleService.openMessageBox(
       'The advert saved successfully!'
     );

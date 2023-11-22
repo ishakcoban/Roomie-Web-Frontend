@@ -39,7 +39,6 @@ export class ProfileComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    console.log('calisti');
     this.profileService.getMessage().subscribe((data: any) => {
       console.log(data);
       this.fetchData();

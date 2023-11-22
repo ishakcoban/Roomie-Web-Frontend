@@ -37,7 +37,7 @@ export class PopupCreateContentComponent {
     private popupService: PopupService,
     private successMessageToggleService: SuccessMessageToggleService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   reloadCurrentRoute() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -45,25 +45,7 @@ export class PopupCreateContentComponent {
     });
   }
   onSubmit(form: NgForm) {
-    form.value.city = this.selectedCity.nativeElement.value;
-    form.value.district = this.selectedDistrict.nativeElement.value;
-    form.value.neighbourhood = this.selectedNeighbourhood.nativeElement.value;
-    form.value.floorArea = +form.value.floorArea;
-    form.value.rooms = +form.value.rooms;
-    console.log(form.value);
 
-    let data = {
-      header: form.value.header,
-      description: form.value.description,
-      location: {
-        city: form.value.city,
-        district: form.value.district,
-        neighbourhood: form.value.neighbourhood,
-      },
-      floorArea: form.value.floorArea,
-      rooms: form.value.rooms,
-      price: form.value.price,
-    };
 
     /*this.httpService.createHttpRequest('api/adverts', 'POST', data)?.subscribe(
       (res) => {
@@ -85,31 +67,52 @@ export class PopupCreateContentComponent {
     );*/
 
     /************************************/
-    if (this.selectedFiles.has('files')) {
-        this.httpService.createHttpRequest('api/adverts/upload','POST',this.selectedFiles)
-        ?.subscribe( (res) => {
-          console.log(res);
-    
-        },
-        (error) => {
-    
-          console.log(error);
-        });
-      }
+    if (this.selectedFiles.has('images')) {
 
-   /* this.httpService
-    .createHttpRequest('api/adverts/upload', 'POST', formData)
-    ?.subscribe(
-      (res) => {
-        console.log(res);
-
-      },
-      (error) => {
-
-        console.log(error);
-      }
-    );*/
+      form.value.city = this.selectedCity.nativeElement.value;
+      form.value.district = this.selectedDistrict.nativeElement.value;
+      form.value.neighbourhood = this.selectedNeighbourhood.nativeElement.value;
+      form.value.floorArea = +form.value.floorArea;
+      form.value.rooms = +form.value.rooms;
+      console.log(form.value);
   
+      let data = {
+        header: form.value.header,
+        description: form.value.description,
+        location: {
+          city: form.value.city,
+          district: form.value.district,
+          neighbourhood: form.value.neighbourhood,
+        },
+        floorArea: form.value.floorArea,
+        rooms: form.value.rooms,
+        price: form.value.price
+      };
+      this.selectedFiles.append('otherInformation', JSON.stringify(data));
+      this.httpService.createHttpRequest('api/adverts/upload', 'POST', this.selectedFiles)
+        ?.subscribe((res) => {
+          console.log(res);
+
+        },
+          (error) => {
+
+            console.log(error);
+          });
+    }
+
+    /* this.httpService
+     .createHttpRequest('api/adverts/upload', 'POST', formData)
+     ?.subscribe(
+       (res) => {
+         console.log(res);
+ 
+       },
+       (error) => {
+ 
+         console.log(error);
+       }
+     );*/
+
     /*if (this.selectedFile) {
       this.uploadService.uploadFile(this.selectedFile).subscribe((event: HttpEvent<any>) => {
         switch (event.type) {
@@ -170,16 +173,17 @@ export class PopupCreateContentComponent {
         // Process each file here
         this.previewedImages.push(reader.result as string);
         console.log(this.previewedImages)
-       // const url = reader.result as string;
-       // console.log('File URL:', url);
+        // const url = reader.result as string;
+        // console.log('File URL:', url);
       };
     }
     //this.files = event.target.files;
-//console.log(this.files)
-    /*for (const file of this.files) {
-      this.selectedFiles.append('files', file);
-    }*/
-    
+    //console.log(this.files)
+    for (const file of files) {
+      this.selectedFiles.append('images', file);
+    }
+
+
   }
   /*var upload = document.getElementById('upload');
 

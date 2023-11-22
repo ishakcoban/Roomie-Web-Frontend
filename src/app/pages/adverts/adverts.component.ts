@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
 
@@ -21,12 +21,7 @@ export class AdvertsComponent {
     private router: Router
   ) {}
 
-  initialiseInvites() {
-    throw new Error('Method not implemented.');
-  }
   ngOnInit() {
-    this.isLoading = true;
-
     setTimeout(() => {
       this.httpService
         .createHttpRequest('api/adverts/getAll', 'GET', {})
@@ -35,6 +30,7 @@ export class AdvertsComponent {
             console.log(res);
             this.cards = res;
             this.isLoading = false;
+            console.log(this.isLoading);
           },
           (error) => {
             console.log(error);
@@ -66,9 +62,9 @@ export class AdvertsComponent {
     this.lastViewedStatus = !this.lastViewedStatus;
   }
 
-  ngAfterViewInit() {
+  /*ngAfterViewInit() {
     this.isLoading = false;
-  }
+  }*/
 
   // Close the dropdown menu if the user clicks outside of it
 }
