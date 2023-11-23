@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
@@ -7,14 +8,30 @@ import { PopupService } from 'src/app/services/popup.service';
   styleUrls: ['./my-adverts.component.scss']
 })
 export class MyAdvertsComponent {
-  cards: [number] = [0];
+  cards!: [];
 
 
-  constructor(private popupService:PopupService) {
-    this.cards.push(1);
-    this.cards.push(2);
-    this.cards.push(3);
-    this.cards.push(4);
+  constructor(
+    private popupService: PopupService,
+    private httpService: HttpService
+  ) {}
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.httpService
+        .createHttpRequest('api/adverts', 'GET', {})
+        ?.subscribe(
+          (res) => {
+            console.log(res);
+            this.cards = res;
+          //  this.isLoading = false;
+          },
+          (error) => {
+            console.log(error);
+          //  this.isLoading = false;
+          }
+        );
+    }, 2500);
   }
 
   openPopup() {

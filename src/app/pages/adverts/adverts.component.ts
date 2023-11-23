@@ -30,7 +30,6 @@ export class AdvertsComponent {
             console.log(res);
             this.cards = res;
             this.isLoading = false;
-            console.log(this.isLoading);
           },
           (error) => {
             console.log(error);

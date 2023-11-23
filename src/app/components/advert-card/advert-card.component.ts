@@ -31,6 +31,15 @@ export class AdvertCardComponent {
       photoUrl: string;
       userName: string;
     };
+    photos: [
+      {
+        id: string
+        contentType: string
+        fileData: string,
+        fileName: string
+        photoOrder: number
+      }
+    ];
     floorArea: number;
     rooms: number;
     price: number;
@@ -40,23 +49,25 @@ export class AdvertCardComponent {
     private successMessageToggleService: SuccessMessageToggleService,
     private httpService: HttpService
   ) {}
+
+  ngOnInit(){
+console.log(this.advert)
+  }
   showInfo() {
     this.showInfoStatus = !this.showInfoStatus;
   }
   switchBookmark(e: Event) {
     e.stopPropagation();
-    this.httpService.createHttpRequest(
-      'api/savedAdverts/' + this.advert.id,
-      'PATCH',
-      {}
-    )?.subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.httpService
+      .createHttpRequest('api/favouriteAdverts/' + this.advert.id, 'PATCH', {})
+      ?.subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     this.successMessageToggleService.openMessageBox(
       'The advert saved successfully!'
     );
