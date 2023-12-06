@@ -32,7 +32,7 @@ export class AdvertsComponent {
             this.isLoading = false;
           },
           (error) => {
-            console.log(error);
+            //console.log(error);
             this.isLoading = false;
           }
         );

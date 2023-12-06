@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class SortingSectionComponent {
 
 constructor(){
-  console.log('called')
+  //console.log('called')
   
 }
 

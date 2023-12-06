@@ -37,7 +37,7 @@ export class PopupCreateContentComponent {
     private popupService: PopupService,
     private successMessageToggleService: SuccessMessageToggleService,
     private http: HttpClient
-  ) { }
+  ) {}
 
   reloadCurrentRoute() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -45,8 +45,6 @@ export class PopupCreateContentComponent {
     });
   }
   onSubmit(form: NgForm) {
-
-
     /*this.httpService.createHttpRequest('api/adverts', 'POST', data)?.subscribe(
       (res) => {
         console.log(res);
@@ -65,39 +63,40 @@ export class PopupCreateContentComponent {
           }
       }
     );*/
+    if(this.selectedFiles.has('otherInformation')){
+      this.selectedFiles.delete('otherInformation');
+    }
 
     /************************************/
     if (this.selectedFiles.has('images')) {
-
       form.value.city = this.selectedCity.nativeElement.value;
       form.value.district = this.selectedDistrict.nativeElement.value;
       form.value.neighbourhood = this.selectedNeighbourhood.nativeElement.value;
       form.value.floorArea = +form.value.floorArea;
       form.value.rooms = +form.value.rooms;
-      console.log(form.value);
-  
+
       let data = {
         header: form.value.header,
         description: form.value.description,
-        location: {
-          city: form.value.city,
-          district: form.value.district,
-          neighbourhood: form.value.neighbourhood,
-        },
+        city: form.value.city,
+        district: form.value.district,
+        neighbourhood: form.value.neighbourhood,
         floorArea: form.value.floorArea,
         rooms: form.value.rooms,
         price: form.value.price
       };
+      console.log(data)
       this.selectedFiles.append('otherInformation', JSON.stringify(data));
-      this.httpService.createHttpRequest('api/adverts/upload', 'POST', this.selectedFiles)
-        ?.subscribe((res) => {
-          console.log(res);
-
-        },
+      this.httpService
+        .createHttpRequest('api/adverts/upload', 'POST', this.selectedFiles)
+        ?.subscribe(
+          (res) => {
+            console.log(res);
+          },
           (error) => {
-
             console.log(error);
-          });
+          }
+        );
     }
 
     /* this.httpService
@@ -161,7 +160,6 @@ export class PopupCreateContentComponent {
   }
 
   onSelectFile(event: any) {
-
     let files = event.target.files;
 
     for (let i = 0; i < files.length; i++) {
@@ -172,7 +170,7 @@ export class PopupCreateContentComponent {
       reader.onload = (_event) => {
         // Process each file here
         this.previewedImages.push(reader.result as string);
-        console.log(this.previewedImages)
+        //console.log(this.previewedImages);
         // const url = reader.result as string;
         // console.log('File URL:', url);
       };
@@ -182,8 +180,6 @@ export class PopupCreateContentComponent {
     for (const file of files) {
       this.selectedFiles.append('images', file);
     }
-
-
   }
   /*var upload = document.getElementById('upload');
 

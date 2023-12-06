@@ -43,7 +43,7 @@
         />
         <div class="ms-2 d-flex flex-column justify-content-center">
           <h3 class="card__title">{{advert.user.firstName}} {{advert.user.lastName}}</h3>
-          <span class="card__status">{{advert.createdDate}}</span>
+          <!--<span class="card__status">{{advert.createdDate}}</span>-->
         </div>
       </div>
       <div class="d-flex justify-content-end align-items-center">
@@ -51,14 +51,14 @@
           <div class="dot"></div>
         </div>
         <div class="city-district-content-1 mx-1">city</div>
-        <div class="city-district-content-2 py-1 ps-3 pe-3">{{advert.location.city}}</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-3">{{advert.city}}</div>
       </div>
       <div class="d-flex justify-content-end align-items-center pt-2 pb-3">
         <div class="line d-flex justify-content-end align-items-center">
           <div class="dot"></div>
         </div>
         <div class="city-district-content-1 mx-1">district</div>
-        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.district}}</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.district}}</div>
       </div>
     </div>
 
@@ -78,7 +78,7 @@
         class="d-flex flex-column justify-content-center align-items-start ms-3"
       >
         <div class="fw-bold" style="font-size: 0.9rem">{{advert.user.firstName}} {{advert.user.lastName}}</div>
-        <div style="font-size: 0.7rem">{{advert.createdDate}}</div>
+       <!-- <div style="font-size: 0.7rem">{{advert.createdDate}}</div>-->
       </div>
     </div>
 
@@ -102,14 +102,14 @@
         <div class="dot"></div>
       </div>
       <div class="city-district-content-1 mx-1">city</div>
-      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.city}}</div>
+      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.city}}</div>
     </div>
     <div class="d-flex justify-content-end align-items-center pt-2">
       <div class="line d-flex justify-content-end align-items-center">
         <div class="dot"></div>
       </div>
       <div class="city-district-content-1 mx-1">district</div>
-      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.district}}</div>
+      <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.district}}</div>
     </div>
     <div *ngIf="showInfoStatus" class="user-select-none" (click)="showInfo()">
       <div class="d-flex justify-content-end align-items-center pt-2">
@@ -118,7 +118,7 @@
         </div>
         <div class="city-district-content-1 mx-1">neighbourhood</div>
 
-        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.location.neighbourhood}}</div>
+        <div class="city-district-content-2 py-1 ps-3 pe-5">{{advert.neighbourhood}}</div>
       </div>
       <div class="d-flex justify-content-end align-items-center pt-2">
         <div class="line d-flex justify-content-end align-items-center">

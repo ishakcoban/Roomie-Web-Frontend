@@ -15,13 +15,9 @@ export class AdvertCardComponent {
     id: string;
     header: string;
     description: string;
-    createdDate: Date;
-    location: {
-      id: string;
-      city: string;
-      district: string;
-      neighbourhood: string;
-    };
+    city: string;
+    district: string;
+    neighbourhood: string;
     user: {
       email: string;
       firstName: string;
@@ -51,7 +47,7 @@ export class AdvertCardComponent {
   ) {}
 
   ngOnInit(){
-console.log(this.advert)
+//console.log(this.advert)
   }
   showInfo() {
     this.showInfoStatus = !this.showInfoStatus;
