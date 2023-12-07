@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+
+    environment {
+        // Define a variable to store the image name
+        DOCKER_IMAGE_NAME = "ishakcbn/roomie-frontend:latest"
+        CONTAINER_NAME = "roomie-frontend"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -9,11 +16,25 @@ pipeline {
             }
         }
 
-        stage('Build') {
+            stages {
+        stage('Build and Deploy') {
             steps {
-                // Build the Docker image
                 script {
-                    dockerImage = docker.build('ishakcbn/roomie-frontend:latest')
+                    // Build Docker image
+                    def dockerImage = docker.build(env.DOCKER_IMAGE_NAME)
+
+                    // Push Docker image to registry
+                    docker.withRegistry('https://hub.docker.com', 'docker-hub-id') {
+                        dockerImage.push()
+                    }
+
+                    // Run Docker container
+                    def containerId = docker.image(env.DOCKER_IMAGE_NAME).run('-p 4200:80', "--name ${env.CONTAINER_NAME}")
+
+                    // Store container image name for later use
+                    env.CONTAINER_IMAGE_NAME = env.DOCKER_IMAGE_NAME
+
+                    echo "Container ID: ${containerId}"
                 }
             }
         }
@@ -23,17 +44,6 @@ pipeline {
                 // Run your tests if needed
             }
         }*/
-
-        stage('Deploy') {
-            steps {
-                // Deploy the Docker container
-                script {
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub-id') {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
     }
 
     post {
