@@ -24,10 +24,10 @@ pipeline {
                     def dockerImage = docker.build(env.DOCKER_IMAGE_NAME)
 
                     // Push Docker image to registry
-                    docker.withRegistry('https://hub.docker.com', 'docker-hub-id') {
-                        dockerImage.push()
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        sh "echo \${DOCKER_PASSWORD} | docker login --username \${DOCKER_USERNAME} --password-stdin"
                     }
-
+                    
                     // Run Docker container
                     def containerId = docker.image(env.DOCKER_IMAGE_NAME).run('-p 4200:80', "--name ${env.CONTAINER_NAME}")
 
