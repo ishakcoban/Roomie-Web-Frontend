@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-            stages {
+
         stage('Build and Deploy') {
             steps {
                 script {
@@ -52,3 +52,4 @@ pipeline {
         }
     }
 }
+
