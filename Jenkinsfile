@@ -25,7 +25,7 @@ pipeline {
 
                     // Push Docker image to registry
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        bat "echo \${DOCKER_PASSWORD} | docker login --username \${DOCKER_USERNAME} --password-stdin"
+                        bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     }
 
                     // Run Docker container
