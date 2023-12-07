@@ -9,19 +9,20 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from the repository
-                checkout scm
-            }
-        }
-    stage('Login') {
+            stage('Login') {
       steps {
                             withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                         sh "echo \$DOCKER_PASSWORD | docker login --username \$DOCKER_USERNAME --password-stdin"
                     }
       }
     }
+        stage('Checkout') {
+            steps {
+                // Checkout code from the repository
+                checkout scm
+            }
+        }
+
 
         stage('Build and Deploy') {
             steps {
