@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         // Define a variable to store the image name
+        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-id')
         DOCKER_IMAGE_NAME = "ishakcbn/roomie-frontend:latest"
         CONTAINER_NAME = "roomie-frontend"
     }
@@ -14,9 +15,9 @@ pipeline {
        script {
 
        
-           withCredentials([string(credentialsId: 'docker-hub-id')]) {
-             // bat "echo "%DOCKER_PASSWORD%" | docker login --username "%DOCKER_USERNAME%" --password-stdin"
-          }
+                    docker.withRegistry('https://registry-1.docker.io', env.DOCKER_HUB_CREDENTIALS) {
+                        // Your build and push steps here
+                    }
 
           }
       }
