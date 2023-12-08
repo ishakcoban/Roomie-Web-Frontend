@@ -15,7 +15,7 @@ pipeline {
        script {
 
        
-                    docker.withRegistry('https://hub.docker.com/', env.DOCKER_HUB_CREDENTIALS) {
+                    docker.withRegistry('https://hub.docker.com/', 'gcr:[docker-hub-id]') {
                         // Your build and push steps here
                     }
 
