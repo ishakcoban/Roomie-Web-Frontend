@@ -15,8 +15,9 @@ pipeline {
        script {
 
        
-                    docker.withRegistry('https://hub.docker.com/', 'gcr:[docker-hub-id]') {
+                    docker.withRegistry('', 'docker-hub-id') {
                         // Your build and push steps here
+                        echo "login successfull!"
                     }
 
           }
