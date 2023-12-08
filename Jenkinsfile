@@ -18,7 +18,7 @@ pipeline {
                     bat "docker rm ${CONTAINER_NAME} 2>NUL || exit 0"
 
                     // Check if the image exists and remove it
-                    bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} 2>NUL || exit 0"
+                    bat "docker rmi ${IMAGE_NAME} 2>NUL || exit 0"
                 }
             }
         }
