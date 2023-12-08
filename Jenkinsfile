@@ -15,7 +15,7 @@ pipeline {
        script {
 
        
-                    docker.withRegistry('https://registry-1.docker.io', env.DOCKER_HUB_CREDENTIALS) {
+                    docker.withRegistry('https://hub.docker.com/', env.DOCKER_HUB_CREDENTIALS) {
                         // Your build and push steps here
                     }
 
