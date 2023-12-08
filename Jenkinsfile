@@ -11,9 +11,14 @@ pipeline {
     stages {
             stage('Login') {
       steps {
-                            withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        bat "echo "%DOCKER_PASSWORD%" | docker login --username "%DOCKER_USERNAME%" --password-stdin"
-                    }
+       script {
+
+       
+           withCredentials([usernamePassword(credentialsId: 'docker-hub-id', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+              bat "echo "%DOCKER_PASSWORD%" | docker login --username "%DOCKER_USERNAME%" --password-stdin"
+          }
+
+          }
       }
     }
         stage('Checkout') {
