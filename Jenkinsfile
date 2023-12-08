@@ -13,14 +13,12 @@ pipeline {
         stage('Remove Previous Container and Image') {
             steps {
                 script {
-                    def containerExists = bat(script: "docker ps -a --filter name=roomie-frontend --format '{{.Names}}'", returnStatus: true).trim()
-    
-                    if (containerExists) {
-                        // Container exists, proceed with stopping and removing
-                        bat "docker stop roomie-frontend"
-                        bat "docker rm roomie-frontend"
-                        bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"
-                    }
+                    // Check if the container exists and remove it
+                    bat "docker stop ${CONTAINER_NAME} || true"
+                    bat "docker rm ${CONTAINER_NAME} || true"
+
+                    // Check if the image exists and remove it
+                    bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"
                 }
             }
         }
