@@ -101,6 +101,19 @@ pipeline {
             }
         }
 
+        stage('Remove Previous Container and Image') {
+            steps {
+                script {
+                    // Check if the container exists and remove it
+                    sh "docker stop ${CONTAINER_NAME} || true"
+                    sh "docker rm ${CONTAINER_NAME} || true"
+
+                    // Check if the image exists and remove it
+                    sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"
+                }
+            }
+        }
+
         stage('Run Container') {
             steps {
                 script {
