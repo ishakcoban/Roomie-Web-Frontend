@@ -10,9 +10,16 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Remove Previous Container and Image') {
             steps {
-                checkout scm
+                script {
+                    // Check if the container exists and remove it
+                    bat "docker stop ${CONTAINER_NAME} || true"
+                    bat "docker rm ${CONTAINER_NAME} || true"
+
+                    // Check if the image exists and remove it
+                    bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"
+                }
             }
         }
 
@@ -30,19 +37,6 @@ pipeline {
                     docker.withRegistry('', 'docker-hub-id') {
                         docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push()
                     }
-                }
-            }
-        }
-
-        stage('Remove Previous Container and Image') {
-            steps {
-                script {
-                    // Check if the container exists and remove it
-                    bat "docker stop ${CONTAINER_NAME} || true"
-                    bat "docker rm ${CONTAINER_NAME} || true"
-
-                    // Check if the image exists and remove it
-                    bat "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"
                 }
             }
         }
