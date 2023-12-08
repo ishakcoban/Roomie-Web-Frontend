@@ -14,7 +14,7 @@ pipeline {
        script {
 
        
-           withCredentials([(credentialsId: 'docker-hub-id')]) {
+           withCredentials(credentialsId: 'docker-hub-id') {
              // bat "echo "%DOCKER_PASSWORD%" | docker login --username "%DOCKER_USERNAME%" --password-stdin"
           }
 
