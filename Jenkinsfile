@@ -14,11 +14,11 @@ pipeline {
             steps {
                 script {
                     // Check if the container exists and remove it
-                    bat "docker stop ${CONTAINER_NAME} 2>NUL || exit 0"
-                    bat "docker rm ${CONTAINER_NAME} 2>NUL || exit 0"
+                    sh "docker stop ${CONTAINER_NAME} 2>NUL || exit 0"
+                    sh "docker rm ${CONTAINER_NAME} 2>NUL || exit 0"
 
                     // Check if the image exists and remove it
-                    bat "docker rmi ${IMAGE_NAME} 2>NUL || exit 0"
+                    sh "docker rmi ${IMAGE_NAME} 2>NUL || exit 0"
                 }
             }
         }
